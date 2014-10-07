@@ -1,0 +1,49 @@
+/**
+* Grids
+* @module grids
+*/
+
+[class*="grids-"]
+	float left
+	margin-left 20px
+	&:first-child
+		margin 0
+	.urb_title
+		font-size 20px
+.grids
+	*zoom 1
+	&:before,&:after
+		display table
+		content ""
+		line-height 0
+	&:after
+		clear both
+	.grids_4
+		margin-top 20px
+		&:nth-child(3n+1)
+			margin-left 0
+		&:nth-child(-n+3)
+			margin-top 0
+.grids_2
+	width 140px
+.grids_3
+	width 220px
+.grids_4
+	width 300px
+	&.mt12
+		margin-top 12px
+.grids_5
+	width 380px
+.grids_6
+	width 460px
+.grids_7
+	width 540px
+.grids_8
+	width 620px
+.grids_9
+	width 700px
+.grids_9
+	.grids_3:nth-child(3n+1)
+		margin 0
+.grids_10
+	width 780px

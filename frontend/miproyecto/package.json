@@ -1,0 +1,51 @@
+{
+  "name": "flux",
+  "version": "0.1.0",
+  "description": "flux",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jansanchez/flux.git"
+  },
+  "author": "frontendlabs",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^1.5.2",
+    "connect-history-api-fallback": "0.0.4",
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "^1.0.0",
+    "gulp-changed": "^1.0.0",
+    "gulp-coffee": "^2.2.0",
+    "gulp-complexity": "^0.3.0",
+    "gulp-connect": "^2.0.6",
+    "gulp-cssshrink": "^0.1.4",
+    "gulp-debug": "^1.0.1",
+    "gulp-email": "0.0.5",
+    "gulp-if": "^1.2.4",
+    "gulp-imagemin": "^1.0.1",
+    "gulp-jade": "^0.6.1",
+    "gulp-jshint": "^1.8.4",
+    "gulp-load-plugins": "^0.6.0",
+    "gulp-minify-css": "^0.3.8",
+    "gulp-recursive-concat": "0.0.6",
+    "gulp-rename": "^1.2.0",
+    "gulp-rimraf": "^0.1.0",
+    "gulp-size": "^1.1.0",
+    "gulp-stylus": "^1.3.3",
+    "gulp-uglify": "^1.0.1",
+    "gulp-uncss": "^0.5.0",
+    "gulp-util": "^3.0.1",
+    "gulp-zip": "~2.0.2",
+    "gulp.spritesmith": "^1.2.0",
+    "imagemin-gifsicle": "^2.0.0",
+    "imagemin-jpegtran": "^2.0.0",
+    "imagemin-optipng": "^2.0.1",
+    "imagemin-pngquant": "^2.0.0",
+    "jshint-stylish": "^0.4.0",
+    "node-notifier": "^3.2.1",
+    "run-sequence": "^0.3.6"
+  }
+}

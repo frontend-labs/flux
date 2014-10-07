@@ -1,0 +1,90 @@
+/**
+* Reset
+* @module reset
+*/
+
+*
+	-webkit-box-sizing border-box
+	-moz-box-sizing border-box
+	box-sizing border-box
+	
+article,aside,footer,header,nav,section
+	display block
+html
+	height 100%
+	font-size 100%
+	/*letter-spacing -0.5px*/
+	-webkit-text-size-adjust 100%
+	-ms-text-size-adjust 100%
+	padding 0
+	margin 0
+body
+	min-width 1000px
+	+mobile()
+		min-width 0px
+a:hover,a:active
+	outline 0
+ul 
+	margin 0
+	list-style none
+	padding 0
+	line-height normal
+img
+	border 0
+	max-width 100%
+	vertical-align middle
+	width auto\9
+	-ms-interpolation-mode bicubic
+input:-webkit-autofill
+	-webkit-box-shadow 0 0 0px 1000px white inset
+button,input,select,textarea
+	margin 0
+	font-size 100%
+	vertical-align middle
+button,input
+	*overflow visible
+	line-height normal
+button::-moz-focus-inner,input::-moz-focus-inner
+	padding: 0
+	border: 0
+button
+	-webkit-appearance button
+	cursor pointer
+label,select,button,input[type="radio"],input[type="checkbox"]
+	cursor pointer
+textarea
+	overflow auto
+	vertical-align top
+figure
+	margin 0
+	padding 0
+form
+	margin 0
+	padding 0
+table
+	border-collapse collapse
+	border-spacing 0
+	width 100%
+input[type="radio"],input[type="checkbox"]
+	margin 0
+	padding 0
+::-webkit-input-placeholder
+	color #5e5e5e
+::-moz-placeholder
+	color #5e5e5e
+:-ms-input-placeholder
+	color #5e5e5e
+input:-moz-placeholder
+	color #5e5e5e
+b, strong 
+	font-family $familyBold
+	font-weight normal
+p 
+	margin 0
+	margin-bottom 1.5em
+	line-height 1.5em
+
+h1, h2, h3, h4, h5, h6
+	font-weight normal
+	line-height normal
+	margin-top 0

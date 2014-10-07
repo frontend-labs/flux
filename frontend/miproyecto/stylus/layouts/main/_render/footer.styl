@@ -1,0 +1,46 @@
+/*!!
+* Layout
+* @module layout
+* @class footer
+* @author Paúl Díaz
+*/
+
+
+footer
+	background black
+	height rem(105px)
+	overflow hidden
+	font-size rem(15px)
+	a
+		color white
+		transition all .3s linear 0s
+		&:hover
+			color $skyblue_01
+	.footer_left
+		float left
+	.footer_right
+		float right
+		p
+			color white
+			margin 5px 0 0
+	div
+		> ul
+			> li
+				float left
+				> a
+					display block
+					border-right 1px solid white
+					padding 0 20px
+				&:first-child
+					> a
+						padding 0 20px 0 0
+				&:last-child
+					> a
+						border-right none
+						padding 0 0 0 20px
+	#footer_question
+		display block
+		sprite($footer_question)
+		&:hover
+			sprite($footer_question_hover)
+
