@@ -5,7 +5,6 @@ Realiza la validación con parsleyjs.org
 @author Ana Reyna
 ###
 yOSON.AppCore.addModule "parsleyValidation", (Sb) ->
-	log 'hi'
 	dom = {}
 	st =
 		form : "form"
