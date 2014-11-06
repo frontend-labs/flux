@@ -8,8 +8,11 @@
 var gulp = require('gulp'),
 browserSync = require('browser-sync'),
 stylish = require('jshint-stylish'),
-loadPlugins = require('gulp-load-plugins'),
 notify = require("node-notifier"),
+changelog = require('conventional-changelog'),
+fs = require('fs'),
+loadPlugins = require('gulp-load-plugins'),
+package = require('./package.json'),
 path = require('./gulp/path'),
 options = require('./gulp/options'),
 jadeLocals = require('./gulp/jade'),
@@ -398,10 +401,10 @@ gulp.task('log', function () {
 
 gulp.task('bump', function(){
     return gulp.src(['./package.json', './bower.json'])
-    .pipe(bump())
+    .pipe(plugins.bump())
     .pipe(gulp.dest('./'))
-    .pipe(filter('package.json'))
-    .pipe(tagVersion());
+    .pipe(plugins.filter('package.json'))
+    .pipe(plugins.tagVersion());
 });
 
 gulp.task('version', function (cb) {
