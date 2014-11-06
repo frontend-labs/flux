@@ -377,3 +377,33 @@ gulp.task('backend', ['clean:zip'], function (cb) {
         cb);
 });
 
+
+
+/*!!
+* 
+* Tareas para changelog, tag
+*
+* tarea principal: gulp
+*/
+
+
+gulp.task('log', function () {
+    return changelog({
+        repository: package.repository.url,
+        version: package.version
+    }, function(err, log) {
+        fs.writeFileSync('CHANGELOG.md', log, 'utf8');
+    });
+});
+
+gulp.task('bump', function(){
+    return gulp.src(['./package.json', './bower.json'])
+    .pipe(bump())
+    .pipe(gulp.dest('./'))
+    .pipe(filter('package.json'))
+    .pipe(tagVersion());
+});
+
+gulp.task('version', function (cb) {
+    plugins.runSequence(['log', 'bump'], cb);
+});

@@ -1,6 +1,6 @@
 {
   "name": "flux",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Flux Front-End",
   "main": "gulpfile.js",
   "scripts": {
