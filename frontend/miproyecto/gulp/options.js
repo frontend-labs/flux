@@ -81,7 +81,10 @@ Options.stylus = {
 			'ios >= 7',
 			'android >= 4.4',
 			'bb >= 10'
-		]
+		],
+		versioner: {
+			lastcommit: true
+		}
 	}
 };
 

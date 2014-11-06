@@ -161,8 +161,9 @@ gulp.task('js:complex', ['js'], function() {
 gulp.task('styles', function () {
     return gulp.src(path.stylus.default.src)
     .pipe(plugins.stylus(options.stylus.default))
+    .pipe(plugins.if(config.prod, plugins.cssUrlVersioner(options.stylus.default.versioner)))
     .pipe(plugins.autoprefixer(options.stylus.default.autoprefixer))
-    //.pipe(plugins.cssshrink())
+    .pipe(plugins.cssshrink())
     .pipe(plugins.if(config.prod, plugins.minifyCSS(options.stylus.default.minify)))
     //.pipe(plugins.debug())
     .pipe(gulp.dest(path.stylus.default.dest))

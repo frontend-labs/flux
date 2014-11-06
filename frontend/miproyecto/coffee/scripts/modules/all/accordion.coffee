@@ -16,7 +16,6 @@ yOSON.AppCore.addModule "accordion", (Sb) ->
 		dom.accordion_icon = $(st.accordion_icon)
 		return
 	suscribeEvents = ->
-		console.log("accordion")
 		dom.accordion.on 'click', functions.open
 		$('head').append("<meta name='viewport' content='width=device-width, user-scalable=no'>")
 		return
