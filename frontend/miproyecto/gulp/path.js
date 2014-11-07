@@ -22,6 +22,7 @@ Path.src.static = {
 
 Path.src.static.images = Path.src.static.main + 'img/';
 Path.src.static.fonts = Path.src.static.main + 'fonts/';
+Path.src.static.icons = Path.src.static.main + 'icons/';
 
 Path.src.coffee = Path.src.folder + 'coffee/';
 Path.src.jade = Path.src.folder + 'jadeflux/';
@@ -68,6 +69,20 @@ Path.sprites = {
 		}
 	}
 };
+
+/* Icons Path */
+Path.icons = {
+	default : {
+		src: {
+			svgs: Path.src.static.icons + '*.svg',
+			template: Path.src.static.icons + 'template/icons.styl'
+		},
+		dest: {
+			stylus: Path.src.stylus + '_helpers/',
+			fonts: Path.src.static.fonts + 'iconFonts/'
+		}
+	}
+}
 
 /* Jade Path */
 Path.jade = {

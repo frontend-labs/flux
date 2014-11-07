@@ -5,22 +5,25 @@
  *
  */
 
-var gulp = require('gulp'),
-browserSync = require('browser-sync'),
-stylish = require('jshint-stylish'),
-notify = require("node-notifier"),
-changelog = require('conventional-changelog'),
-fs = require('fs'),
-loadPlugins = require('gulp-load-plugins'),
-package = require('./package.json'),
-path = require('./gulp/path'),
-options = require('./gulp/options'),
-jadeLocals = require('./gulp/jade'),
-config = require('./gulp/config.local');
+var gulp        = require('gulp'),
+    browserSync = require('browser-sync'),
+    stylish     = require('jshint-stylish'),
+    notify      = require("node-notifier"),
+    changelog   = require('conventional-changelog'),
+    fs          = require('fs'),
+    loadPlugins = require('gulp-load-plugins'),
+    package     = require('./package.json'),
+    path        = require('./gulp/path'),
+    options     = require('./gulp/options'),
+    jadeLocals  = require('./gulp/jade'),
+    config      = require('./gulp/config.local'),
+    /*icons*/
+    iconfont    = require('gulp-iconfont'),
+    consolidate = require('gulp-consolidate');
 
 var reload = browserSync.reload,
-notifier = new notify(),
-plugins = loadPlugins();
+    notifier = new notify(),
+    plugins = loadPlugins();
 
 plugins.minifyCSS = require('gulp-minify-css');
 plugins.recursiveConcat = require('gulp-recursive-concat');
@@ -28,8 +31,8 @@ plugins.runSequence = require('run-sequence');
 plugins.spritesmith = require('gulp.spritesmith');
 
 var coffeeTasks = ['js', reload],
-jadeTasks = ['html:frontend', reload],
-stylusTasks = ['styles', reload];
+    jadeTasks = ['html:frontend', reload],
+    stylusTasks = ['styles', reload];
 
 var d = new Date(),
     currentDate = d.getDate().toString() + "-" + (d.getMonth()+1).toString() + "-" + d.getFullYear().toString() + "_" + d.getHours().toString();
@@ -265,6 +268,39 @@ gulp.task('copy:img:sprites', function () {
 
 gulp.task('copy', function (cb) {
     plugins.runSequence('copy:js', 'copy:img', 'copy:fonts', cb);
+});
+
+
+/*!!
+* 
+* Tareas para generar fuente de inconos
+*
+* tarea principal: gulp fonts
+*/
+
+gulp.task('icons', function(){
+    gulp.src([path.icons.default.src.svgs])
+        .pipe(iconfont({
+            fontName: 'iconFonts-webfont', // required
+            appendCodepoints: true // recommended option
+        }))
+        .on('codepoints', function(codepoints, options) {
+            gulp.src(path.icons.default.src.template)
+            .pipe(consolidate('lodash', {
+                glyphs: codepoints,
+                fontName: 'iconFonts',
+                fontPath: path.icons.default.dest.fonts,
+                className: 'icon'
+            }))
+            .pipe(gulp.dest(path.icons.default.dest.stylus));
+        })
+        .pipe(gulp.dest(path.icons.default.dest.fonts));
+});
+
+gulp.task('iconFonts', function() {
+    plugins.runSequence('icons', 'copy:fonts', 'styles', function(){
+        console.log('Solo Fuente de iconos.');
+    });
 });
 
 
