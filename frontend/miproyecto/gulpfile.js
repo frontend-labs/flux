@@ -1,5 +1,5 @@
 /*!!
- * 
+ *
  * gulpfile.js
  * @author: Jan Sanchez
  *
@@ -38,7 +38,7 @@ var d = new Date(),
     currentDate = d.getDate().toString() + "-" + (d.getMonth()+1).toString() + "-" + d.getFullYear().toString() + "_" + d.getHours().toString();
 
 /*!!
-* 
+*
 * Tareas individuales para limpiar los archivos generados
 *
 * tarea principal: gulp clean
@@ -56,7 +56,7 @@ gulp.task('clean:html:backend', function () {
 
 gulp.task('clean:html', function (cb) {
     plugins.runSequence([
-        'clean:html:frontend', 
+        'clean:html:frontend',
         'clean:html:backend'
         ], cb);
 });
@@ -91,7 +91,7 @@ gulp.task('clean', function (cb) {
 
 
 /*!!
-* 
+*
 * Tareas para generar, concatenar, lintear Javascript
 *
 * tarea principal: gulp js
@@ -158,7 +158,7 @@ gulp.task('js:complex', ['js'], function() {
 });
 
 /*!!
-* 
+*
 * Tarea para generar, prefixear y minimizar Css
 *
 * tarea principal: gulp styles
@@ -177,7 +177,7 @@ gulp.task('styles', function () {
 });
 
 /*!!
-* 
+*
 * Tareas para generar .html y .cshtml
 *
 * tarea principal: gulp html
@@ -205,7 +205,7 @@ gulp.task('html', function(cb) {
 
 
 /*!!
-* 
+*
 * Tareas para generar sprites png
 *
 * tarea principal: gulp sprites
@@ -230,7 +230,7 @@ gulp.task('sprites', function () {
 
 
 /*!!
-* 
+*
 * Tareas para copiar archivos
 *
 * tarea principal: gulp copy
@@ -272,7 +272,7 @@ gulp.task('copy', function (cb) {
 
 
 /*!!
-* 
+*
 * Tareas para generar fuente de inconos
 *
 * tarea principal: gulp fonts
@@ -305,7 +305,34 @@ gulp.task('iconFonts', function() {
 
 
 /*!!
-* 
+*
+* Tareas para generar fuentes de texto
+*
+* tarea principal: gulp fonts
+*/
+
+gulp.task('compileFonts', function(){
+    fs.readdir(path.src.static.fonts, function(err, files) {
+        if (err) throw err;
+        var dirList = files.filter(function(file) { return (/^[^_]*$/g).test(file); });
+        gulp.src(path.fonts.default.src.template)
+        .pipe(consolidate('lodash', {
+            dirList: dirList,
+            fontPath: '../../../fonts/',
+        }))
+        .pipe(gulp.dest(path.fonts.default.dest.stylus));
+
+    })
+});
+
+gulp.task('fonts', function() {
+    plugins.runSequence('compileFonts', 'styles', function(){
+        console.log('Solo Fuente de iconos.');
+    });
+});
+
+/*!!
+*
 * Tareas para correr un servidor local con browserSync
 *
 * tarea principal: gulp watch
@@ -332,7 +359,7 @@ gulp.task('watch', function () {
 
 
 /*!!
-* 
+*
 * Tareas por default
 *
 * tarea principal: gulp
@@ -344,7 +371,7 @@ gulp.task('default', ['clean'], function (cb) {
 
 
 /*!!
-* 
+*
 * Tareas extra para .net
 *
 * tarea principal: gulp backend
@@ -362,8 +389,8 @@ gulp.task('copy:backend:cshtml:layouts', function () {
 
 gulp.task('copy:backend:cshtml', function (cb) {
     plugins.runSequence(
-        'copy:backend:cshtml:views', 
-        'copy:backend:cshtml:layouts', 
+        'copy:backend:cshtml:views',
+        'copy:backend:cshtml:layouts',
         cb);
 });
 
@@ -407,8 +434,8 @@ gulp.task('email:backend', function () {
 
 gulp.task('backend', ['clean:zip'], function (cb) {
     plugins.runSequence(
-        'copy:backend:cshtml', 
-        'copy:backend:static', 
+        'copy:backend:cshtml',
+        'copy:backend:static',
         'clean:backend',
         'copy:backend:resources',
         'zip:backend',
@@ -419,7 +446,7 @@ gulp.task('backend', ['clean:zip'], function (cb) {
 
 
 /*!!
-* 
+*
 * Tareas para changelog, tag
 *
 * tarea principal: gulp
