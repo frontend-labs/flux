@@ -75,7 +75,7 @@ Path.icons = {
 	default : {
 		src: {
 			svgs: Path.src.static.icons + '*.svg',
-			template: Path.src.static.icons + 'template/icons.styl'
+			template: Path.src.static.icons + '_template/icons.styl'
 		},
 		dest: {
 			stylus: Path.src.stylus + '_helpers/',

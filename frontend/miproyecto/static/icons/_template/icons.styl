@@ -1,7 +1,7 @@
 .icon
 	-webkit-font-smoothing antialiased
 	display inline-block
-	font-family "iconFonts"
+	font-family "<%= fontName %>"
 	font-size 22px
 	font-style normal
 	font-variant normal
@@ -11,12 +11,7 @@
 	text-transform none
 	vertical-align middle
 
-
-.icon_facebook:before
-	content "\E001"
-
-.icon_google_plus:before
-	content "\E002"
-
-.icon_twitter:before
-	content "\E003"
+<% _.each(glyphs, function(glyph) { %>
+.<%= className %>_<%= glyph.name %>:before
+	content "\<%= glyph.codepoint.toString(16).toUpperCase() %>"
+<% }); %>

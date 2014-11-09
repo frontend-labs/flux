@@ -273,23 +273,19 @@ gulp.task('copy', function (cb) {
 
 /*!!
 *
-* Tareas para generar fuente de inconos
+* Tareas para generar fuente de iconos
 *
-* tarea principal: gulp fonts
+* tarea principal: gulp icons
 */
 
-gulp.task('icons', function(){
+gulp.task('compileIcons', function(){
     gulp.src([path.icons.default.src.svgs])
-        .pipe(iconfont({
-            fontName: 'iconFonts-webfont', // required
-            appendCodepoints: true // recommended option
-        }))
+        .pipe(iconfont(options.icons.default.generator))
         .on('codepoints', function(codepoints, options) {
             gulp.src(path.icons.default.src.template)
             .pipe(consolidate('lodash', {
                 glyphs: codepoints,
                 fontName: 'iconFonts',
-                fontPath: path.icons.default.dest.fonts,
                 className: 'icon'
             }))
             .pipe(gulp.dest(path.icons.default.dest.stylus));
@@ -297,8 +293,8 @@ gulp.task('icons', function(){
         .pipe(gulp.dest(path.icons.default.dest.fonts));
 });
 
-gulp.task('iconFonts', function() {
-    plugins.runSequence('icons', 'copy:fonts', 'styles', function(){
+gulp.task('icons', function() {
+    plugins.runSequence('compileIcons', 'copy:fonts', 'styles', function(){
         console.log('Solo Fuente de iconos.');
     });
 });
