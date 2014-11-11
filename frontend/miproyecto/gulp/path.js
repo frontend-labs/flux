@@ -1,5 +1,5 @@
 /*!!
- * 
+ *
  * gulp path
  * @author: Jan Sanchez
  *
@@ -75,11 +75,23 @@ Path.icons = {
 	default : {
 		src: {
 			svgs: Path.src.static.icons + '*.svg',
-			template: Path.src.static.icons + 'template/icons.styl'
+			template: Path.src.static.icons + '_template/icons.styl'
 		},
 		dest: {
 			stylus: Path.src.stylus + '_helpers/',
 			fonts: Path.src.static.fonts + 'iconFonts/'
+		}
+	}
+}
+
+/* Fonts Path */
+Path.fonts = {
+	default : {
+		src: {
+			template: Path.src.static.fonts + '_template/fonts.styl'
+		},
+		dest: {
+			stylus: Path.src.stylus + 'modules/all/'
 		}
 	}
 }
@@ -111,7 +123,7 @@ Path.jade = {
 Path.stylus = {
 	default : {
 		src: [
-			Path.src.stylus + 'layouts/_render/*.styl', 
+			Path.src.stylus + 'layouts/_render/*.styl',
 			Path.src.stylus + '**/*.styl',
 			'!' + Path.src.stylus + '**/**/_**/*.styl',
 			'!' + Path.src.stylus + '_**/*.styl',
@@ -127,7 +139,7 @@ Path.stylus = {
 Path.coffee = {
 	default : {
 		src: [
-			Path.src.coffee + '**/*.coffee', 
+			Path.src.coffee + '**/*.coffee',
 			Path.src.coffee + 'libs/**/*.coffee',
 			'!' + Path.src.coffee + '_**/*.coffee',
 			'!' + Path.src.coffee + '**/_*.coffee'
@@ -168,7 +180,7 @@ Path.copy = {
 				Path.dest.js + 'source/libs/**/*.js'
 			],
 			dest: Path.dest.js + 'dist/libs/'
-			
+
 		}
 	},
 	fonts: {
@@ -305,6 +317,3 @@ Path.email = {
 
 
 module.exports = Path;
-
-
-

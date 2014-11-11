@@ -1,21 +1,77 @@
-/*!!
- * Font Styles
- * @module fonts
- * @author Paúl Díaz, Luis Natividad
- */
-
+/*!
+* Font Styles
+* @module fonts
+**/
 @require '../../_config/*'
 @require '../../_mixins/*'
 
+
 @font-face
-	font_face("geog-mdit")
+	font-family "geog"
+	src url($fontPath + "geog/geog-webfont.eot")
+	src url($fontPath + "geog/geog-webfont.eot?#iefix") format("embedded-opentype"), \
+		url($fontPath + "geog/geog-webfont.woff") format("woff"), \
+		url($fontPath + "geog/geog-webfont.ttf") format("truetype"), \
+		url($fontPath + "geog/geog-webfont.svg#geog") format("svg");
+	font-style normal
+	font-weight normal
+
 @font-face
-	font_face("geog-sbit")
+	font-family "geog-mdit"
+	src url($fontPath + "geog-mdit/geog-mdit-webfont.eot")
+	src url($fontPath + "geog-mdit/geog-mdit-webfont.eot?#iefix") format("embedded-opentype"), \
+		url($fontPath + "geog-mdit/geog-mdit-webfont.woff") format("woff"), \
+		url($fontPath + "geog-mdit/geog-mdit-webfont.ttf") format("truetype"), \
+		url($fontPath + "geog-mdit/geog-mdit-webfont.svg#geog-mdit") format("svg");
+	font-style normal
+	font-weight normal
+
 @font-face
-	font_face("geogtq-md")
+	font-family "geog-sbit"
+	src url($fontPath + "geog-sbit/geog-sbit-webfont.eot")
+	src url($fontPath + "geog-sbit/geog-sbit-webfont.eot?#iefix") format("embedded-opentype"), \
+		url($fontPath + "geog-sbit/geog-sbit-webfont.woff") format("woff"), \
+		url($fontPath + "geog-sbit/geog-sbit-webfont.ttf") format("truetype"), \
+		url($fontPath + "geog-sbit/geog-sbit-webfont.svg#geog-sbit") format("svg");
+	font-style normal
+	font-weight normal
+
 @font-face
-	font_face("geogtq-bd")
+	font-family "geogtq-bd"
+	src url($fontPath + "geogtq-bd/geogtq-bd-webfont.eot")
+	src url($fontPath + "geogtq-bd/geogtq-bd-webfont.eot?#iefix") format("embedded-opentype"), \
+		url($fontPath + "geogtq-bd/geogtq-bd-webfont.woff") format("woff"), \
+		url($fontPath + "geogtq-bd/geogtq-bd-webfont.ttf") format("truetype"), \
+		url($fontPath + "geogtq-bd/geogtq-bd-webfont.svg#geogtq-bd") format("svg");
+	font-style normal
+	font-weight normal
+
 @font-face
-	font_face("tge-bold")
+	font-family "geogtq-md"
+	src url($fontPath + "geogtq-md/geogtq-md-webfont.eot")
+	src url($fontPath + "geogtq-md/geogtq-md-webfont.eot?#iefix") format("embedded-opentype"), \
+		url($fontPath + "geogtq-md/geogtq-md-webfont.woff") format("woff"), \
+		url($fontPath + "geogtq-md/geogtq-md-webfont.ttf") format("truetype"), \
+		url($fontPath + "geogtq-md/geogtq-md-webfont.svg#geogtq-md") format("svg");
+	font-style normal
+	font-weight normal
+
 @font-face
-	font_face("iconFonts")
+	font-family "iconFonts"
+	src url($fontPath + "iconFonts/iconFonts-webfont.eot")
+	src url($fontPath + "iconFonts/iconFonts-webfont.eot?#iefix") format("embedded-opentype"), \
+		url($fontPath + "iconFonts/iconFonts-webfont.woff") format("woff"), \
+		url($fontPath + "iconFonts/iconFonts-webfont.ttf") format("truetype"), \
+		url($fontPath + "iconFonts/iconFonts-webfont.svg#iconFonts") format("svg");
+	font-style normal
+	font-weight normal
+
+@font-face
+	font-family "tge-bold"
+	src url($fontPath + "tge-bold/tge-bold-webfont.eot")
+	src url($fontPath + "tge-bold/tge-bold-webfont.eot?#iefix") format("embedded-opentype"), \
+		url($fontPath + "tge-bold/tge-bold-webfont.woff") format("woff"), \
+		url($fontPath + "tge-bold/tge-bold-webfont.ttf") format("truetype"), \
+		url($fontPath + "tge-bold/tge-bold-webfont.svg#tge-bold") format("svg");
+	font-style normal
+	font-weight normal

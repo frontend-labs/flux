@@ -1,5 +1,5 @@
 /*!!
- * 
+ *
  * gulp options
  * @author: Jan Sanchez
  *
@@ -48,6 +48,11 @@ Options.sprites = {
 	}
 };
 
+Options.icons = {
+	default : {
+		generator : { fontName: 'iconFonts-webfont', appendCodepoints: true }
+	}
+}
 
 /* Jade Options */
 Options.jade = {
