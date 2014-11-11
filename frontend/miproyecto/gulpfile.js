@@ -358,7 +358,7 @@ gulp.task('watch', function () {
 */
 
 gulp.task('default', ['clean'], function (cb) {
-    plugins.runSequence('sprites', 'styles', 'js:default', 'copy', 'html', cb);
+    plugins.runSequence('sprites', 'icons', 'fonts', 'styles', 'js:default', 'copy', 'html', cb);
 });
 
 
