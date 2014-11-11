@@ -16,10 +16,7 @@ var gulp        = require('gulp'),
     path        = require('./gulp/path'),
     options     = require('./gulp/options'),
     jadeLocals  = require('./gulp/jade'),
-    config      = require('./gulp/config.local'),
-    /*icons*/
-    iconfont    = require('gulp-iconfont'),
-    consolidate = require('gulp-consolidate');
+    config      = require('./gulp/config.local');
 
 var reload = browserSync.reload,
     notifier = new notify(),
@@ -29,6 +26,8 @@ plugins.minifyCSS = require('gulp-minify-css');
 plugins.recursiveConcat = require('gulp-recursive-concat');
 plugins.runSequence = require('run-sequence');
 plugins.spritesmith = require('gulp.spritesmith');
+plugins.iconfont = require('gulp-iconfont');
+plugins.consolidate = require('gulp-consolidate');
 
 var coffeeTasks = ['js', reload],
     jadeTasks = ['html:frontend', reload],
@@ -280,10 +279,10 @@ gulp.task('copy', function (cb) {
 
 gulp.task('compileIcons', function(){
     gulp.src([path.icons.default.src.svgs])
-        .pipe(iconfont(options.icons.default.generator))
+        .pipe(plugins.iconfont(options.icons.default.generator))
         .on('codepoints', function(codepoints, options) {
             gulp.src(path.icons.default.src.template)
-            .pipe(consolidate('lodash', {
+            .pipe(plugins.consolidate('lodash', {
                 glyphs: codepoints,
                 fontName: 'iconFonts',
                 className: 'icon'
@@ -312,7 +311,7 @@ gulp.task('compileFonts', function(){
         if (err) throw err;
         var dirList = files.filter(function(file) { return (/^[^_]*$/g).test(file); });
         gulp.src(path.fonts.default.src.template)
-        .pipe(consolidate('lodash', { dirList: dirList }))
+        .pipe(plugins.consolidate('lodash', { dirList: dirList }))
         .pipe(gulp.dest(path.fonts.default.dest.stylus));
 
     })
