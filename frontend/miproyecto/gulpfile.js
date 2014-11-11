@@ -312,10 +312,7 @@ gulp.task('compileFonts', function(){
         if (err) throw err;
         var dirList = files.filter(function(file) { return (/^[^_]*$/g).test(file); });
         gulp.src(path.fonts.default.src.template)
-        .pipe(consolidate('lodash', {
-            dirList: dirList,
-            fontPath: '../../../fonts/',
-        }))
+        .pipe(consolidate('lodash', { dirList: dirList }))
         .pipe(gulp.dest(path.fonts.default.dest.stylus));
 
     })
@@ -323,7 +320,7 @@ gulp.task('compileFonts', function(){
 
 gulp.task('fonts', function() {
     plugins.runSequence('compileFonts', 'styles', function(){
-        console.log('Solo Fuente de iconos.');
+        console.log('Solo Fuente de letras.');
     });
 });
 

@@ -28,7 +28,6 @@
     "gulp-cssshrink": "^0.1.4",
     "gulp-debug": "^1.0.1",
     "gulp-email": "0.0.5",
-    "gulp-filter": "^1.0.2",
     "gulp-iconfont": "^0.2.1",
     "gulp-if": "^1.2.4",
     "gulp-imagemin": "^1.0.1",
