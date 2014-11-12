@@ -209,7 +209,7 @@ setTimeout( ()->
             log("librerías cargadas con éxito")
         )
 
-    sourcePath = 'frontend/mimodulo/'
+    sourcePath = 'frontend/miproyecto/'
 
     yOSON.utils = new Utils()
 
