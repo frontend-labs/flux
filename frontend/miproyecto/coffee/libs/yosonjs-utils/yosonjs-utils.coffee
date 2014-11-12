@@ -219,10 +219,10 @@ setTimeout( ()->
 
     yOSON.utils.colorLog(' > ' + yOSON.module + ' | '+ yOSON.controller + ' | ' + yOSON.action, 'black');
 
-    yOSON.utils.colorLog(' > stylus controller path: ' + sourcePath + 'stylus/modules/'+yOSON.module+'/'+yOSON.controller+'.styl', 'green');
-    yOSON.utils.colorLog(' > stylus module path: ' + sourcePath + 'stylus/modules/'+yOSON.module+'/module_'+yOSON.module+'.styl', 'green');
     yOSON.utils.colorLog(' > jade view path: ' + sourcePath + 'jadeflux/modules/'+yOSON.module + '/' + yOSON.controller+'/'+yOSON.action+'.jade', 'gray');
     yOSON.utils.colorLog(' > coffee controller path: ' + sourcePath + 'coffee/scripts/modules/'+yOSON.module+'/'+yOSON.controller+'/', 'brown');
+    yOSON.utils.colorLog(' > stylus module path: ' + sourcePath + 'stylus/modules/'+yOSON.module+'/module_'+yOSON.module+'.styl', 'green');
+    yOSON.utils.colorLog(' > stylus controller path: ' + sourcePath + 'stylus/modules/'+yOSON.module+'/'+yOSON.controller+'.styl', 'green');
     yOSON.utils.colorLog(' - - - - - - - - - - - - - - - - ', 'black');
 
     
