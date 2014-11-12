@@ -1,5 +1,5 @@
 yOSON.AppSchema.modules =
-	"momo":
+	"mimodulo":
 		"controllers":
 			"Home":
 				"allActions": () ->

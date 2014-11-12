@@ -209,7 +209,7 @@ setTimeout( ()->
             log("librerías cargadas con éxito")
         )
 
-    sourcePath = 'frontend/momo/'
+    sourcePath = 'frontend/mimodulo/'
 
     yOSON.utils = new Utils()
 
