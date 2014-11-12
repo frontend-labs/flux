@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jansanchez/flux.git"
+    "url": "https://github.com/frontend-labs/flux.git"
   },
   "author": "frontendlabs",
   "license": "MIT",
