@@ -49,3 +49,5 @@ frontend/miproyecto/static/img/fifth_sprite.png
 
 *.tmp
 
+static/fonts/iconFonts/
+iconFonts/
