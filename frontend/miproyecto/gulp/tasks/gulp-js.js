@@ -7,8 +7,6 @@
 
 function Task(gulp, path, options, plugins, settings) {
 
-    var notifier = new settings.notify();
-
     gulp.task('coffee', function() {
         return gulp.src(path.coffee.default.src)
         .pipe(plugins.coffee(options.coffee.general).on('error', function(err){
@@ -19,7 +17,7 @@ function Task(gulp, path, options, plugins, settings) {
 
             var isLinux = /^linux/.test(process.platform);
             if (isLinux){
-                notifier.notify({
+                settings.notifier.notify({
                     title: 'Plugin: ' + err.plugin,
                     message: err.name + ' in ' + err.plugin,
                     contentImage: __dirname + "/resources/gulp/img/logo.png",
