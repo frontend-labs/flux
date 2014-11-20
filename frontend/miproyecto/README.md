@@ -2,26 +2,6 @@
 
 > un futuro framework frontend
 
-## Instalando las dependencias.
-
-### Instalando libcairo2:
-
-```
-sudo apt-get install libcairo2-dev
-```
-
-### Instalando libjpeg:
-
-```
-sudo apt-get install libjpeg-dev
-```
-
-### Instalando libgif:
-
-```
-sudo apt-get install libgif-dev
-```
-
 ### Install Gulp globally:
 
 ```
@@ -107,3 +87,23 @@ Para acceder a este servidor local el dominio será:
 localhost:3000
 ```
 
+
+## Instalando las dependencias.
+
+### Instalando libcairo2:
+
+```
+sudo apt-get install libcairo2-dev
+```
+
+### Instalando libjpeg:
+
+```
+sudo apt-get install libjpeg-dev
+```
+
+### Instalando libgif:
+
+```
+sudo apt-get install libgif-dev
+```
