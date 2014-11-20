@@ -87,6 +87,13 @@ Para acceder a este servidor local el dominio será:
 localhost:3000
 ```
 
+## Bugs
+
+Solucionando bugs de OS
+
+```
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+```
 
 ## Instalando las dependencias.
 
