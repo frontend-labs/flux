@@ -8,12 +8,12 @@
 function Task(gulp, path, options, plugins, settings) {
 
     gulp.task('copy:backend:cshtml:views', function () {
-        return gulp.src(path.copy.backend.cshtml.src.views)
+        return gulp.src(path.copy.backend.cshtml.src.views, { base: path.dest.folder })
             .pipe(gulp.dest(path.copy.backend.cshtml.dest.views));
     });
 
     gulp.task('copy:backend:cshtml:layouts', function () {
-        return gulp.src(path.copy.backend.cshtml.src.layouts)
+        return gulp.src(path.copy.backend.cshtml.src.layouts, { base: path.dest.folder })
             .pipe(gulp.dest(path.copy.backend.cshtml.dest.layouts));
     });
 
@@ -25,13 +25,13 @@ function Task(gulp, path, options, plugins, settings) {
     });
 
     gulp.task('copy:backend:static', function () {
-        return gulp.src(path.copy.backend.static.src, path.copy.backend.static.dest)
+        return gulp.src(path.copy.backend.static.src, {base: path.dest.folder})
             .pipe(gulp.dest(path.copy.backend.static.dest));
     });
 
 
     gulp.task('copy:backend:resources', function () {
-        return gulp.src(path.copy.backend.resources.src, path.copy.backend.resources.dest)
+        return gulp.src(path.copy.backend.resources.src)
             .pipe(gulp.dest(path.copy.backend.resources.dest));
     });
 
