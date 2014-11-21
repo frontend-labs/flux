@@ -210,7 +210,7 @@ Path.copy = {
 		cshtml: {
 			src: {
 				layouts: [Path.dest.folder + 'backend/layout/*.*'],
-				views: [Path.dest.folder + 'backend/modules/momo/**/**/*.*']
+				views: [Path.dest.folder + 'backend/modules/mimodulo/**/**/*.*']
 			},
 			dest: {
 				layouts: Path.backend.base + 'Views/Shared/',
@@ -221,13 +221,13 @@ Path.copy = {
 			src: [
 				Path.dest.folder + '**/**/*.*'
 			],
-			dest: Path.backend.base + 'Content/static/momo/'
+			dest: Path.backend.base + 'Content/static/mimodulo/'
 		},
 		resources:{
 			src: [
 				'resources/temp/yosonjs-utils.js'
 			],
-			dest: Path.backend.base + 'Content/static/momo/js/dist/libs/yosonjs-utils/'
+			dest: Path.backend.base + 'Content/static/mimodulo/js/dist/libs/yosonjs-utils/'
 		}
 	}
 };
