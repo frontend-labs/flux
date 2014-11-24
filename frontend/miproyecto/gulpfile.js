@@ -26,6 +26,9 @@ plugins.minifyCSS = require('gulp-minify-css');
 plugins.runSequence = require('run-sequence');
 plugins.spritesmith = require('gulp.spritesmith');
 
+plugins.es = require('event-stream');
+plugins.Buffer = require('buffer').Buffer;
+
 runTask("gulp-clean");
 runTask("gulp-backend");
 runTask("gulp-copy");

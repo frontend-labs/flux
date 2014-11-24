@@ -110,7 +110,8 @@ Options.browserSync = {
 Options.concat = {
 	js: {
 		recursiveConcat: {dist: path.javascript.default.dest, extname: '.js'},
-		uglify: {mangle:false, compress: {drop_console: false}}
+		uglify: {mangle:false, compress: {drop_console: false}},
+		rename: {extname: '.min.js'}
 	}
 };
 

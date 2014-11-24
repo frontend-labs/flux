@@ -9,6 +9,7 @@ function Task(gulp, path, options, plugins, settings) {
 
     gulp.task('coffee', function() {
         return gulp.src(path.coffee.default.src)
+        //.pipe(plugins.sourcemaps.init())
         .pipe(plugins.coffee(options.coffee.general).on('error', function(err){
             console.log('');
             console.log(err.name + " in " + err.plugin);
@@ -29,15 +30,30 @@ function Task(gulp, path, options, plugins, settings) {
             }
 
         }))
+        //.pipe(plugins.sourcemaps.write('./'))
         .pipe(gulp.dest(path.coffee.default.dest));
     });
-
 
     gulp.task('concat:js', function(){
         gulp.src(path.javascript.default.src)
             .pipe(plugins.recursiveConcat(options.concat.js.recursiveConcat))
+            .pipe(gulp.dest(path.javascript.default.dest))
+            .pipe(plugins.if(settings.config.prod, plugins.rename(options.concat.js.rename)))
+            .pipe(plugins.if(settings.config.prod, plugins.sourcemaps.init()))
             .pipe(plugins.if(settings.config.prod, plugins.uglify(options.concat.js.uglify)))
-            .pipe(gulp.dest(path.javascript.default.dest));
+            .pipe(plugins.if(settings.config.prod, plugins.sourcemaps.write('./', {includeContent: false, sourceRoot: ''})))
+            .pipe(plugins.if(settings.config.prod, gulp.dest(path.javascript.default.dest)))
+
+            .pipe(plugins.filter(['**/*.min.js.map']))
+            .pipe(plugins.es.map(function (data, cb) {
+                arrayFiles = data.relative.split('/');
+                currentFileName = arrayFiles[arrayFiles.length-1].replace('.min.js.map', '');
+                newDataContents = data.contents.toString().replace('[\"?\"]','["'+ currentFileName +'.js"]');
+                data.contents = new plugins.Buffer(newDataContents, 'utf8');
+                cb(null, data);
+            }))
+            .pipe(plugins.if(settings.config.prod, gulp.dest(path.javascript.default.dest)))
+
     });
 
 

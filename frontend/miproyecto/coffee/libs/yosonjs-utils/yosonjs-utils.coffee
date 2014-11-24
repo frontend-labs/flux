@@ -200,10 +200,10 @@ setTimeout( ()->
 
         objDependencyManager = new yOSON.Components.DependencyManager()
         depedencies = [
-            'js/dist/scripts/modules/all/all.js',
-            'js/dist/scripts/modules/'+yOSON.module+'/'+yOSON.controller+'/'+yOSON.controller+'.js',
-            'js/source/libs/yosonjs-utils/modules.js',
-            'js/source/libs/yosonjs-utils/appLoad.js'
+            'js/dist/scripts/modules/all/all.min.js',
+            'js/dist/scripts/modules/'+yOSON.module+'/'+yOSON.controller+'/'+yOSON.controller+'.min.js',
+            'js/dist/libs/yosonjs-utils/modules.js',
+            'js/dist/libs/yosonjs-utils/appLoad.js'
         ]
         objDependencyManager.ready(depedencies, ->
             log("librerías cargadas con éxito")
