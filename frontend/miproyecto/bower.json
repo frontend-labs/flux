@@ -4,7 +4,7 @@
   "authors": [
     "Jan Sanchez <joejansanchez@gmail.com>"
   ],
-  "description": "tous",
+  "description": "Flux!",
   "license": "MIT",
   "private": true,
   "ignore": [
@@ -20,7 +20,6 @@
     "parsleyjs": "~2.0.3",
     "selectivizr": "1.0.2",
     "underscore": "~1.6.0",
-    "yosonjs": "0.0.7-alpha",
     "jquery": "1.11.1",
     "jquery-echo": "~0.0.5",
     "jquery-hoverIntent": "1.8.0",
