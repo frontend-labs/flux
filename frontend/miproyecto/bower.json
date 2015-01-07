@@ -25,6 +25,7 @@
     "jquery-hoverIntent": "1.8.0",
     "jquery-placeholder": "~2.0.8",
     "jquery.easing": "~1.3.0",
-    "jquery-ui": "~1.11.1"
+    "jquery-ui": "~1.11.1",
+    "yosonjs": "~0.0.15-alpha"
   }
 }
