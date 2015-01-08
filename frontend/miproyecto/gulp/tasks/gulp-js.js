@@ -9,6 +9,7 @@ function Task(gulp, path, options, plugins, settings) {
 
     gulp.task('coffee', function() {
         return gulp.src(path.coffee.default.src)
+        .pipe(plugins.plumber())
         //.pipe(plugins.sourcemaps.init())
         .pipe(plugins.coffee(options.coffee.general).on('error', function(err){
             console.log('');
