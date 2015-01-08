@@ -9,8 +9,8 @@ function Task(gulp, path, options, plugins, settings) {
 
     gulp.task('coffee', function() {
         return gulp.src(path.coffee.default.src)
-        .pipe(plugins.plumber())
         //.pipe(plugins.sourcemaps.init())
+        .pipe(plugins.plumber())
         .pipe(plugins.coffee(options.coffee.general).on('error', function(err){
             console.log('');
             console.log(err.name + " in " + err.plugin);
@@ -19,7 +19,7 @@ function Task(gulp, path, options, plugins, settings) {
 
             var isLinux = /^linux/.test(process.platform);
             if (isLinux){
-                settings.notifier.notify({
+                plugins.notifier.notify({
                     title: 'Plugin: ' + err.plugin,
                     message: err.name + ' in ' + err.plugin,
                     contentImage: __dirname + "/resources/gulp/img/logo.png",
