@@ -8,6 +8,7 @@ function Task(gulp, path, options, plugins, settings) {
 
     gulp.task('html:frontend', function() {
         return gulp.src(path.jade.frontend.src)
+        .pipe(plugins.plumber())
         .pipe(plugins.jade(options.jade.frontend))
         .pipe(plugins.rename(options.jade.frontend.rename))
         .pipe(gulp.dest(path.jade.frontend.dest))
@@ -16,6 +17,7 @@ function Task(gulp, path, options, plugins, settings) {
 
     gulp.task('html:backend', function() {
         return gulp.src(path.jade.backend.src)
+        .pipe(plugins.plumber())
         .pipe(plugins.jade(options.jade.backend))
         .pipe(plugins.rename(options.jade.backend.rename))
         .pipe(gulp.dest(path.jade.backend.dest))

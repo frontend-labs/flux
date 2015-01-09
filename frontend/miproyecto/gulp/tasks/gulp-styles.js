@@ -9,6 +9,7 @@ function Task(gulp, path, options, plugins, settings) {
 
     gulp.task('styles', function () {
         return gulp.src(path.stylus.default.src)
+        .pipe(plugins.plumber())
         .pipe(plugins.stylus(options.stylus.default))
         .pipe(plugins.if(settings.config.prod, plugins.cssUrlVersioner(options.stylus.default.versioner)))
         .pipe(plugins.autoprefixer(options.stylus.default.autoprefixer))
