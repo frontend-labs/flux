@@ -15,6 +15,7 @@ currentDate = d.getDate().toString() + "-" + (d.getMonth()+1).toString() + "-" +
 Projects.default = { name : 'miproyecto' };
 
 Path.src = { folder: '' };
+// Es la raiz del sitio, en nuestro ejemplo nos ubicaríamos en miproyecto
 
 Path.src.static = {
 	main : Path.src.folder + 'static/'
