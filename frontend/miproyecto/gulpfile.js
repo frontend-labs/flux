@@ -29,7 +29,7 @@ plugins.spritesmith = require('gulp.spritesmith');
 plugins.es = require('event-stream');
 plugins.Buffer = require('buffer').Buffer;
 
-plugins.notifier = new settings.notify();
+//plugins.notifier = new settings.notify();
 
 runTask("gulp-clean");
 runTask("gulp-backend");
