@@ -1,5 +1,9 @@
 # Creación de módulo en coffee
 
+> TIPS : 
+> - Un módulo es una unidad independiente funcional, que es parte de la estructura total de una aplicacion web.
+> - Un solo módulo deberia ser capaz de vivir por su propia cuenta.
+
 Un módulo en coffee se divide de la siguiente manera:
 
 **Descripción del módulo**
