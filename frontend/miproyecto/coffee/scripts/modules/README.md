@@ -71,14 +71,15 @@ Módulo para obtener el texto de un listado
 ###
  
 yOSON.AppCore.addModule "get_text_list", (Sb) ->
+	st = {}
 	dom = {}
   defaults = 
 		parent : '.list_locations'
 		el     : 'li a'
  
-  catchDom = () ->
-    dom.parent = $(defaults.parent)
-    dom.el     = $(defaults.el, dom.parent)
+  catchDom = (st) ->
+    dom.parent = $(st.parent)
+    dom.el     = $(st.el, dom.parent)
     return
 ```
 **Listener para los elementos DOM**
@@ -95,14 +96,15 @@ Módulo para obtener el texto de un listado
 ###
  
 yOSON.AppCore.addModule "get_text_list", (Sb) ->
+	st = {}
 	dom = {}
   defaults = 
 		parent : '.list_locations'
 		el     : 'li a'
  
-  catchDom = () ->
-    dom.parent = $(defaults.parent)
-    dom.el     = $(defaults.el, dom.parent)
+  catchDom = (st) ->
+    dom.parent = $(st.parent)
+    dom.el     = $(st.el, dom.parent)
     return
     
   suscribeEvents = () ->
@@ -134,14 +136,15 @@ Módulo para obtener el texto de un listado
 ###
  
 yOSON.AppCore.addModule "get_text_list", (Sb) ->
+	st = {}
 	dom = {}
   defaults = 
 		parent : '.list_locations'
 		el     : 'li a'
  
-  catchDom = (defaults) ->
-    dom.parent = $(defaults.parent)
-    dom.el     = $(defaults.el, dom.parent)
+  catchDom = (st) ->
+    dom.parent = $(st.parent)
+    dom.el     = $(st.el, dom.parent)
     return
     
   suscribeEvents = () ->
@@ -159,8 +162,8 @@ yOSON.AppCore.addModule "get_text_list", (Sb) ->
 	    ele.text()
 	    
 	initialize = (opts) ->
-		$.extend defaults, opts
-		catchDom(defaults)
+		st = $.extend({}, defaults, opts)
+		catchDom(st)
 		suscribeEvents()
 		return
  
@@ -176,9 +179,9 @@ yOSON.AppCore.addModule "get_text_list", (Sb) ->
 > Aquí es donde se enviamos nuestras configuraciones a nuestro módulo, mediante parametros.
 > El archivo modules.coffee lo encontramos en : coffee/libs/yosonjs-utils/modules.coffee
 
-> - Dentro del archivos modules.coffee tenemos un objeto yOSON.AppSchema.modules.
-> - Es un objeto donde se configura toda la funcionalidad del sitio, de acuerdo al modulo, controlador y vista.
-> - La ubicación lo podremos encontrar facilmente en la parte @main de la descripción de nuestro módulo.
+> - Dentro del archivo modules.coffee tenemos un objeto yOSON.AppSchema.modules.
+> - Es un objeto donde se configura toda la funcionalidad del sitio, de acuerdo al módulo, controlador y vista.
+> - La ubicación la podremos encontrar facilmente en la parte @main de la descripción de nuestro módulo.
 > - En nuestro caso seria : default/cuenta/index
 
 ``` coffee
