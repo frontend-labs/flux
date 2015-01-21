@@ -28,17 +28,17 @@ head
 	meta(property='og:title', content='#{page.title}')
 	meta(property='og:type', content='#{page.og.type}')
 	meta(property='og:url', content='#{page.url}')
-	
-	link(href='#{page.static_url}css/modules/all/fonts.css#{page.version}', media='all', rel='stylesheet', type='text/css')
-	link(href='#{page.static_url}css/modules/all/all.css#{page.version}', media='all', rel='stylesheet', type='text/css')
+
+	link(href='#{page.static_url}css/modules/all_modules/fonts.css#{page.version}', media='all', rel='stylesheet', type='text/css')
+	link(href='#{page.static_url}css/modules/all_modules/all.css#{page.version}', media='all', rel='stylesheet', type='text/css')
 	link(href='#{page.static_url}css/layouts/main/layout.css#{page.version}', media='all', rel='stylesheet', type='text/css')
-	
+
 	//
 		*Para algo como:
 
 		module: mimodulo
 		controller: Account
-		
+
 		*debe cargar algo como:
 
 		<link href="static/css/modules/mimodulo/module_mimodulo.css?20140918" media="screen" rel="stylesheet" type="text/css">
