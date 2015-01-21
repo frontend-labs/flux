@@ -24,6 +24,12 @@ Absolutamente todas la fuentes del desarrollo Frontend deberían agregarse/modif
 cd frontend/miproyecto
 ```
 
+### Habilitamos la configuración local para gulp
+
+```
+cp gulp/config.local.js.dist gulp/config.local.js
+```
+
 ### Instalamos nuestra configuración local
 
 ```
