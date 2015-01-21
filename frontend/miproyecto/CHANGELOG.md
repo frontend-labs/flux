@@ -1,3 +1,23 @@
+### 1.0.3 (2015-01-21)
+
+
+#### Bug Fixes
+
+* **gulp:** Se corrige error de compilacion ([82d76435](https://github.com/frontend-labs/flux.git/commit/82d76435d1f1bdd7dd39eb16378365ae8fc00ba3))
+* **gulp-backend:** Se corrige error de compilacion ([bdf931da](https://github.com/frontend-labs/flux.git/commit/bdf931da0dec96773edf8b0bb3b8be717254e5a4))
+
+
+#### Features
+
+* **.gitignore:**
+  * Quitando las fonts compiladas del repositorio. ([c059543d](https://github.com/frontend-labs/flux.git/commit/c059543d54c957d2a394e66007af9cabbe5964a6))
+  * Quitando las fonts compiladas del repositorio. ([2cd8cd5b](https://github.com/frontend-labs/flux.git/commit/2cd8cd5baaf34be154934efa60694b8a0b7a16ed))
+* **gulp:**
+  * Agregando comentario en path.src ([e538ad7c](https://github.com/frontend-labs/flux.git/commit/e538ad7cb68f370e136d1cb44edc82dc504e4beb))
+  * Agregando el plugin gulp-plumber. ([12cecedc](https://github.com/frontend-labs/flux.git/commit/12cecedc03fdcd676d2a03d350049dec644d21e8))
+* **sourcemaps:** Agregando sourcemaps para Javascript. ([ab31f90c](https://github.com/frontend-labs/flux.git/commit/ab31f90c5f0053af8cd4f06de2aea9bf89f1f547))
+
+
 ### 1.0.2 (2014-11-13)
 
 
