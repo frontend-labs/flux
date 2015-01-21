@@ -92,7 +92,7 @@ Path.fonts = {
 			template: Path.src.static.fonts + '_template/fonts.styl'
 		},
 		dest: {
-			stylus: Path.src.stylus + 'modules/all/'
+			stylus: Path.src.stylus + 'modules/all_modules/'
 		}
 	}
 }
@@ -226,9 +226,9 @@ Path.copy = {
 		},
 		resources:{
 			src: [
-				'resources/temp/yosonjs-utils.js'
+				'resources/temp/yosonjs_utils.js'
 			],
-			dest: Path.backend.base + 'Content/static/mimodulo/js/dist/libs/yosonjs-utils/'
+			dest: Path.backend.base + 'Content/static/mimodulo/js/dist/libs/yosonjs_utils/'
 		}
 	}
 };
@@ -280,7 +280,7 @@ Path.clean = {
 			Path.backend.folder + 'layout/',
 			Path.backend.folder + 'index.html',
 			Path.backend.folder + 'backend/',
-			Path.backend.folder + 'js/dist/libs/yosonjs-utils/yosonjs-utils.js'
+			Path.backend.folder + 'js/dist/libs/yosonjs_utils/yosonjs_utils.js'
 		]
 	},
 	zip: {
