@@ -16,14 +16,14 @@ acti = yOSON.action
 
 yOSON.AppSchema.modules.all_modules()
 if modu is "" or not yOSON.AppSchema.modules.hasOwnProperty(modu)
-	yOSON.AppSchema.modules.by_default()
+    yOSON.AppSchema.modules.by_default()
 else
-	yOSON.AppSchema.modules[modu].all_controllers()
-	if ctrl is "" or not yOSON.AppSchema.modules[modu].controllers.hasOwnProperty(ctrl)
-		yOSON.AppSchema.modules[modu].controllers.by_default()
-	else
-		yOSON.AppSchema.modules[modu].controllers[ctrl].all_actions()
-		if acti is "" or not yOSON.AppSchema.modules[modu].controllers[ctrl].actions.hasOwnProperty(acti)
-			yOSON.AppSchema.modules[modu].controllers[ctrl].actions.by_default()
-		else
-			yOSON.AppSchema.modules[modu].controllers[ctrl].actions[acti]()
+    yOSON.AppSchema.modules[modu].all_controllers()
+    if ctrl is "" or not yOSON.AppSchema.modules[modu].controllers.hasOwnProperty(ctrl)
+        yOSON.AppSchema.modules[modu].controllers.by_default()
+    else
+        yOSON.AppSchema.modules[modu].controllers[ctrl].all_actions()
+        if acti is "" or not yOSON.AppSchema.modules[modu].controllers[ctrl].actions.hasOwnProperty(acti)
+            yOSON.AppSchema.modules[modu].controllers[ctrl].actions.by_default()
+        else
+            yOSON.AppSchema.modules[modu].controllers[ctrl].actions[acti]()

@@ -5,28 +5,28 @@ Se da estilo striped a las tablas
 @author Luis Natividad
 ###
 yOSON.AppCore.addModule "table_striped", (Sb) ->
-	dom = {}
+    dom = {}
 
-	st =
-		table : ".table tbody tr:nth-child(2n+1)"
+    st =
+        table : ".table tbody tr:nth-child(2n+1)"
 
-	catchDom = ->
-		dom.table = $(st.table)
-		return
+    catchDom = ->
+        dom.table = $(st.table)
+        return
 
-	fn =
-		tableStriped: ->
-			dom.table.addClass("odd")
-			return
+    fn =
+        tableStriped: ->
+            dom.table.addClass("odd")
+            return
 
-	initialize = (oP) ->
-		$.extend st, oP
-		catchDom()
-		fn.tableStriped()
-		return
+    initialize = (oP) ->
+        $.extend st, oP
+        catchDom()
+        fn.tableStriped()
+        return
 
-	return {
-		init: initialize
-	}
+    return {
+        init: initialize
+    }
 
 

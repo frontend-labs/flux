@@ -6,20 +6,20 @@ Módulo para cargar en todo el sitio el plugin jquery-echo
 ###
 
 yOSON.AppCore.addModule "load_plugins", (Sb) ->
-  st = {}
+    st = {}
 
-  fn =
-    loadPlugins : ->
-      log 'load: jquery-echo.js'
-      return
+    fn =
+        loadPlugins : ->
+            log 'load: jquery-echo.js'
+            return
 
-  initialize = (oP) ->
-    $.extend st, oP
-    fn.loadPlugins()
-    return
+    initialize = (oP) ->
+        $.extend st, oP
+        fn.loadPlugins()
+        return
 
-  return {
-    init: initialize
-  }
+    return {
+        init: initialize
+    }
 
 ,["js/dist/libs/jquery-echo/dist/jquery-echo.js"]
