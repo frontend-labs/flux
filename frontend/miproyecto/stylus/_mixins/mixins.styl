@@ -12,14 +12,14 @@
 
 em(size, parentFontSize = 0)
 	if parentFontSize == 0
-		font-size round(( size / $basefont )em , 3)
+		font-size round(( size / $basefont )em, 3)
 	else
-		font-size round(( size / parentFontSize )em , 3)
+		font-size round(( size / parentFontSize )em, 3)
 
 rem_tmp($list)
 	$max = length(arguments)
 	for $i in (0..$max - 1)
-		$list[$i] = round(( arguments[$i] / $basefont )rem , 3)
+		$list[$i] = round(( arguments[$i] / $basefont )rem, 3)
 	return $list
 
 rem($list)

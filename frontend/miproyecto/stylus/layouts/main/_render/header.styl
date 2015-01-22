@@ -7,92 +7,91 @@
 
 header
 	background none repeat scroll 0 0 #feca00
-	height 75px
+	height     75px
 	h1
-		display inline-block
+		display  inline-block
 		position relative
-		top 15px
+		top      15px
 	h2
-		position relative
-		top 32px
-		text-align right
+		position    relative
+		top         32px
+		text-align  right
 		font-family $familyMediumItalic
 	> div
 		> a
-			color black
-			font-size rem(13px)
-			float right
+			color      black
+			font-size  rem(13px)
+			float      right
 			margin-top rem(8px)
 			transition color .3s linear 0s
 			&:hover
 				color $gray_4a
 	.tools_sesion
-		position absolute
-		top rem(45px)
-		right 0
+		position  absolute
+		top       rem(45px)
+		right     0
 		font-size rem(13px)
 		> ul
 			> li
-				display inline-block
-				padding 0 15px
+				display      inline-block
+				padding      0 15px
 				border-right 1px solid black
 				&:last-child
 					border-right none
-					padding 0 0 0 15px
+					padding      0 0 0 15px
 				> a
 					display block
 					&#closeSesion
 						span
-							display inline-block
-							vertical-align middle
-							margin-left rem(5px)
 							sprite($close_sesion)
+							display        inline-block
+							vertical-align middle
+							margin-left    rem(5px)
 	.affiliation_buttons
-		position absolute
-		right 0
-		bottom 13px
+		position    absolute
+		right       0
+		bottom      13px
 		font-family $familyMediumItalic
-		font-size rem(15px)
+		font-size   rem(15px)
 		ul
 			li
-				display inline-block
+				display        inline-block
 				vertical-align top
 				a
-					position relative
-					display block
 					sprite($step_unactive)
-					padding 15px 25px
+					position   relative
+					display    block
+					padding    15px 25px
 					text-align center
 					span
-						color white
-						position absolute
-						top -25px
-						left 50%
-						margin 0 0 0 -15px
-						width 30px
-						height 30px
-						line-height 30px
-						background $gray_83
+						color         white
+						position      absolute
+						top           -25px
+						left          50%
+						margin        0 0 0 -15px
+						width         30px
+						height        30px
+						line-height   30px
+						background    $gray_83
 						border-radius 50%
-						opacity .8
-						transition all .3s linear 0s
-						behavior url($othersPath + 'pie/PIE.htc')
+						opacity       .8
+						transition    all .3s linear 0s
+						behavior      url($othersPath + 'pie/PIE.htc')
 					&.active
 						sprite($step_active)
 						span
-							color black
-							background $yellow_01
-							top -27px
-							border 5px solid white
-							width 35px
-							height 35px
+							color       black
+							background  $yellow_01
+							top         -27px
+							border      5px solid white
+							width       35px
+							height      35px
 							line-height 25px
-							margin 0 0 0 -18px
+							margin      0 0 0 -18px
 					&:hover
 						span
-							color black
+							color      black
 							background $yellow_01
-
 .first_title
-	margin 150px
+	margin     150px
 	text-align center

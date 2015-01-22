@@ -5,14 +5,13 @@
 * @author Paúl Díaz
 */
 
-
 footer
 	background black
-	height rem(105px)
-	overflow hidden
-	font-size rem(15px)
+	height     rem(105px)
+	overflow   hidden
+	font-size  rem(15px)
 	a
-		color white
+		color      white
 		transition all .3s linear 0s
 		&:hover
 			color $skyblue_01
@@ -21,26 +20,26 @@ footer
 	.footer_right
 		float right
 		p
-			color white
+			color  white
 			margin 5px 0 0
 	div
 		> ul
 			> li
 				float left
 				> a
-					display block
+					display      block
 					border-right 1px solid white
-					padding 0 20px
+					padding      0 20px
 				&:first-child
 					> a
 						padding 0 20px 0 0
 				&:last-child
 					> a
 						border-right none
-						padding 0 0 0 20px
+						padding      0 0 0 20px
 	#footer_question
-		display block
 		sprite($footer_question)
+		display block
 		&:hover
 			sprite($footer_question_hover)
 

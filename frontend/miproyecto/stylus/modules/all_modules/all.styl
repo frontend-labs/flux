@@ -10,89 +10,87 @@
 html
 	font-size $basefont
 body
-	font-family $familyMedium
-	background white
-	margin 0
-	padding 0
+	font-family              $familyMedium
+	background               white
+	margin                   0
+	padding                  0
 	-webkit-text-size-adjust 100%
 hr
-	margin 1.5em 0
-	text-align center
-	border none
+	margin        1.5em 0
+	text-align    center
+	border        none
 	border-bottom 1px solid $grey20
 	&.medium
 		border-bottom 2px solid $grey20
 	&.dashed
 		border 1px dashed $grey70
 	&.special
-		border none
+		border     none
 		border-top 2px solid $grey10
-		height 1px
+		height     1px
 		&:after
 			background #fff
-			color $grey10
-			content "o"
-			font-size 16px
-			padding 0 0.25em
-			position relative
-			top -13px
+			color      $grey10
+			content    "o"
+			font-size  16px
+			padding    0 0.25em
+			position   relative
+			top        -13px
 		+mobile()
 			display block
 ul
 	&.bullets
 		list-style-type disc
-		margin-left 15px !important
+		margin-left     15px !important
 .box_main
 	margin-top 45px
-	//overflow hidden
+	overflow   hidden
 	&.box_affiliate
 		margin-top 80px
-
 .box_introduction
 	font-family $familyMediumItalic
-	width 545px
-	float left
+	width       545px
+	float       left
 	span
 		font-family $familySemiBoldItalic
 	figure
 		margin 0 0 20px 0
 		img
-			display block
+			display   block
 			max-width 110%
-			margin 0 0 0 -10%
+			margin    0 0 0 -10%
 .box_form
-	position relative
-	width 415px
-	float right
+	position   relative
+	width      415px
+	float      right
 	background $gray_7c
 	> #promo
 		position absolute
-		width 130px
-		height 257px
-		left -130px
-		top 10px
-
+		width    130px
+		height   257px
+		left     -130px
+		top      10px
 .box_center
-	position relative
 	cf()
 	center($wrapperWidth)
+	position relative
 	.tools_log
 		> ul
 			> li
 				font-family $familyMediumItalic
-				font-size rem(17px)
+				font-size   rem(17px)
 				> a
-					color white
+					color           white
 					text-decoration underline
-					transition all .3s linear 0s
+					transition      all .3s linear 0s
 					&:hover
 						color $yellow_01
 .box_message
-	position relative
-	text-align center
-	margin 60px 0 100px 0
 	cf()
 	center(720px)
+	position   relative
+	text-align center
+	margin     60px 0 100px 0
 	h3
 	h4
 	h5
@@ -103,48 +101,46 @@ ul
 		margin 0 0 35px 0
 	h5
 		font-family $familySemiBoldItalic
-		font-size rem(23px)
-	
+		font-size   rem(23px)
 h3
 	text-transform uppercase
-	font-size rem(38.5px)
-	margin 0 0 20px 0
+	font-size      rem(38.5px)
+	margin         0 0 20px 0
 	b
 		font-family $familySemiBoldItalic
 h4
 	font-size rem(22px)
-	margin 0 0 10px 0
+	margin    0 0 10px 0
 h5
-	font-size rem(18px)
+	font-size   rem(18px)
 	font-family $familyMediumItalic
-	margin 0 0 15px 0
-.row 
+	margin      0 0 15px 0
+.row
 	cf()
-
 a
 	text-decoration none
-	color $linkActive
-	outline 0
+	color           $linkActive
+	outline         0
 	&:focus
-		outline 5px auto -webkit-focus-ring-color
-		outline thin dotted #333
+		outline        5px auto -webkit-focus-ring-color
+		outline        thin dotted #333
 		outline-offset -2px
-	&:hover, &:active
+	&:hover,
+	&:active
 		outline 0
-
 .affiliated_establishments
 	> a
-		margin-top rem(7px)
-		margin-right rem(20px)
-		font-size rem(15px)
-		float right
+		margin-top      rem(7px)
+		margin-right    rem(20px)
+		font-size       rem(15px)
+		float           right
 		text-decoration underline
-		transition all .3s linear 0s
+		transition      all .3s linear 0s
 		&:hover
 			color $gray_7c
 	> ul
 		overflow hidden
-		margin 25px 0 30px
+		margin   25px 0 30px
 		> li
 			col(1/4)
 			text-align center
@@ -156,17 +152,17 @@ a
 /* Teclado numerico */
 
 #numericKeypad
-	display inline-block
+	display        inline-block
 	vertical-align top
-	margin 0 20px 5px 0
-	width rem(85px)
+	margin         0 20px 5px 0
+	width          rem(85px)
 	ul
 		overflow hidden
-		height 116px
+		height   116px
 		li
 			display none
-			float left
-			margin 0 2px 2px 0
+			float   left
+			margin  0 2px 2px 0
 			&:nth-child(3n)
 			&.clean
 				margin 0 0 2px 0
@@ -197,42 +193,42 @@ a
 				&#number_00
 					sprite($number_00)
 #safetyPin
-	font-family $familyMediumItalic
-	display inline-block
+	font-family    $familyMediumItalic
+	display        inline-block
 	vertical-align top
-	max-width rem(245px)
+	max-width      rem(245px)
 	h5
-		margin-top rem(-4px)
+		margin-top    rem(-4px)
 		margin-bottom rem(15px)
 	> div
-		display inline-block
+		display  inline-block
 		position relative
-		margin 0 0 10px 0
+		margin   0 0 10px 0
 		> span
-			position absolute
-			top rem(5px)
-			left rem(5px)
-			z-index 5
 			sprite($safety)
+			position absolute
+			top      rem(5px)
+			left     rem(5px)
+			z-index  5
 		> input
-			width rem(150px)
+			width   rem(150px)
 			padding 0 10px 0 30px
 		> a
-			position absolute
-			top rem(0px)
-			right rem(-55px)
 			sprite($send_pin)
-			height 36px
+			position absolute
+			top      rem(0px)
+			right    rem(-55px)
+			height   36px
 	p
-		font-size rem(15px)
+		font-size   rem(15px)
 		line-height normal
-		margin 0
+		margin      0
 		&:first-child
 			margin 0 0 15px 0
 	> a
-		font-size rem(13px)
-		margin 5px 0
-		color white
+		font-size       rem(13px)
+		margin          5px 0
+		color           white
 		text-decoration underline
 
 
@@ -241,51 +237,53 @@ a
 	img
 		bottom -5px
 	&.button_all
-		display block
+		display    block
 		text-align center
 		button
 			width 90%
+
 /* olvidaste tu contraseña */
+
 #errorRepeated
 #reSend
 	display none
 	> form
 		padding 10px 10px 0 10px
-		color black
+		color   black
 		h5
-			display block
+			display     block
 			font-family $familyMedium
-			text-align center
-			margin 0 0 20px 0
+			text-align  center
+			margin      0 0 20px 0
 #forgotPin
 	display none
-	width 390px
+	width   390px
 	> form
 		text-align center
-		color black
-		padding 0
+		color      black
+		padding    0
 		label
-			width auto
-			margin 0 5px 0 0
-			float none
-			display inline-block
+			width          auto
+			margin         0 5px 0 0
+			float          none
+			display        inline-block
 			vertical-align top
-			line-height rem(42px)
-			font-family $familyMedium
+			line-height    rem(42px)
+			font-family    $familyMedium
 		.input
-			display inline-block
+			display        inline-block
 			vertical-align top
-			margin 0 5px 0 0
+			margin         0 5px 0 0
 		input
 			background $gray_e3
-			width rem(200px)
-			height 42px
-			border 1px solid $gray_e3 
+			width      rem(200px)
+			height     42px
+			border     1px solid $gray_e3
 		.button
 			display inline-block
 		button
-			width rem(122px)
-			display inline-block
+			width          rem(122px)
+			display        inline-block
 			vertical-align middle
 		h5
 			margin 0
@@ -294,19 +292,18 @@ a
 		span
 			font-size rem(13px)
 		#afterSend
-			display none
+			display    none
 			background $beige_01
-			padding 35px 0
+			padding    35px 0
 			p
 				margin 0
 		#failSend
-			display none
-			font-size rem(13px)
-			color $red_01
+			display     none
+			font-size   rem(13px)
+			color       $red_01
 			font-family $familyMediumItalic
 			p
 				margin 0
-
 #momoPin
 	display none
 #pagoefectivoAlreadyRegister
@@ -317,80 +314,81 @@ a
 	padding 0 0 15px 0
 
 /* nubes */
+
 .clouds
-	position relative
-	padding 10px
+	position      relative
+	padding       10px
 	border-radius 3px
-	border 1px solid white
-	font-family $familyMediumItalic
+	border        1px solid white
+	font-family   $familyMediumItalic
 	p
-		margin 0
+		margin      0
 		line-height 1.18em
 		b
 			font-family $familySemiBoldItalic
 .triangle_cloud
 	sprite($triangle_cloud)
 	position absolute
-	bottom -11px
-	left 50%
-	margin 0 0 0 -12px
-	display inline-block
+	bottom   -11px
+	left     50%
+	margin   0 0 0 -12px
+	display  inline-block
 
 /* select */
 
 .select
-	display inline-block
+	display        inline-block
 	vertical-align top
-	margin 0 8px 0 0
-	background white
-	border 1px solid white
-	border-radius 3px
-	position relative
+	margin         0 8px 0 0
+	background     white
+	border         1px solid white
+	border-radius  3px
+	position       relative
 	&.select_big
 		display block
-		margin 0
+		margin  0
 	&.disabled
 		background-color $gray_bb !important
-		border 1px solid $gray_bb !important
+		border           1px solid $gray_bb !important
 	> span.selectImg
 		sprite($select)
 		position absolute
-		top 50%
-		margin -4px 0 0 0
-		right 8px
-		z-index 4
+		top      50%
+		margin   -4px 0 0 0
+		right    8px
+		z-index  4
 	> span.selectText
-		position absolute
-		height 100%
+		position    absolute
+		height      100%
 		line-height 36px
-		padding 0 20px 0 6px
-		color $gray_4a
+		padding     0 20px 0 6px
+		color       $gray_4a
 		font-family $familyMediumItalic
-		z-index 3
+		z-index     3
 	> select
 		position relative
-		opacity 0
-		filter unquote('alpha(opacity=0)')
-		z-index 5
-		height 34px !important
+		opacity  0
+		filter   unquote('alpha(opacity=0)')
+		z-index  5
+		height   34px !important
 .picker
-	display inline-block
+	display        inline-block
 	vertical-align top
-	position relative
-	border-radius 3px
+	position       relative
+	border-radius  3px
 	> span
 		sprite($picker)
 		position absolute
-		top 5px
-		right 5px
+		top      5px
+		right    5px
 .checkbox
 	position relative
 	> *
-		display inline-block
+		display        inline-block
 		vertical-align top
 	> input[type = checkbox]
-		width 20px
+		width  20px
 		margin 3px 10px 0 0
 	> span
-		width 300px
+		width     300px
 		font-size rem(13px)
