@@ -15,11 +15,11 @@ yOSON.AppCore.addModule "on_submit", (Sb) ->
         return
 
     suscribeEvents = ->
-        dom.frm_affiliate.on "submit", functions.onSubmit
+        dom.frm_affiliate.on "submit", events.onSubmit
         return
 
-    functions =
-        onSubmit: ->
+    events =
+        onSubmit : (e) ->
             log "submit"
             return
 

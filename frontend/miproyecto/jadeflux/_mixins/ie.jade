@@ -7,10 +7,9 @@ mixin ie(condition, content)
 	| <![endif]-->
 
 mixin html(condition, content)
-	- if (typeof condition !== "undefined"){
+	- if (typeof condition !== "undefined")
 		+ie(condition)
 			html(class="#{content}", lang="#{page.lang}", xmlns:og="http://ogp.me/ns#", xmlns:fb="http://ogp.me/ns/fb#")
-	- }
 
 mixin htmlIe()
 	+html('if IE 7', 'ie7')
