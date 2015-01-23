@@ -4,176 +4,176 @@
 */
 
 form
-	&.vertical
-		label
-			display     block
-			float       none
-			line-height 1.3em
-			&.ioption
-				float       left
-				font-size   1em
-				margin-left 70px
-				&:first-child
-					margin 0
-				&.ck
-					padding-right 20px
-					margin-bottom 1em
-					margin-top    1em
-		input[type="text"],
-		input[type="email"],
-		input[type="tel"],
-		input[type="password"],
-		select,
-		textarea
-			width 100%
-		.btn
-			margin 0
-	&.nolabel
-		label
-			display none
-			&.ioption
-				display     block
-				font-size   1em
-				line-height 18px
-				margin-left 60px
-				width       80px
-				input[type="radio"]
-					top 4px
-				&:first-child
-					margin 0
-				&.ck
-					padding-right 20px
-					margin-bottom 1em
-					margin-top    1em
-		input[type="text"],
-		input[type="email"],
-		input[type="tel"],
-		input[type="password"],
-		select,
-		textarea
-			width 100%
-		.btn
-			margin 0
+    &.vertical
+        label
+            display     block
+            float       none
+            line-height 1.3em
+            &.ioption
+                float       left
+                font-size   1em
+                margin-left 70px
+                &:first-child
+                    margin 0
+                &.ck
+                    padding-right 20px
+                    margin-bottom 1em
+                    margin-top    1em
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"],
+        select,
+        textarea
+            width 100%
+        .btn
+            margin 0
+    &.nolabel
+        label
+            display none
+            &.ioption
+                display     block
+                font-size   1em
+                line-height 18px
+                margin-left 60px
+                width       80px
+                input[type="radio"]
+                    top 4px
+                &:first-child
+                    margin 0
+                &.ck
+                    padding-right 20px
+                    margin-bottom 1em
+                    margin-top    1em
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"],
+        select,
+        textarea
+            width 100%
+        .btn
+            margin 0
 .form_control
-	position      relative
-	margin-bottom rem(20px)
-	*zoom 1
-	.form_control_inline
-		.form_control
-			float       left
-			margin-left 1em
-			&:first-child
-				margin-left 0 !important
-	&:last-child
-		margin 0
-	&:before,
-	&:after
-		display     table
-		content     ""
-		line-height 0
-	&:after
-		clear both
-	label
-		margin      0
-		float       left
-		font-size   1em
-		line-height rem(38px)
-		width       rem(110px)
-		font-family $familyMediumItalic
-		&.nbsp:after
-			content "\00a0"
-		&.ioption
-			cursor       pointer
-			line-height  35px
-			padding-left 20px
-			position     relative
-			width        11em
-			input[type="radio"],
-			input[type="checkbox"]
-				left     0
-				margin   0
-				padding  0
-				position absolute
-				top      12px
-			&.ck
-				font-size     0.929em
-				line-height   1.5em
-				margin-left   12.5em
-				width         auto
-				margin-top    1em
-				margin-bottom 1em
-				input[type="checkbox"]
-					top 2px
-		.required
-			color     $colorError
-			font-size 1.1em
-	input[type="text"],
-	input[type="email"],
-	input[type="tel"],
-	input[type="password"],
-	select,
-	textarea
-		background-color white
-		border           1px solid white
-		border-radius    3px
-		font-family      $familyMedium
-		height           rem(36px)
-		outline          none
-		padding-left     10px
-		padding-right    10px
-		width            rem(230px)
-		&.error
-			background-color #fcdddd
-			border           1px solid #fc7d7d
-		&.disabled
-			background $gray_bb !important
-			border     1px solid $gray_bb !important
-	textarea
-		background-color #fff
-		border           1px solid $grey40
-		border-radius    3px
-		font             1em/2em $family1
-		height           70px
-		padding          7px 10px
-		width            300px
-		&.error
-			background-color #fcdddd
-			border           1px solid #fc7d7d
+    position      relative
+    margin-bottom rem(20px)
+    *zoom 1
+    .form_control_inline
+        .form_control
+            float       left
+            margin-left 1em
+            &:first-child
+                margin-left 0 !important
+    &:last-child
+        margin 0
+    &:before,
+    &:after
+        display     table
+        content     ""
+        line-height 0
+    &:after
+        clear both
+    label
+        margin      0
+        float       left
+        font-size   1em
+        line-height rem(38px)
+        width       rem(110px)
+        font-family $familyMediumItalic
+        &.nbsp:after
+            content "\00a0"
+        &.ioption
+            cursor       pointer
+            line-height  35px
+            padding-left 20px
+            position     relative
+            width        11em
+            input[type="radio"],
+            input[type="checkbox"]
+                left     0
+                margin   0
+                padding  0
+                position absolute
+                top      12px
+            &.ck
+                font-size     0.929em
+                line-height   1.5em
+                margin-left   12.5em
+                width         auto
+                margin-top    1em
+                margin-bottom 1em
+                input[type="checkbox"]
+                    top 2px
+        .required
+            color     $colorError
+            font-size 1.1em
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    select,
+    textarea
+        background-color white
+        border           1px solid white
+        border-radius    3px
+        font-family      $familyMedium
+        height           rem(36px)
+        outline          none
+        padding-left     10px
+        padding-right    10px
+        width            rem(230px)
+        &.error
+            background-color #fcdddd
+            border           1px solid #fc7d7d
+        &.disabled
+            background $gray_bb !important
+            border     1px solid $gray_bb !important
+    textarea
+        background-color #fff
+        border           1px solid $grey40
+        border-radius    3px
+        font             1em/2em $family1
+        height           70px
+        padding          7px 10px
+        width            300px
+        &.error
+            background-color #fcdddd
+            border           1px solid #fc7d7d
 .change-code
-	display_inline()
-	border         1px solid $grey40
-	vertical-align top
+    display_inline()
+    border         1px solid $grey40
+    vertical-align top
 
 #iOperador
-	width rem(124px)
+    width rem(124px)
 #xMovil
-	width rem(217px)
+    width rem(217px)
 #iTipoDocumento
-	width rem(80px)
+    width rem(80px)
 #xDocumento
-	width rem(135px)
+    width rem(135px)
 #xCaducidad
-	width rem(115px)
+    width rem(115px)
 #xNombres
-	width rem(255px)
+    width rem(255px)
 #xApePaterno
-	width rem(171px)
+    width rem(171px)
 #xApeMaterno
-	width rem(172px)
+    width rem(172px)
 #xEmail,
 #cDepartamentoSel,
 #cProvinciaSel,
 #cDistritoSel
-	display block
-	width 100%
+    display block
+    width 100%
 
 #iPrefijoDireccion
-	width rem(90px)
+    width rem(90px)
 #xDireccion
-	width rem(251px)
+    width rem(251px)
 #xReferencia
-	width 100%
+    width 100%
 #xRangoDiasEntrega
-	width rem(160px)
+    width rem(160px)
 #xRangoHorasEntrega
-	width rem(179px)
+    width rem(179px)
