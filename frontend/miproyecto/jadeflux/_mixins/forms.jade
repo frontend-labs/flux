@@ -1,0 +1,57 @@
+//- Mixins for form elements
+
+mixin field(args)
+	fieldset
+		label #{label=args.label ? args.label : null}
+		input.input_control(
+			type=args.type ? args.type : 'text'
+			name=args.name ? args.name : null
+			value=args.value ? args.value : null
+			placeholder=args.placeholder ? args.placeholder : null
+			class=attributes.class
+			id=attributes.id ? attributes.id : null)
+
+mixin select(args)
+	fieldset
+		label #{label=args.label ? args.label : null}
+		select#embed-language.pretty_select_2
+			- for(var i = 0; i<10;i++)
+				option(
+					value=args.value ? args.value : null) #{text=args.text ? args.text : null}
+
+mixin checkbox(args)
+	//-.checkbox(id=attributes.id ? attributes.id : null, class=attributes.class ? attributes.class : null): label
+	fieldset
+		label.lbl_control #{args.checkboxlabel}
+			input(
+				type='checkbox'
+				name=args.name
+				value=args.value ? args.value : 'true'
+				checked=args.checked
+				disabled=args.disabled)
+			//-!= args.checkboxlabel
+
+mixin radio-inline(args)
+	label(id=attributes.id ? attributes.id : null, class=attributes.class ? attributes.class : null).radio_inline
+		input(
+			type='radio'
+			name=args.name
+			value=args.value
+			checked=args.checked
+			disabled=args.disabled)
+		|  
+		!= args.radiolabel
+
+mixin textarea(args)
+	textarea.form_textarea(
+		name=args.name ? args.name : null
+		placeholder=args.placeholder ? args.placeholder : null
+		class=attributes.class
+		id=attributes.id ? attributes.id : null)= args.value ? args.value : null
+
+mixin labelled-textarea(args)
+	.form-group
+		fieldset
+			label(for=attributes.id ? attributes.id : null).col-sm-3!= args.label
+			+textarea(args)(id=attributes.id,class=attributes.class)
+
