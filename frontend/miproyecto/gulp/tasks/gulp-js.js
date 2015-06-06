@@ -9,7 +9,7 @@ function Task(gulp, path, options, plugins, settings) {
 
     gulp.task('coffee', function() {
         return gulp.src(path.coffee.default.src)
-        .pipe(plugins.sourcemaps.init())
+        //.pipe(plugins.sourcemaps.init())
         .pipe(plugins.plumber())
         .pipe(plugins.coffee(options.coffee.general).on('error', function(err){
             console.log('');
@@ -33,7 +33,7 @@ function Task(gulp, path, options, plugins, settings) {
             */
 
         }))
-        .pipe(plugins.sourcemaps.write('./'))
+        //.pipe(plugins.sourcemaps.write('./'))
         .pipe(gulp.dest(path.coffee.default.dest));
     });
 

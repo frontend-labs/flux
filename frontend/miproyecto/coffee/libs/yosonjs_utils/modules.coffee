@@ -29,18 +29,8 @@ yOSON.AppSchema.modules =
     "by_default": () ->
         return
     "all_modules": () ->
-        yOSON.AppCore.runModule "select"
-        yOSON.AppCore.runModule "validating_cel"
-        yOSON.AppCore.runModule "make_numeric_keypad"
-        yOSON.AppCore.runModule "vertical_align_middle"
-        yOSON.AppCore.runModule "delegate_width_buttons"
-        yOSON.AppCore.runModule "equaling_heights"
         yOSON.AppCore.runModule "picker"
-        yOSON.AppCore.runModule "call_fancybox"
-        yOSON.AppCore.runModule "parsley_validation"
         yOSON.AppCore.runModule "table_striped"
-        yOSON.AppCore.runModule "accordion"
         yOSON.AppCore.runModule "add_msie"
-        yOSON.AppCore.runModule "init_attr_change"
         yOSON.AppCore.runModule "reload_selectivizr"
         return
