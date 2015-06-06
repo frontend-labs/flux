@@ -14,66 +14,55 @@
 * @view index
 */
 
-header 
-  background #333
-  height 75px
-
-header h1
-  display inline-block
-  top 15px
-  color gold
-
-footer
-  background #69a0c1
-  height 105px
-  overflow hidden
-  font-size 15px
-
-
 .box_game
-    background linear-gradient(to top,#69a0c1,#333333)
-    padding-top 20px
-    padding-bottom 20px
-    color #8f725b
-    transition color 1s ease
-    height 500px
+	background linear-gradient(to top,#69a0c1,#333333)
+	padding-top 20px
+	padding-bottom 20px
+	color #8f725b
+	transition color 1s ease
+	height 665px
 
 .balloon
-    margin-top 120px
-    margin-bottom 120px
-    max-width 200px
-    max-height 298px
+	margin-top 120px
+	margin-bottom 120px
+	max-width 200px
+	max-height 298px
 
 .floating
-    animation-name floating
-    -webkit-animation-name floating
-    animation-duration 4s
-    -webkit-animation-duration 4s
-    animation-iteration-count infinite
-    -webkit-animation-iteration-count infinite
+	animation-name floating
+	-webkit-animation-name floating
+	animation-duration 4s
+	-webkit-animation-duration 4s
+	animation-iteration-count infinite
+	-webkit-animation-iteration-count infinite
+
+.aladino
+	background transparent url($imgPath+'aladino.gif') no-repeat 0px 0px; 
+	width 29px
+	height 66px
 
 
 @keyframes floating {
-    0% {
-        transform translateY(0%)  
-    }
-    50% {
-        transform translateY(7%)  
-    }   
-    100% {
-        transform translateY(0%)
-    }           
+	0% {
+		transform translateY(0%)  
+	}
+	50% {
+		transform translateY(7%)  
+	}   
+	100% {
+		transform translateY(0%)
+	}           
 }
 
 @-webkit-keyframes floating {
-    0% {
-        -webkit-transform translateY(0%)  
-    }
-    50% {
-        -webkit-transform translateY(7%)  
-    }   
-    100% {
-        -webkit-transform translateY(0%)
-    }           
+	0% {
+		-webkit-transform translateY(0%)  
+	}
+	50% {
+		-webkit-transform translateY(7%)  
+	}   
+	100% {
+		-webkit-transform translateY(0%)
+	}           
 }
 
