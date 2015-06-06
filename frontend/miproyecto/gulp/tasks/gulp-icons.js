@@ -8,7 +8,7 @@
 function Task(gulp, path, options, plugins, settings) {
 
     gulp.task('compileIcons', function(){
-        gulp.src([path.icons.default.src.svgs])
+        return gulp.src([path.icons.default.src.svgs])
             .pipe(plugins.iconfont(options.icons.default.generator))
             .on('codepoints', function(codepoints, options) {
                 gulp.src(path.icons.default.src.template)
