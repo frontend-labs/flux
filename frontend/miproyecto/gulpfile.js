@@ -1,7 +1,7 @@
 /*!!
  *
  * gulpfile.js
- * @author: Jan Sanchez, Vistor Sandoval
+ * @author: Jan Sanchez, Victor Sandoval
  *
  */
 var gulp    = require('gulp'),
