@@ -9,7 +9,7 @@ function Task(gulp, path, options, plugins, settings) {
 
     gulp.task('coffee', function() {
         return gulp.src(path.coffee.default.src)
-        //.pipe(plugins.sourcemaps.init())
+        .pipe(plugins.sourcemaps.init())
         .pipe(plugins.plumber())
         .pipe(plugins.coffee(options.coffee.general).on('error', function(err){
             console.log('');
@@ -33,7 +33,7 @@ function Task(gulp, path, options, plugins, settings) {
             */
 
         }))
-        //.pipe(plugins.sourcemaps.write('./'))
+        .pipe(plugins.sourcemaps.write('./'))
         .pipe(gulp.dest(path.coffee.default.dest));
     });
 
@@ -70,7 +70,7 @@ function Task(gulp, path, options, plugins, settings) {
 
     gulp.task('complexity', function(){
         return gulp.src(path.javascript.complexity)
-        .pipe(plugins.complexity());
+        .pipe(plugins.complexity({breakOnErrors: false, halstead: [10, 13, 20]}));
     });
 
     gulp.task('js', function(cb) {
@@ -78,7 +78,7 @@ function Task(gulp, path, options, plugins, settings) {
     });
 
     gulp.task('js:default', function(cb) {
-        plugins.runSequence('coffee', 'concat:js', 'lint', cb);
+        plugins.runSequence('coffee', 'concat:js', 'lint', 'complexity', cb);
     });
 
     gulp.task('js:complex', ['js'], function() {
