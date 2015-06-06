@@ -38,7 +38,7 @@ function Task(gulp, path, options, plugins, settings) {
     });
 
     gulp.task('concat:js', function(){
-        gulp.src(path.javascript.default.src)
+        return gulp.src(path.javascript.default.src)
             .pipe(plugins.recursiveConcat(options.concat.js.recursiveConcat))
             .pipe(gulp.dest(path.javascript.default.dest))
             .pipe(plugins.if(settings.config.prod, plugins.rename(options.concat.js.rename)))
