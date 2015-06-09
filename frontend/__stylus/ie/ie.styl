@@ -1,0 +1,26 @@
+/*
+ * Solo para version IE
+ * @module ie
+ */
+@import 'jeet'
+@import 'rupture'
+
+@require '../_base/variables'
+@require '../_helpers/*'
+
+.lt-ie8
+	select
+		padding 8px 10px
+	.register_form_body .type_document_col select
+		padding 7px 1px
+		width 26.8%
+	input[type="text"],input[type="email"],input[type="tel"],input[type="password"]
+		line-height 35px
+	.rotate180
+		-ms-filter "progid:DXImageTransform.Microsoft.Matrix(M11=-1, M12=0, M21=0, M22=-1, DX=0, DY=0, SizingMethod='auto expand')"
+.lt-ie9
+	.gender_col .ioption input
+		top 10px
+
+
+

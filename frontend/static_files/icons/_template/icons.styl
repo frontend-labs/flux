@@ -1,0 +1,17 @@
+.icon
+	-webkit-font-smoothing antialiased
+	display inline-block
+	font-family "<%= fontName %>"
+	font-size 22px
+	font-style normal
+	font-variant normal
+	font-weight normal
+	line-height 1
+	text-decoration inherit
+	text-transform none
+	vertical-align middle
+
+<% _.each(glyphs, function(glyph) { %>
+.icon_<%= glyph.name %>:before
+	content "\<%= glyph.codepoint.toString(16).toUpperCase() %>"
+<% }); %>

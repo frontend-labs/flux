@@ -1,0 +1,91 @@
+.register_form
+	float left
+	width 642px
+.icon_pencil
+	sprite($pencil)
+	display inline-block
+	vertical-align bottom
+.register_form_header
+	>	div
+		float left
+	.title
+		width 454px
+		margin 32px 0 0
+		color white
+		p
+			margin 0 0 5px 33px
+	.access_account
+		width 188px
+		color white
+		text-align right
+		margin 35px 0 0
+.register_form_body
+	.type_document_col
+		select
+			width 27%
+		input
+			width 71.76%
+	.birthday_col
+		width 17%
+	.gender_col
+		color #FFF
+		padding-left 18px
+		width 33%
+		.ioption
+			line-height 36px
+			padding 0 8px 0 20px
+			display inline-block
+			input
+				top 12px
+	.type_road_col
+		width 16%
+	.street_address_col
+		width 84%
+	.other_info_row
+		.form_col
+			width 21%
+	.checkbox_row
+		margin 25px 102px
+		.ioption
+			padding-left 22px
+			& + .ioption
+				margin-top 15px
+.capcha_code
+	margin 0 0 0 126px
+	width 270px
+.information
+	color white
+	font-size 11.5px
+	margin 22px
+	line-height 15px
+.terms
+	text-decoration underline
+	&:hover
+		text-decoration none
+/*
+	------------------------------------
+		Aside
+	------------------------------------
+*/
+aside
+	float right
+	width 315px
+.draw_day
+	font-family $familyPrimary
+	position relative
+	margin 15px 0 0 66px
+	text-align right
+	padding-top 25px
+	span
+		color white
+		font-size 36px
+		position absolute
+		top 0
+		left 55px
+	.tape
+		sprite($landing_date)
+
+.draw_products
+	background url($imgPath + "landing_products.png") no-repeat
+	height 1220px
+	width 315px

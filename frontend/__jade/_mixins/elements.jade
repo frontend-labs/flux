@@ -1,0 +1,17 @@
+//-
+	Mixins for html elements
+
+mixin anchor(href2, title2, target2, clase2)
+	- if (typeof clase2 === "undefined"){
+		- if (href2 == ""){
+			a(href="javascript:;", title="#{title2}", target="#{target2}") #{title2}
+		- }else{
+			a(href="#{href2}", title="#{title2}", target="#{target2}") #{title2}
+		- }
+	- }else{
+		- if (href2 == ""){
+		a(class="#{clase2}", href="javascript:;", title="#{title2}", target="#{target2}") #{title2}
+		- }else{
+		a(class="#{clase2}", href="#{href2}", title="#{title2}", target="#{target2}") #{title2}
+		- }
+	- }

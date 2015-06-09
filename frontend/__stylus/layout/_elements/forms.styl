@@ -1,0 +1,60 @@
+/*
+* Forms
+* @module forms
+*/
+.form_row
+	cf()
+	.form_col
+		float left
+		width 50%
+		& + .form_col
+			border-left 3px solid transparent
+
+input:focus
+	outline 0
+
+label
+	display block
+	margin 0
+	font-size 1em
+	line-height rem(38px)
+	color white
+	&.ioption
+		cursor pointer
+		line-height 17px
+		padding-left 20px
+		position relative
+		input[type="radio"],input[type="checkbox"]
+			left 0
+			margin 0
+			padding 0
+			position absolute
+			top 2px
+
+input[type="text"],input[type="email"],input[type="tel"],input[type="password"], select, textarea
+	background-color white
+	border 1px solid white
+	color #4F4F4F
+	font-family "Arial"
+	height rem(36px)
+	outline none
+	width 100%
+	&.error
+		background-color #fcdddd
+		border 1px solid #fc7d7d
+
+input[type="text"],input[type="email"],input[type="tel"],input[type="password"]
+	padding 0 10px
+
+select
+	padding 0 0 0 10px
+
+textarea
+	background-color #fff
+	border-radius 3px
+	height 70px
+	padding 7px 10px
+	width 300px
+	&.error
+		background-color #fcdddd
+		border 1px solid #fc7d7d
