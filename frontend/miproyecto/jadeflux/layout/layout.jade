@@ -3,13 +3,13 @@ include ../_mixins/mixins.jade
 doctype html
 //-+htmlIe()
 html(lang="#{page.lang}", xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#")
-    include ../_render/head.jade
-    block templates
-    body
-        include ../_render/header.jade
-        // -- -- -- -- -- -- -- -- -- -- fin del header -- -- -- -- --  -- -- -- -- --
-        //-<?php echo $this->content; ?>
-        block content
-        // -- -- -- -- -- -- -- -- -- -- inicio del footer -- -- -- -- -- -- -- -- -- --
-        include ../_render/footer.jade
-        include ../_partials/footer_scripts.jade
+	include ../_render/head.jade
+	block templates
+	body
+		include ../_render/header.jade
+		// -- -- -- -- -- -- -- -- -- -- fin del header -- -- -- -- --  -- -- -- -- --
+		//-<?php echo $this->content; ?>
+		block content
+		// -- -- -- -- -- -- -- -- -- -- inicio del footer -- -- -- -- -- -- -- -- -- --
+		include ../_render/footer.jade
+		include ../_partials/footer_scripts.jade

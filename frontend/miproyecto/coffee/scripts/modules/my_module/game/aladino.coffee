@@ -10,7 +10,12 @@ yOSON.AppCore.addModule "aladino", (Sb) ->
 		parent     : '.box_game'
 		el         : '#aladino'
 		bgPosition : 'background-position'
-		movements  : ['-27px 0px', '-54px 0px', '-81px 0px', '-108px 0px', '-135px 0px', '-162px 0px', '-189px 0px', '-216px 0px']
+		movements  : [
+					  '0px 0px', '-27px 0px', '-54px 0px', '-81px 0px', '-108px 0px', '-135px 0px', 
+					  '-162px 0px', '-189px 0px', '-216px 0px', '-246px 0px', '-276px 0px'
+					  '-300px 0px', '-330px 0px', '-360px 0px'
+					 ]
+		trace : ''
 	}
 	st = {}
 	dom = {}
@@ -30,19 +35,25 @@ yOSON.AppCore.addModule "aladino", (Sb) ->
 	}
 	fn = {
 		animate : () ->
-			for i in st.movements
-				console.log st.movements[i]
-				dom.el.css(st.bgPosition, st.movements[i])
+
+			for movement in st.movements
+				st.trace +=  movement + ', ';
+				dom.el.css(st.bgPosition, movement)
+				console.log st.trace
+			return
+		toAnimate : (position) ->
+			dom.el.css(st.bgPosition, st.movements[position])
 			return
 	}
 	initialize = (opts) ->
 		st = $.extend({}, defaults, opts)
 		catchDom()
 		suscribeEvents()
-		window.animar = fn.animate()
+		fn.animate()
+		window.toAnimate = fn.toAnimate
 		return
 
 	return {
 		init: initialize
 	}
-,[""]
+,[]
