@@ -10,6 +10,15 @@ yOSON.AppSchema.modules =
                         return
                 "all_actions": () ->
                     return
+            "game":
+                "actions":
+                    "index": () ->
+                        yOSON.AppCore.runModule "aladino"
+                        return
+                    "by_default": () ->
+                        return
+                "all_actions": () ->
+                    return
             "affiliation":
                 "actions":
                     "affiliation_step_1": () ->

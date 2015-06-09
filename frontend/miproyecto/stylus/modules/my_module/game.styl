@@ -14,13 +14,16 @@
 * @view index
 */
 
+body
+	background black
+
 .box_game
 	background linear-gradient(to top,#69a0c1,#333333)
 	padding-top 20px
 	padding-bottom 20px
 	color #8f725b
 	transition color 1s ease
-	height 665px
+	height 620px
 
 .balloon
 	margin-top 120px
@@ -36,8 +39,8 @@
 	animation-iteration-count infinite
 	-webkit-animation-iteration-count infinite
 
-.aladino
-	background transparent url($imgPath+'aladino.gif') no-repeat 0px 0px; 
+#aladino
+	background transparent url($imgPath+'aladino.gif') no-repeat 0px 0px 
 	width 29px
 	height 66px
 
@@ -65,4 +68,24 @@
 		-webkit-transform translateY(0%)
 	}           
 }
+
+
+
+#terminal
+	position fixed
+	bottom 0
+	width 100%
+	margin 5px 0 0 0
+	padding 10px
+	background #000000
+	max-height 100px
+	color #FFFFFF
+	textarea
+		background #000
+		color white
+		font-size 13px
+		font-family sans-serif
+		border 0
+		width 100%
+		padding 5px
 
