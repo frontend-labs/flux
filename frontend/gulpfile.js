@@ -28,7 +28,7 @@ var plugins = {
     // GULP ICON
     iconfont    : require('gulp-iconfont'),
     // GULP COFFEE
-    coffeei     : require('gulp-coffee'),
+    coffee      : require('gulp-coffee'),
     jsConcat    : require('gulp-recursive-concat'),
     uglify      : require('gulp-uglify'),
     jshint      : require('gulp-jshint'),
