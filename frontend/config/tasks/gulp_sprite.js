@@ -18,7 +18,7 @@ function Task(gulp, path, config, plugins){
 		var imgStream = spriteData.img.pipe(gulp.dest(path.frontend.staticFiles_img + '/'));
 
 		// Pipe CSS stream through CSS optimizer and onto disk
-		var cssStream = spriteData.css.pipe(gulp.dest(path.frontend.stylus + '/_mixins/'));
+		var cssStream = spriteData.css.pipe(gulp.dest(path.frontend.stylus + '/_helpers/'));
 	});
 
 	gulp.task('sprite', function (callback) {

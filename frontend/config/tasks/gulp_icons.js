@@ -17,7 +17,7 @@ function Task(gulp, path, config, plugins){
 						glyphs: codepoints,
 						fontName: 'iconFonts'
 					}))
-					.pipe(gulp.dest(path.frontend.stylus + '/_partials'));
+					.pipe(gulp.dest(path.frontend.stylus + '/layout/_elements'));
 			})
 			.pipe(gulp.dest(path.frontend.staticFiles_fonts + '/iconFonts'));
 	});
