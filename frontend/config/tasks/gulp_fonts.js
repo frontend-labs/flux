@@ -11,7 +11,7 @@ function Task(gulp, path, config, plugins, fs){
 			var dirList = files.filter(function(file) { return (/^[^_]*$/g).test(file); });
 			gulp.src(path.frontend.staticFiles_fonts + '/_template/fonts.styl')
 				.pipe(plugins.consolidate('lodash', { dirList: dirList }))
-				.pipe(gulp.dest(path.frontend.stylus + '/layout/_layout'));
+				.pipe(gulp.dest(path.frontend.stylus + '/layout'));
 		})
 	});
 
