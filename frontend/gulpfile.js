@@ -4,37 +4,38 @@ var gulp   = require('gulp'),
     config = require('./config/config.local');
 
 var plugins = {
-    if : require('gulp-if'),
-    runSequence : require('run-sequence'),
+    if              : require('gulp-if'),
+    runSequence     : require('run-sequence'),
+    shell           : require('gulp-shell'),
     // GULP CLEAN
-    rimraf      : require('gulp-rimraf'),
+    rimraf          : require('gulp-rimraf'),
     // GULP COPY
-    imagemin    : require('gulp-imagemin'),
-    imageminPNG : require('imagemin-optipng'),
-    imageminJPG : require('imagemin-jpegtran'),
-    imageminGIF : require('imagemin-gifsicle'),
-    imageminSVG : require('imagemin-svgo'),
+    imagemin        : require('gulp-imagemin'),
+    imageminPNG     : require('imagemin-optipng'),
+    imageminJPG     : require('imagemin-jpegtran'),
+    imageminGIF     : require('imagemin-gifsicle'),
+    imageminSVG     : require('imagemin-svgo'),
     // GULP STYLES
-    stylus      : require('gulp-stylus'),
-    urlVersion  : require('gulp-css-url-versioner'),
-    rupture     : require('rupture'),
-    jeet        : require('jeet'),
+    stylus          : require('gulp-stylus'),
+    urlVersion      : require('gulp-css-url-versioner'),
+    rupture         : require('rupture'),
+    jeet            : require('jeet'),
     // GULP SPRITE
-    spritesmith : require('gulp.spritesmith'),
+    spritesmith     : require('gulp.spritesmith'),
     // GULP FONTS
-    consolidate : require("gulp-consolidate"),
+    consolidate     : require("gulp-consolidate"),
     // GULP JADE
-    jade        : require('gulp-jade'),
+    jade            : require('gulp-jade'),
     // GULP ICON
-    iconfont    : require('gulp-iconfont'),
+    iconfont        : require('gulp-iconfont'),
     // GULP COFFEE
-    coffee      : require('gulp-coffee'),
-    jsConcat    : require('gulp-recursive-concat'),
-    uglify      : require('gulp-uglify'),
-    jshint      : require('gulp-jshint'),
+    coffee          : require('gulp-coffee'),
+    jsConcat        : require('gulp-recursive-concat'),
+    uglify          : require('gulp-uglify'),
+    jshint          : require('gulp-jshint'),
     //GULP SERVER
-    browserSync : require('browser-sync'),
-    nodemon     : require('gulp-nodemon')
+    browserSync     : require('browser-sync'),
+    nodemon         : require('gulp-nodemon')
 }
 
 var runTask = function (nameTask){
@@ -51,7 +52,8 @@ runTask("gulp_html");
 runTask("gulp_icons");
 runTask("gulp_js");
 runTask("gulp_watch");
+runTask("gulp_bower");
 
 gulp.task('default', ['clean'], function (cb) {
-    plugins.runSequence('fonts', 'icons', 'sprite', 'styles', 'js', 'copy', cb);
+    plugins.runSequence('fonts', 'icons', 'sprite', 'styles', 'js', 'copy', 'bower:init', cb);
 });
