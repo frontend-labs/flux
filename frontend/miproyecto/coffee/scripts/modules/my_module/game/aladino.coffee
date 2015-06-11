@@ -7,50 +7,53 @@ Modulo para crear los metodos de animacion de aladino
 
 yOSON.AppCore.addModule "aladino", (Sb) ->
 	defaults = {
-		parent     : '.box_game'
-		el         : '#aladino'
-		bgPosition : 'background-position'
-		movements  : [
-					  '0px 0px', '-27px 0px', '-54px 0px', '-81px 0px', '-108px 0px', '-135px 0px', 
-					  '-162px 0px', '-189px 0px', '-216px 0px', '-246px 0px', '-276px 0px'
-					  '-300px 0px', '-330px 0px', '-360px 0px'
-					 ]
-		trace : ''
+		parent      : '.box_game'
+		el          : '.aladino'
+		bgPosition  : 'background-position'
+		movements   : [4,11]
+		trace       : '',
+		indice      : 0,
+		prefixClass : 'running_',
+		time        : 120
 	}
 	st = {}
 	dom = {}
+	interval = null
 
 	catchDom = () ->
 		dom.parent = $(st.parent)
 		dom.el     = $(st.el, dom.parent)
 		return
 	suscribeEvents = () ->
-		dom.el.on "click",   events.camelCase
 		return
 
 	events = {
-		camelCase : (e) ->
-			console.log(e)
-			return
 	}
-	fn = {
-		animate : () ->
 
-			for movement in st.movements
-				st.trace +=  movement + ', ';
-				dom.el.css(st.bgPosition, movement)
-				console.log st.trace
-			return
-		toAnimate : (position) ->
-			dom.el.css(st.bgPosition, st.movements[position])
+	fn = {
+		run : () ->
+			classRemove = ''
+			classAdd = ''
+			st.indice = st.movements[0]
+			setInterval( () ->
+				if st.indice is st.movements[1]
+					st.indice = st.movements[0]
+					classRemove = st.prefixClass + st.movements[1]
+				else
+					classRemove = st.prefixClass + st.indice
+				classAdd = st.prefixClass + (st.indice + 1)
+				dom.el.removeClass(classRemove).addClass(classAdd)
+				st.indice++
+				console.log st.prefixClass + st.indice
+			, st.time)
 			return
 	}
+
 	initialize = (opts) ->
 		st = $.extend({}, defaults, opts)
 		catchDom()
 		suscribeEvents()
-		fn.animate()
-		window.toAnimate = fn.toAnimate
+		fn.run()
 		return
 
 	return {

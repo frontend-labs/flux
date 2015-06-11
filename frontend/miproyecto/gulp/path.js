@@ -68,6 +68,15 @@ Path.sprites = {
 			stylus: Path.src.stylus + '_mixins/',
 			image: Path.src.static.images
 		}
+	},
+	aladinoRunning : {
+		src: {
+			images: Path.src.static.images + '_sprite/aladino_running/*.png'
+		},
+		dest: {
+			stylus: Path.src.stylus + '_mixins/',
+			image: Path.src.static.images
+		}
 	}
 };
 
@@ -257,6 +266,11 @@ Path.clean = {
 			Path.src.stylus + '_mixins/' + 'second_sprite.styl',
 			Path.src.static.images + 'second_sprite.png',
 			Path.dest.images + 'second_sprite.png'
+		],
+		aladinoRunning: [
+			Path.src.stylus + '_mixins/' + 'aladino_running.styl',
+			Path.src.static.images + 'aladino_running.png',
+			Path.dest.images + 'aladino_running.png'
 		]
 	},
 	styles: {

@@ -45,6 +45,13 @@ Options.sprites = {
 		imgName: 'second_sprite.png',
 		cssName: 'second_sprite.styl',
 		imgPath: '../../../img/second_sprite.png',
+	},
+	aladinoRunning : {
+		algorithm: 'binary-tree',
+		imgName: 'aladino_running.png',
+		cssName: 'aladino_running.styl',
+		imgPath: '../../../img/aladino_running.png',
+		algorithmOpts: {sort: false}
 	}
 };
 

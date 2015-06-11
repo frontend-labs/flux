@@ -20,6 +20,12 @@ function Task(gulp, path, options, plugins, settings) {
         secondData.img.pipe(gulp.dest(path.sprites.secondSprite.dest.image));
         secondData.css.pipe(gulp.dest(path.sprites.secondSprite.dest.stylus));
 
+        var aladinoRunningData = gulp.src(path.sprites.aladinoRunning.src.images)
+            .pipe(plugins.spritesmith(options.sprites.aladinoRunning));
+
+        aladinoRunningData.img.pipe(gulp.dest(path.sprites.aladinoRunning.dest.image));
+        aladinoRunningData.css.pipe(gulp.dest(path.sprites.aladinoRunning.dest.stylus));
+
         gulp.start('copy:img:sprites');
 
     });
