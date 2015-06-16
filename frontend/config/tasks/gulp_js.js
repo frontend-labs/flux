@@ -43,7 +43,7 @@ function Task(gulp, path, config, plugins, fs){
 	});
 
 	gulp.task('js', function(callback) {
-		plugins.runSequence('clean:js', 'coffee', 'concat:js', 'lint', 'copy:js:libs', callback);
+		plugins.runSequence('clean:js', 'coffee', 'concat:js', 'lint', 'copy:js:libs', 'bower', callback);
 	});
 }
 
