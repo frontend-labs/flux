@@ -6,36 +6,33 @@
 function Task(gulp, path, config, plugins, fs){
 
 	var pathCoffeeFiles = [
-		path.frontend.coffee + '/**/*.coffee',
-		path.frontend.coffee + '/**/**/*.coffee',
-		'!' + path.frontend.coffee + '/_**/*.coffee',
-		'!' + path.frontend.coffee + '/**/_*.coffee'
+		path.frontend.coffee + '/libs/*.coffee',
+		path.frontend.coffee + '/libs/**/*.coffee'
 	]
 
 	gulp.task('coffee', function() {
 		return gulp.src(pathCoffeeFiles, { base : path.frontend.coffee })
 		.pipe(plugins.coffee({bare: true}).on('error', function(cb){ }))
-		.pipe(gulp.dest(path.dest.js_source));
+		.pipe(gulp.dest(path.dest.js));
 	});
 
 	gulp.task('concat:js', function(){
-		gulp.src(path.dest.js_source + '/modules/**/*.js')
-			.pipe(plugins.jsConcat({
-				extname: '.js'
-			}))
+		gulp.src(path.frontend.coffee + '/modules/**/*.coffee')
+			.pipe(plugins.jsConcat({ extname: '.coffee' }))
+			.pipe(plugins.coffee({ bare: true }))
 			.pipe(plugins.if(config.prod, plugins.uglify({
 				mangle 	: false, 
 				compress: {
 					drop_debugger: true
 				}
 			})))
-			.pipe(gulp.dest(path.dest.js_dist + '/modules/'));
+			.pipe(gulp.dest(path.dest.js + '/modules'));
 	});
 
 	gulp.task('lint', function() {
 		return gulp.src([
-			path.dest.js_source + '/**/*.js',
-			'!'+ path.dest.js_source + '/libs/**/*.js'
+			path.dest.js + '/**/*.js',
+			'!'+ path.dest.js + '/libs/**/*.js'
 			])
 			.pipe(plugins.jshint(path.frontend.config + '/.jshintrc'))
 			.pipe(plugins.jshint.reporter('jshint-stylish'))
@@ -43,7 +40,7 @@ function Task(gulp, path, config, plugins, fs){
 	});
 
 	gulp.task('js', function(callback) {
-		plugins.runSequence('clean:js', 'coffee', 'concat:js', 'lint', 'copy:js:libs', 'bower', callback);
+		plugins.runSequence('clean:js', 'coffee', 'concat:js', 'lint', 'bower', callback);
 	});
 }
 

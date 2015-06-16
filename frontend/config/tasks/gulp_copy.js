@@ -47,12 +47,7 @@ function Task(gulp, path, config, plugins){
 		gulp.src(pathCopyFontsFiles, { base : path.frontend.staticFiles })
 			.pipe(gulp.dest(path.dest.publicFiles));
 	});
-
-	gulp.task('copy:js:libs', function() {
-		gulp.src(path.dest.js_source + '/libs/**/*.*')
-			.pipe(gulp.dest(path.dest.js_dist + '/libs'));
-	});
-
+	
 	gulp.task('copy', function (callback) {
 		plugins.runSequence('copy:img', 'copy:fonts',  callback);
 	});
