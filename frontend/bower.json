@@ -15,5 +15,9 @@
   "devDependencies": {
     "jquery": "1.11.3",
     "yosonjs": "~0.0.16-alpha"
+  },
+  "preen": {
+    "jquery": ["dist/*.js"],
+    "yosonjs": ["build/*.js"]
   }
 }

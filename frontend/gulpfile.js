@@ -35,7 +35,9 @@ var plugins = {
     jshint          : require('gulp-jshint'),
     //GULP SERVER
     browserSync     : require('browser-sync'),
-    nodemon         : require('gulp-nodemon')
+    nodemon         : require('gulp-nodemon'),
+    //GULP BOWER
+    preen           : require('preen')
 }
 
 var runTask = function (nameTask){
@@ -55,5 +57,5 @@ runTask("gulp_watch");
 runTask("gulp_bower");
 
 gulp.task('default', ['clean'], function (cb) {
-    plugins.runSequence('fonts', 'icons', 'sprite', 'styles', 'js', 'copy', 'bower:init', cb);
+    plugins.runSequence('fonts', 'icons', 'sprite', 'styles', 'js', 'copy', 'bower', cb);
 });
