@@ -28,17 +28,12 @@ rem($list)
 		$list[$i] = arguments[$i]
 	return $list
 
-px(size)
-	font-size ( size * $basefont )px
-
 px_to_rem_font(size1, size2, family)
 	//s1 = round(( size1 / $basefont )rem , 3)
 	//s2 = round(( size2 / $basefont )rem , 3)
 	//return s1\/s2 family
 	return (size1)px \/ (size2)px family
 
-px_to_rem(size)
-	return size px
 
 pxper(size, parent = $wrapperWidth)
 	return round((size / parent * 100)%, 2)

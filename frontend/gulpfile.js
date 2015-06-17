@@ -7,6 +7,7 @@ var plugins = {
     if              : require('gulp-if'),
     runSequence     : require('run-sequence'),
     shell           : require('gulp-shell'),
+    recursiveConcat : require('gulp-recursive-concat'),
     // GULP CLEAN
     rimraf          : require('gulp-rimraf'),
     // GULP COPY
@@ -20,6 +21,7 @@ var plugins = {
     urlVersion      : require('gulp-css-url-versioner'),
     rupture         : require('rupture'),
     jeet            : require('jeet'),
+    nib             : require('nib'),
     // GULP SPRITE
     spritesmith     : require('gulp.spritesmith'),
     // GULP FONTS
@@ -30,7 +32,6 @@ var plugins = {
     iconfont        : require('gulp-iconfont'),
     // GULP COFFEE
     coffee          : require('gulp-coffee'),
-    jsConcat        : require('gulp-recursive-concat'),
     uglify          : require('gulp-uglify'),
     jshint          : require('gulp-jshint'),
     //GULP SERVER

@@ -9,7 +9,7 @@ function Task(gulp, path, config, plugins){
 		var spriteData = gulp.src(path.frontend.staticFiles_img + '/_sprite/main_sprite/*.png')
 			.pipe(plugins.spritesmith({
 				algorithm: 'binary-tree',
-				imgPath: '../../../img/main_sprite.png',
+				imgPath: '/img/main_sprite.png',
 				imgName: 'main_sprite.png',
 				cssName: 'main_sprite.styl'
 			}));

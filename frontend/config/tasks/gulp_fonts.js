@@ -5,7 +5,7 @@
  */
 function Task(gulp, path, config, plugins, fs){
 
-	gulp.task('compileFonts', function(){
+	gulp.task('fonts:compile', function(){
 		fs.readdir(path.frontend.staticFiles_fonts + "/", function(err, files) {
 			if (err) throw err;
 			var dirList = files.filter(function(file) { return (/^[^_]*$/g).test(file); });
@@ -16,7 +16,7 @@ function Task(gulp, path, config, plugins, fs){
 	});
 
 	gulp.task('fonts', function(callback) {
-		plugins.runSequence('compileFonts', 'styles', 'copy:fonts', callback);
+		plugins.runSequence('fonts:compile', 'styles', 'copy:fonts', callback);
 	});
 
 }

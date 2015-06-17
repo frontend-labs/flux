@@ -5,7 +5,7 @@
  */
 function Task(gulp, path, config, plugins){
 
-	gulp.task('compileIcons', function(){
+	gulp.task('icons:compile', function(){
 		gulp.src(path.frontend.staticFiles_icons + '/*.svg')
 			.pipe(plugins.iconfont({ 
 				normalize: true, 
@@ -23,7 +23,7 @@ function Task(gulp, path, config, plugins){
 	});
 
 	gulp.task('icons', function(callback) {
-		plugins.runSequence('compileIcons', 'compileFonts', 'styles', 'copy:fonts', callback);
+		plugins.runSequence('icons:compile', 'fonts:compile', 'styles', 'copy:fonts', callback);
 	});
 
 }

@@ -18,7 +18,7 @@ function Task(gulp, path, config, plugins, fs){
 
 	gulp.task('concat:js', function(){
 		gulp.src(path.frontend.coffee + '/modules/**/*.coffee')
-			.pipe(plugins.jsConcat({ extname: '.coffee' }))
+			.pipe(plugins.recursiveConcat({ extname: '.coffee' }))
 			.pipe(plugins.coffee({ bare: true }))
 			.pipe(plugins.if(config.prod, plugins.uglify({
 				mangle 	: false, 
@@ -39,6 +39,10 @@ function Task(gulp, path, config, plugins, fs){
 			.pipe(plugins.jshint.reporter('fail'));
 	});
 
+	gulp.task('js:watch', function(callback) {
+		plugins.runSequence('coffee', 'concat:js', 'lint', callback);
+	});
+	
 	gulp.task('js', function(callback) {
 		plugins.runSequence('clean:js', 'coffee', 'concat:js', 'lint', 'bower', callback);
 	});

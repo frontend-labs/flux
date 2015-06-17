@@ -14,10 +14,14 @@
   ],
   "devDependencies": {
     "jquery": "1.11.3",
-    "yosonjs": "~0.0.16-alpha"
+    "yosonjs": "~0.0.16-alpha",
+    "selectivizr": "~1.0.2",
+    "html5shiv": "~3.7.2"
   },
   "preen": {
     "jquery": ["dist/*.js"],
-    "yosonjs": ["build/*.js"]
+    "yosonjs": ["build/*.js"],
+    "selectivizr": ["*.js"],
+    "html5shiv": ["dist/*.js"]
   }
 }

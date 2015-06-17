@@ -1,9 +1,11 @@
 
 //Routes
-var path = {frontend : {}, dest : {}};
+var path = {base : {}, frontend : {}, dest : {}};
 
 //------------------------------------------------------
-path.frontend.base        = __dirname + '/..';
+path.base                         = __dirname + '/../..';
+//------------------------------------------------------
+path.frontend.base                = path.base + '/frontend';
 //------------------------------------------------------
 
 path.frontend.config              = path.frontend.base + '/config';
@@ -16,7 +18,7 @@ path.frontend.staticFiles         = path.frontend.base + '/static_files';
   path.frontend.staticFiles_img   = path.frontend.staticFiles + '/img'
 
 //------------------------------------------------------
-path.dest.publicFiles             = path.frontend.base + '/../public';
+path.dest.publicFiles             = path.base + '/public';
 //------------------------------------------------------
 
 path.dest.css                     = path.dest.publicFiles + '/css';
