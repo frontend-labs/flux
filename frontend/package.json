@@ -36,6 +36,7 @@
     "jshint-stylish": "^2.0.0",
     "lodash": "^3.9.1",
     "nib": "^1.1.0",
+    "node-notifier": "^4.2.3",
     "preen": "^1.2.0",
     "run-sequence": "^1.1.0",
     "rupture": "^0.6.1"

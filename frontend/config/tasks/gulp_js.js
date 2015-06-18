@@ -12,7 +12,15 @@ function Task(gulp, path, config, plugins, fs){
 
 	gulp.task('coffee', function() {
 		return gulp.src(pathCoffeeFiles, { base : path.frontend.coffee })
-		.pipe(plugins.coffee({bare: true}).on('error', function(cb){ }))
+		.pipe(plugins.coffee({bare: true})
+			.on('error', function (error) {
+				plugins.notifier.notify({
+					title: 'Plugin: ' + error.plugin,
+					message: error.message
+				});
+				this.emit('end');
+			})
+		)
 		.pipe(gulp.dest(path.dest.js));
 	});
 
@@ -30,13 +38,17 @@ function Task(gulp, path, config, plugins, fs){
 	});
 
 	gulp.task('js:lint', function() {
-		return gulp.src([
-			path.dest.js + '/**/*.js',
-			'!'+ path.dest.js + '/libs/**/*.js'
-			])
+		return gulp.src(path.dest.js + '/modules/**/*.js')
 			.pipe(plugins.jshint(path.frontend.config + '/.jshintrc'))
 			.pipe(plugins.jshint.reporter('jshint-stylish'))
-			.pipe(plugins.jshint.reporter('fail'));
+			.pipe(plugins.jshint.reporter('fail'))
+			.on('error', function (error) {
+				plugins.notifier.notify({
+					title: 'Plugin: ' + error.plugin,
+					message: error.message
+				});
+				this.emit('end');
+			});
 	});
 
 	gulp.task('js:complexity', function(){
@@ -46,7 +58,7 @@ function Task(gulp, path, config, plugins, fs){
 	});
 
 	gulp.task('js:watch', function(callback) {
-		plugins.runSequence('coffee', 'js:concat', 'lint', callback);
+		plugins.runSequence('coffee', 'js:concat', 'js:lint', callback);
 	});
 	
 	gulp.task('js', function(callback) {

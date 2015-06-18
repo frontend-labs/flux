@@ -18,10 +18,6 @@
   },
   "sub": true,
   "predef" : [
-    "fileupload",
-    "complexity",
-    "scallback",
-    "valid",
     "FB",
     "twttr",
     "gapi",
@@ -40,24 +36,12 @@
     "Cookie",
     "tmp",
     "browser",
-    "arguments_",
     "gMap",
     "trackAnalytics",
     "google",
     "GMaps",
-    "device",
-    "module",
-    "configuration",
-    "Sly",
-    "map",
-    "Selectivizr",
     "alert",
-    "isInternetExplorer",
-    "ProgressBar",
-    "gtrack",
-    "IScroll",
-    "io",
-    "appIdFacebook"
+    "isInternetExplorer"
   ],
   "eqeqeq" : false, // esto es el casi el diablo, hay que ponerle false
   "eqnull" : false, // esto es el casi el diablo, hay que ponerle false

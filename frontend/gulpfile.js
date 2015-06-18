@@ -8,6 +8,7 @@ var plugins = {
     runSequence     : require('run-sequence'),
     shell           : require('gulp-shell'),
     recursiveConcat : require('gulp-recursive-concat'),
+    notifier        : require("node-notifier"),
     // GULP CLEAN
     rimraf          : require('gulp-rimraf'),
     // GULP COPY
