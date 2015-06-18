@@ -12,6 +12,7 @@
     "browser-sync": "^2.7.6",
     "gulp": "^3.8.11",
     "gulp-coffee": "^2.3.1",
+    "gulp-complexity": "^0.3.0",
     "gulp-consolidate": "^0.1.2",
     "gulp-css-url-versioner": "^1.0.6",
     "gulp-iconfont": "^1.0.1",

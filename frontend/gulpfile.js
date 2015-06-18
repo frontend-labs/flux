@@ -34,6 +34,7 @@ var plugins = {
     coffee          : require('gulp-coffee'),
     uglify          : require('gulp-uglify'),
     jshint          : require('gulp-jshint'),
+    complexity      : require('gulp-complexity'),
     //GULP SERVER
     browserSync     : require('browser-sync'),
     nodemon         : require('gulp-nodemon'),

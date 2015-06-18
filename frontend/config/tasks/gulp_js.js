@@ -16,7 +16,7 @@ function Task(gulp, path, config, plugins, fs){
 		.pipe(gulp.dest(path.dest.js));
 	});
 
-	gulp.task('concat:js', function(){
+	gulp.task('js:concat', function(){
 		gulp.src(path.frontend.coffee + '/modules/**/*.coffee')
 			.pipe(plugins.recursiveConcat({ extname: '.coffee' }))
 			.pipe(plugins.coffee({ bare: true }))
@@ -29,7 +29,7 @@ function Task(gulp, path, config, plugins, fs){
 			.pipe(gulp.dest(path.dest.js + '/modules'));
 	});
 
-	gulp.task('lint', function() {
+	gulp.task('js:lint', function() {
 		return gulp.src([
 			path.dest.js + '/**/*.js',
 			'!'+ path.dest.js + '/libs/**/*.js'
@@ -39,12 +39,18 @@ function Task(gulp, path, config, plugins, fs){
 			.pipe(plugins.jshint.reporter('fail'));
 	});
 
+	gulp.task('js:complexity', function(){
+		gulp.src(path.frontend.coffee + '/modules/**/*.coffee')
+			.pipe(plugins.coffee({ bare: true }))
+			.pipe(plugins.complexity());
+	});
+
 	gulp.task('js:watch', function(callback) {
-		plugins.runSequence('coffee', 'concat:js', 'lint', callback);
+		plugins.runSequence('coffee', 'js:concat', 'lint', callback);
 	});
 	
 	gulp.task('js', function(callback) {
-		plugins.runSequence('clean:js', 'coffee', 'concat:js', 'lint', 'bower', callback);
+		plugins.runSequence('clean:js', 'coffee', 'js:concat', 'js:lint', 'bower', callback);
 	});
 }
 
