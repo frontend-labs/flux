@@ -18,12 +18,16 @@ body
 	background black
 
 .box_game
-	background linear-gradient(to top,#69a0c1,#333333)
+	//background linear-gradient(to top,#69a0c1,#333333)
+	background-image url($imgPath + 'bg_game.png')
+	background-position 0px 0px
+	background-repeat repeat-x
 	padding-top 20px
 	padding-bottom 20px
 	color #8f725b
-	transition color 1s ease
-	height 620px
+	height 512px
+	animation animatedBackground 27s linear infinite
+
 
 .balloon
 	margin-top 120px
@@ -42,6 +46,10 @@ body
 .aladino
 	width 46px
 	height 66px
+	position absolute
+	bottom -435px
+	left 47%
+
 .running_1
 	sprite($aladino_1)
 .running_2
@@ -64,6 +72,18 @@ body
 	sprite($aladino_10)
 .running_11
 	sprite($aladino_11)
+
+
+
+
+@-webkit-keyframes animatedBackground {
+	from {
+		background-position: 1300% 600%
+	}
+	to { 
+		background-position: 5% 5%
+	}
+}
 
 
 @keyframes floating {
