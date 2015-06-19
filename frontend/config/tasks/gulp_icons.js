@@ -3,15 +3,16 @@
  * @author Victor Sandoval
  * @constructor
  */
-function Task(gulp, path, config, plugins){
+function Task(gulp, path, config, plugins, functions){
 
 	gulp.task('icons:compile', function(){
 		gulp.src(path.frontend.staticFiles_icons + '/*.svg')
 			.pipe(plugins.iconfont({ 
 				normalize: true, 
 				fontName: 'iconFonts-webfont', 
-				appendCodepoints: true 
-			})).on('codepoints', function(codepoints, options) {
+				appendCodepoints: true
+			}))
+			.on('codepoints', function(codepoints, options) {
 				gulp.src(path.frontend.staticFiles_icons + '/_template/icons.styl') //Template
 					.pipe(plugins.consolidate('lodash', {
 						glyphs: codepoints,

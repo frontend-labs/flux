@@ -3,7 +3,7 @@
  * @author Victor Sandoval
  * @constructor
  */
-function Task(gulp, path, config, plugins){
+function Task(gulp, path, config, plugins, functions){
 
 	gulp.task('bower:init', plugins.shell.task([
 	  'bower install'

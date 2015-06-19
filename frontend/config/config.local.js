@@ -1,7 +1,7 @@
 
 var config = {
 	prod : false,
-	port : 4500
+	port : 4000
 };
 
 module.exports = config;

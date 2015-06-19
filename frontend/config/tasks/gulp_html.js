@@ -3,7 +3,7 @@
  * @author Victor Sandoval
  * @constructor
  */
-function Task(gulp, path, config, plugins){
+function Task(gulp, path, config, plugins, functions){
 
 	var pathJadeFiles = [
 		path.frontend.jade + '/*.jade',
@@ -26,7 +26,7 @@ function Task(gulp, path, config, plugins){
 					controller: "home",
 					action 		: "index"
 				}
-			}))
+			}).on('error', functions.standardHandler))
 			.pipe(gulp.dest(path.dest.html))
 	});
 

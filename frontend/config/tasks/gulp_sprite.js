@@ -3,7 +3,7 @@
  * @author Victor Sandoval
  * @constructor
  */
-function Task(gulp, path, config, plugins){
+function Task(gulp, path, config, plugins, functions){
 
 	gulp.task('sprite:compile', function () {
 		var spriteData = gulp.src(path.frontend.staticFiles_img + '/_sprite/main_sprite/*.png')

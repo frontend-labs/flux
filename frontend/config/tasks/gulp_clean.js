@@ -3,7 +3,7 @@
  * @author Victor Sandoval
  * @constructor
  */
-function Task(gulp, path, config, plugins){
+function Task(gulp, path, config, plugins, functions){
 
 	gulp.task('clean:img', function () {
 		return gulp.src(path.dest.img, { read: false })

@@ -3,7 +3,7 @@
  * @author Victor Sandoval
  * @constructor
  */
-function Task(gulp, path, config, plugins){
+function Task(gulp, path, config, plugins, functions){
 
 	pathStylesFiles = [
 		path.frontend.stylus + '/**/*.styl',
@@ -18,7 +18,7 @@ function Task(gulp, path, config, plugins){
 				compress: config.prod,
 				use     : [plugins.rupture(), plugins.jeet(), plugins.nib()],
 				import 	: ['jeet','nib'] //Rupture no es necesario, lo incluye en su librería
-			}))
+			}).on('error', functions.standardHandler))
 			.pipe(plugins.urlVersion({lastcommit: true}))
 			.pipe(gulp.dest(path.dest.css));
 	});

@@ -3,7 +3,9 @@
  * @author Victor Sandoval
  * @constructor
  */
-function Task(gulp, path, config, plugins, fs){
+var fs   = require('fs');
+
+function Task(gulp, path, config, plugins, functions){
 
 	gulp.task('fonts:compile', function(){
 		fs.readdir(path.frontend.staticFiles_fonts + "/", function(err, files) {

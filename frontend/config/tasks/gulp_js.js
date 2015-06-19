@@ -3,7 +3,7 @@
  * @author Victor Sandoval
  * @constructor
  */
-function Task(gulp, path, config, plugins, fs){
+function Task(gulp, path, config, plugins, functions){
 
 	var pathCoffeeFiles = [
 		path.frontend.coffee + '/libs/*.coffee',
@@ -12,15 +12,7 @@ function Task(gulp, path, config, plugins, fs){
 
 	gulp.task('coffee', function() {
 		return gulp.src(pathCoffeeFiles, { base : path.frontend.coffee })
-		.pipe(plugins.coffee({bare: true})
-			.on('error', function (error) {
-				plugins.notifier.notify({
-					title: 'Plugin: ' + error.plugin,
-					message: error.message
-				});
-				this.emit('end');
-			})
-		)
+		.pipe(plugins.coffee({bare: true}).on('error', functions.standardHandler))
 		.pipe(gulp.dest(path.dest.js));
 	});
 
@@ -42,13 +34,7 @@ function Task(gulp, path, config, plugins, fs){
 			.pipe(plugins.jshint(path.frontend.config + '/.jshintrc'))
 			.pipe(plugins.jshint.reporter('jshint-stylish'))
 			.pipe(plugins.jshint.reporter('fail'))
-			.on('error', function (error) {
-				plugins.notifier.notify({
-					title: 'Plugin: ' + error.plugin,
-					message: error.message
-				});
-				this.emit('end');
-			});
+			.on('error', functions.standardHandler);
 	});
 
 	gulp.task('js:complexity', function(){
