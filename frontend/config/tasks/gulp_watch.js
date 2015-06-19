@@ -33,8 +33,8 @@ function Task(gulp, path, config, plugins, functions){
 
 	gulp.task('watch', ['server'], function () {
 		gulp.watch([path.frontend.jade + '/**/*.jade'], ['', plugins.browserSync.reload]);
-		gulp.watch([path.frontend.stylus + '/**/*.styl'], ['styles:compile', plugins.browserSync.reload]);
-		gulp.watch([path.frontend.coffee + '/**/*.coffee'], ['js:watch', plugins.browserSync.reload]);
+		gulp.watch([path.frontend.stylus + '/**/*.styl'], ['styles', plugins.browserSync.reload]);
+		gulp.watch([path.frontend.coffee + '/**/*.coffee'], ['js', plugins.browserSync.reload]);
 	});
 
 }

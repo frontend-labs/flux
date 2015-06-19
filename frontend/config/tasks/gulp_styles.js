@@ -12,7 +12,7 @@ function Task(gulp, path, config, plugins, functions){
 		'!' + path.frontend.stylus + '/**/**/_**/*.styl'
 	]
 
-	gulp.task('styles:compile', function () {
+	gulp.task('styles', function () {
 		return gulp.src(pathStylesFiles)
 			.pipe(plugins.stylus({
 				compress: config.prod,
@@ -23,8 +23,8 @@ function Task(gulp, path, config, plugins, functions){
 			.pipe(gulp.dest(path.dest.css));
 	});
 
-	gulp.task('styles', function(callback) {
-		plugins.runSequence('clean:css', 'styles:compile', callback);
+	gulp.task('styles:all', function(callback) {
+		plugins.runSequence('clean:css', 'styles', callback);
 	});
 }
 

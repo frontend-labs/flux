@@ -43,12 +43,12 @@ function Task(gulp, path, config, plugins, functions){
 			.pipe(plugins.complexity());
 	});
 
-	gulp.task('js:watch', function(callback) {
-		plugins.runSequence('coffee', 'js:concat', 'js:lint', callback);
-	});
-	
-	gulp.task('js', function(callback) {
+	gulp.task('js:all', function(callback) {
 		plugins.runSequence('clean:js', 'coffee', 'js:concat', 'js:lint', 'bower', callback);
+	});
+
+	gulp.task('js', function(callback) {
+		plugins.runSequence('coffee', 'js:concat', 'js:lint', callback);
 	});
 }
 
