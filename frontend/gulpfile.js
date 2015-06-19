@@ -60,5 +60,5 @@ runTask("gulp_watch");
 runTask("gulp_bower");
 
 gulp.task('default', ['clean'], function (cb) {
-    plugins.runSequence('fonts', 'icons', 'sprite', 'styles', 'js', 'copy', 'bower', cb);
+    plugins.runSequence('copy', 'fonts', 'icons', 'sprite', 'styles', 'js', cb);
 });
