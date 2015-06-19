@@ -34,4 +34,8 @@ app.get("/:module/:controller/:action", function(req, res) {
   res.render(path.frontend.jade + "/modules/" + objRoute.module + "/" + objRoute.controller + "/" + objRoute.action, objRoute)
 });
 
+app.get("/", function(req, res) {
+  res.render(path.frontend.jade + "/welcome");
+});
+
 app.listen(config.port);
