@@ -14,6 +14,7 @@ yOSON.AppSchema.modules =
                 "actions":
                     "index": () ->
                         yOSON.AppCore.runModule "aladino"
+                        yOSON.AppCore.runModule "timer"
                         return
                     "by_default": () ->
                         return

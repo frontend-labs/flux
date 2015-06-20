@@ -26,7 +26,7 @@ body
 	height 512px
 	padding-bottom 20px
 	padding-top 20px
-	animation animatedBackground 27s linear infinite
+	animation animatedBackground 10s linear infinite
 
 
 .balloon
@@ -51,18 +51,29 @@ body
 	width 46px
 
 .timer
-	background-color gold
-	border-radius 50%
+	//background-color gold
+	//border-radius 50%
+	background-image url($imgPath + 'sun.png')
+	background-position 0px 0px
+	background-repeat no-repeat
 	color red
 	font-family monospace
 	font-size xx-large
-	height 80px
+	height 100px
 	left 0px
-	line-height 80px
+	line-height 100px
 	position absolute
 	text-align center
 	top 20px
-	width 80px
+	width 100px
+	background-size 100px
+	animation-name sun_animation
+	-webkit-animation-name sun_animation
+	animation-duration 8s
+	-webkit-animation-duration 8s
+	animation-iteration-count infinite
+	-webkit-animation-iteration-count infinite
+
 
 .running_1
 	sprite($aladino_1)
@@ -92,10 +103,10 @@ body
 
 @-webkit-keyframes animatedBackground {
 	from {
-		background-position: 1300% 600%
+		background-position: 1024px 0px
 	}
 	to { 
-		background-position: 5% 5%
+		background-position: 0px 0px
 	}
 }
 
@@ -121,9 +132,22 @@ body
 	}   
 	100% {
 		-webkit-transform translateY(0%)
-	}           
+	}
 }
 
+
+
+@keyframes sun_animation {
+	0% {
+		transform translateY(0%)  
+	}
+	50% {
+		transform translateY(15%)  
+	}   
+	100% {
+		transform translateY(0%)
+	}
+}
 
 
 #terminal
