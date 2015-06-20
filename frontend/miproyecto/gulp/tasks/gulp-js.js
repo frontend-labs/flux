@@ -16,8 +16,7 @@ function Task(gulp, path, options, plugins, settings) {
             console.log(err.name + " in " + err.plugin);
             console.log('Message: ' + err.message);
             console.log('Stack: ' + err.stack);
-
-            /*
+            
             var isLinux = /^linux/.test(process.platform);
             if (isLinux){
                 plugins.notifier.notify({
@@ -30,7 +29,6 @@ function Task(gulp, path, options, plugins, settings) {
                     console.log(response);
                 });
             }
-            */
 
         }))
         //.pipe(plugins.sourcemaps.write('./'))

@@ -9,7 +9,7 @@ var gulp    = require('gulp'),
     options = require('./gulp/options'),
     settings = {
         browserSync : require('browser-sync'),
-        notify      : require("node-notifier"),
+        notifier    : require("node-notifier"),
         changelog   : require('conventional-changelog'),
         fs          : require('fs'),
         loadPlugins : require('gulp-load-plugins'),
@@ -29,7 +29,7 @@ plugins.spritesmith = require('gulp.spritesmith');
 plugins.es = require('event-stream');
 plugins.Buffer = require('buffer').Buffer;
 
-//plugins.notifier = new settings.notify();
+plugins.notifier = settings.notifier;
 
 runTask("gulp-clean");
 runTask("gulp-backend");
