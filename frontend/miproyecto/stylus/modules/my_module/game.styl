@@ -22,18 +22,18 @@ body
 	background-image url($imgPath + 'bg_game.png')
 	background-position 0px 0px
 	background-repeat repeat-x
-	padding-top 20px
-	padding-bottom 20px
 	color #8f725b
 	height 512px
+	padding-bottom 20px
+	padding-top 20px
 	animation animatedBackground 27s linear infinite
 
 
 .balloon
-	margin-top 120px
 	margin-bottom 120px
-	max-width 200px
+	margin-top 120px
 	max-height 298px
+	max-width 200px
 
 .floating
 	animation-name floating
@@ -44,11 +44,25 @@ body
 	-webkit-animation-iteration-count infinite
 
 .aladino
-	width 46px
-	height 66px
-	position absolute
 	bottom -435px
+	height 66px
 	left 47%
+	position absolute
+	width 46px
+
+.timer
+	background-color gold
+	border-radius 50%
+	color red
+	font-family monospace
+	font-size xx-large
+	height 80px
+	left 0px
+	line-height 80px
+	position absolute
+	text-align center
+	top 20px
+	width 80px
 
 .running_1
 	sprite($aladino_1)
