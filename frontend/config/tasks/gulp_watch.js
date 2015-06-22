@@ -21,7 +21,13 @@ function Task(gulp, path, config, plugins, functions){
 				plugins.browserSync.reload({
 					stream: false
 				});
-			}, 1000);
+			}, 1000)
+		.on('crash', function(){
+			plugins.notifier.notify({
+				title   : 'Error en la tarea: gulp watch',
+				message : 'Se interrumpió el proceso por algún motivo.'
+			});
+		});
 		});
 	});
 
