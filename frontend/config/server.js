@@ -4,7 +4,7 @@ var express = require("express"),
 
 var app = express();
 app.set('view engine', 'jade');
-
+app.set('views', path.dest.serverFiles);
 /*
 //Styles
 app.use('/css', stylus.middleware({
@@ -18,20 +18,25 @@ app.use('/css', stylus.middleware({
   }
 }));
 */
-app.use(express.static(path.dest.publicFiles));
+app.use(express.static(path.dest.serverFiles));
 
 app.get("/:module/:controller/:action", function(req, res) {
-  var objRoute = {
-    module      : req.params.module,
-    controller  : req.params.controller,
-    action      : req.params.action,
-
-    version     : new Date().getTime(),
-    baseUrl     : "http://" + req.headers.host + "/",
-    staticUrl   : "http://" + req.headers.host + "/",
-    elementUrl  : "http://" + req.headers.host + "/"
+  var objRoute = {};
+  //------------------------------------------------------------
+  objRoute.module     = req.params.module;
+  objRoute.controller = req.params.controller;
+  objRoute.action     = req.params.action;
+  objRoute.version    = new Date().getTime();
+  objRoute.baseUrl    = "http://" + req.headers.host + "/";
+  objRoute.staticUrl  = objRoute.baseUrl + path.dest.static + "/";
+  objRoute.elementUrl = objRoute.baseUrl;
+  //------------------------------------------------------------
+  
+  if (objRoute.module != "undefined" && objRoute.controller != "undefined" && objRoute.action != "undefined"){
+    res.render(path.frontend.jade + "/modules/" + objRoute.module + "/" + objRoute.controller + "/" + objRoute.action, objRoute)
+  }else{
+    res.end();
   }
-  res.render(path.frontend.jade + "/modules/" + objRoute.module + "/" + objRoute.controller + "/" + objRoute.action, objRoute)
 });
 
 app.get("/", function(req, res) {
@@ -39,3 +44,7 @@ app.get("/", function(req, res) {
 });
 
 app.listen(config.port);
+
+//ps -ax | grep node
+//60778 ??         0:00.62 /usr/local/bin/node abc.js
+//kill -9 60778

@@ -59,6 +59,12 @@ var functions = {
       colorRed('----------------------------')
     );
     this.emit('end');
+  },
+  successHandler : function(){
+    plugins.notifier.notify({
+      title   : 'Compilación completa',
+      message : 'Tarea terminada'
+    });
   }
 }
 

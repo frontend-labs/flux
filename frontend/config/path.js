@@ -18,14 +18,16 @@ path.frontend.staticFiles         = path.frontend.base + '/static_files';
   path.frontend.staticFiles_img   = path.frontend.staticFiles + '/img'
 
 //------------------------------------------------------
-path.dest.publicFiles             = path.base + '/public';
+path.dest.serverFiles             = path.base + '/public';
+//------------------------------------------------------
+path.dest.static                  = '';
 //------------------------------------------------------
 
-path.dest.css                     = path.dest.publicFiles + '/css';
-path.dest.js                      = path.dest.publicFiles + '/js';
-path.dest.img                     = path.dest.publicFiles + '/img';
-path.dest.fonts                   = path.dest.publicFiles + '/fonts';
-path.dest.html                    = path.dest.publicFiles + '/html';
+path.dest.css                     = path.dest.serverFiles + path.dest.static + '/css';
+path.dest.js                      = path.dest.serverFiles + path.dest.static + '/js';
+path.dest.img                     = path.dest.serverFiles + path.dest.static + '/img';
+path.dest.fonts                   = path.dest.serverFiles + path.dest.static + '/fonts';
+path.dest.html                    = path.dest.serverFiles + path.dest.static + '/html';
 
 
 module.exports = path;

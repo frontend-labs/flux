@@ -34,7 +34,8 @@ function Task(gulp, path, config, plugins, functions){
 			.pipe(plugins.jshint(path.frontend.config + '/.jshintrc'))
 			.pipe(plugins.jshint.reporter('jshint-stylish'))
 			.pipe(plugins.jshint.reporter('fail'))
-			.on('error', functions.standardHandler);
+			.on('error', functions.standardHandler)
+			.on('end', functions.successHandler);
 	});
 
 	gulp.task('js:complexity', function(){
@@ -44,7 +45,7 @@ function Task(gulp, path, config, plugins, functions){
 	});
 
 	gulp.task('js:all', function(callback) {
-		plugins.runSequence('clean:js', 'coffee', 'js:concat', 'js:lint', 'bower', callback);
+		plugins.runSequence('clean:js', 'coffee', 'js:concat', 'js:lint', 'copy:js:libs', callback);
 	});
 
 	gulp.task('js', function(callback) {

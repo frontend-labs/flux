@@ -25,7 +25,7 @@ function Task(gulp, path, config, plugins, functions){
 					plugins.imageminSVG()
 				]
 			})))
-			.pipe(gulp.dest(path.dest.publicFiles));
+			.pipe(gulp.dest(path.dest.serverFiles + path.dest.static));
 	});
 
 	gulp.task('copy:img:sprite', function() {
@@ -34,7 +34,7 @@ function Task(gulp, path, config, plugins, functions){
 				progressive: true,
 				use: [ plugins.imageminPNG({optimizationLevel: 3}) ]
 			})))
-			.pipe(gulp.dest(path.dest.publicFiles));
+			.pipe(gulp.dest(path.dest.serverFiles + path.dest.static));
 	});
 
 	//----------------------------------------------------
@@ -45,8 +45,13 @@ function Task(gulp, path, config, plugins, functions){
 	//----------------------------------------------------
 	gulp.task('copy:fonts', function() {
 		gulp.src(pathCopyFontsFiles, { base : path.frontend.staticFiles })
-			.pipe(gulp.dest(path.dest.publicFiles));
+			.pipe(gulp.dest(path.dest.serverFiles + path.dest.static));
 	});
+
+	gulp.task('copy:js:libs', function () {
+    gulp.src(path.frontend.coffee + '/libs/*.js')
+      .pipe(gulp.dest(path.dest.js + '/libs'));
+  });
 	
 	gulp.task('copy', function (callback) {
 		plugins.runSequence('copy:img', 'copy:fonts',  callback);

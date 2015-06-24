@@ -18,9 +18,11 @@ function Task(gulp, path, config, plugins, functions){
 				compress: config.prod,
 				use     : [plugins.rupture(), plugins.jeet(), plugins.nib()],
 				import 	: ['jeet','nib'] //Rupture no es necesario, lo incluye en su librería
-			}).on('error', functions.standardHandler))
+			}))
+			.on('error', functions.standardHandler)
 			.pipe(plugins.urlVersion({lastcommit: true}))
-			.pipe(gulp.dest(path.dest.css));
+			.pipe(gulp.dest(path.dest.css))
+			.on('end', functions.successHandler);
 	});
 
 	gulp.task('styles:all', function(callback) {

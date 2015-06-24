@@ -8,7 +8,7 @@ function Task(gulp, path, config, plugins, functions){
 	gulp.task('nodemon', function (cb) {
 		var called = false;
 		return plugins.nodemon({
-			script: path.frontend.config + '/server.js'
+			script: 'config/server.js'
 		})
 		.on('start', function () {
 			if (!called) {
@@ -22,12 +22,12 @@ function Task(gulp, path, config, plugins, functions){
 					stream: false
 				});
 			}, 1000)
+		})
 		.on('crash', function(){
 			plugins.notifier.notify({
 				title   : 'Error en la tarea: gulp watch',
 				message : 'Se interrumpió el proceso por algún motivo.'
 			});
-		});
 		});
 	});
 
