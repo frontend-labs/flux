@@ -1,33 +1,8 @@
-var gulp    = require('gulp'),
-    path    = require('./config/path'),
-    config  = require('./config/config.local')
-    plugins = require('./config/plugins');
-
-
-var functions = {
-  errorHandler : function(error){
-    var colorRed = plugins.util.colors.red;
-    plugins.notifier.notify({
-      title   : 'Error en la tarea: ' + error.plugin,
-      message : error.message
-    });
-    plugins.util.log(
-      '\n',
-      colorRed('----------------------------'),'\n',
-      colorRed(' Error en la tarea: ' + error.plugin), '\n',
-      colorRed('----------------------------'), '\n',
-      error.message, '\n',
-      colorRed('----------------------------')
-    );
-    this.emit('end');
-  },
-  successHandler : function(){
-    plugins.notifier.notify({
-      title   : 'Compilación completa',
-      message : 'Tarea terminada'
-    });
-  }
-}
+var gulp      = require('gulp'),
+    path      = require('./config/path'),
+    config    = require('./config/config.local')
+    plugins   = require('./config/plugins')
+    functions = require('./config/functions');
 
 var runTask = function (nameTask){
   var Task = require("./config/tasks/" + nameTask);
