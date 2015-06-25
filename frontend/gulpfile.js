@@ -44,7 +44,7 @@ var plugins = {
 }
 
 var functions = {
-  standardHandler : function(error){
+  errorHandler : function(error){
     var colorRed = plugins.util.colors.red;
     plugins.notifier.notify({
       title   : 'Error en la tarea: ' + error.plugin,

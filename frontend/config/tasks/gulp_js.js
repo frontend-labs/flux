@@ -12,7 +12,7 @@ function Task(gulp, path, config, plugins, functions){
 
 	gulp.task('coffee', function() {
 		return gulp.src(pathCoffeeFiles, { base : path.frontend.coffee })
-		.pipe(plugins.coffee({bare: true}).on('error', functions.standardHandler))
+		.pipe(plugins.coffee({bare: true}).on('error', functions.errorHandler))
 		.pipe(gulp.dest(path.dest.js));
 	});
 
@@ -34,7 +34,7 @@ function Task(gulp, path, config, plugins, functions){
 			.pipe(plugins.jshint(path.frontend.config + '/.jshintrc'))
 			.pipe(plugins.jshint.reporter('jshint-stylish'))
 			.pipe(plugins.jshint.reporter('fail'))
-			.on('error', functions.standardHandler)
+			.on('error', functions.errorHandler)
 			.on('end', functions.successHandler);
 	});
 

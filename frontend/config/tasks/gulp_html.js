@@ -26,7 +26,7 @@ function Task(gulp, path, config, plugins, functions){
 					controller: "home",
 					action 		: "index"
 				}
-			}).on('error', functions.standardHandler))
+			}).on('error', functions.errorHandler))
 			.pipe(gulp.dest(path.dest.html))
 	});
 
