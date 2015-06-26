@@ -10,15 +10,15 @@
  * @author Victor Sandoval
  */
 
-var Gulp      = require('gulp'),
-    Config    = require('./config/config.local')
-    Path      = require('./config/path'),
-    Plugins   = require('./config/plugins')
-    Functions = require('./config/functions');
+var gulp      = require('gulp'),
+    path      = require('./config/path'),
+    config    = require('./config/config.local'),
+    plugins   = require('./config/plugins'),
+    functions = require('./config/functions');
 
 var runTask = function (nameTask){
   var Task = require("./config/tasks/" + nameTask);
-  new Task(Gulp, Path, Config, Plugins, Functions);
+  new Task(gulp, path, config, plugins, functions);
 };
 
 runTask("gulp_clean");
@@ -32,6 +32,6 @@ runTask("gulp_js");
 runTask("gulp_watch");
 runTask("gulp_bower");
 
-Gulp.task('default', ['clean'], function (cb) {
-  Plugins.runSequence('copy', 'fonts', 'icons', 'sprites', 'styles:all', 'js:all', cb);
+gulp.task('default', ['clean'], function (cb) {
+  plugins.runSequence('copy', 'fonts', 'icons', 'sprites', 'styles:all', 'js:all', cb);
 });
