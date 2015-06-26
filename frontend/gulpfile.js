@@ -33,5 +33,5 @@ runTask("gulp_watch");
 runTask("gulp_bower");
 
 Gulp.task('default', ['clean'], function (cb) {
-  Plugins.runSequence('copy', 'fonts', 'icons', 'sprite', 'styles:all', 'js:all', cb);
+  Plugins.runSequence('copy', 'fonts', 'icons', 'sprites', 'styles:all', 'js:all', cb);
 });

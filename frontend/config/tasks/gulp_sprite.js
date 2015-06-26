@@ -1,7 +1,7 @@
 /**
  * Tarea para generar archivo sprite de imagenes png
  *
- * @module Task (gulp sprite)
+ * @module Task (gulp sprites)
  * @extends Gulp
  * @extends Path
  * @extends Plugins
@@ -12,11 +12,11 @@ function Task(gulp, path, config, plugins, functions){
 
 	/**
 	 * Tarea para compilar archivos png y tranformarlos a un sprite
-	 * (gulp sprite:compile)
+	 * (gulp sprites:compile)
 	 *
 	 * Genera un archivo img y un .styl
 	 */
-	gulp.task('sprite:compile', function () {
+	gulp.task('sprites:compile', function () {
 		var spriteData = gulp.src(path.frontend.staticFiles_img + '/_sprite/main_sprite/*.png')
 			.pipe(plugins.spritesmith({
 				algorithm: 'binary-tree',
@@ -34,10 +34,10 @@ function Task(gulp, path, config, plugins, functions){
 
 	/**
 	 * Tarea principal
-	 * (gulp sprite)
+	 * (gulp sprites)
 	 */
-	gulp.task('sprite', function (callback) {
-		plugins.runSequence('sprite:compile', 'copy:img:sprite', 'styles',  callback);
+	gulp.task('sprites', function (callback) {
+		plugins.runSequence('sprites:compile', 'copy:img:sprites', 'styles',  callback);
 	});
 
 }

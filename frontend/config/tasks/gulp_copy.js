@@ -44,9 +44,9 @@ function Task(gulp, path, config, plugins, functions){
 
 	/**
 	 * Tarea para copiar sprites de imagenes
-	 * (gulp copy:img:sprite)
+	 * (gulp copy:img:sprites)
 	 */
-	gulp.task('copy:img:sprite', function() {
+	gulp.task('copy:img:sprites', function() {
 		gulp.src(path.frontend.staticFiles_img + '/*_sprite.png', { base : path.frontend.staticFiles })
 			.pipe(plugins.if(config.prod, plugins.imagemin({
 				progressive: true,

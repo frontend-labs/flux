@@ -59,7 +59,7 @@ gulp styles
 ```
 #### Generar imágenes sprites
 ```
-gulp sprite
+gulp sprites
 ```
 #### Generar fuentes
 ```
