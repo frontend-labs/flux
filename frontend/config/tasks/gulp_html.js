@@ -1,8 +1,15 @@
 /**
- * GULP HTML: Tarea para compilar html de archivos .jade 
+ * Tarea para compilar archivos .jade 
+ *
+ * @module Task (gulp html)
+ * @extends Gulp
+ * @extends Path
+ * @extends Config
+ * @extends Plugins
+ * @extends Functions
  * @author Victor Sandoval
- * @constructor
  */
+
 function Task(gulp, path, config, plugins, functions){
 
 	var pathJadeFiles = [
@@ -13,6 +20,10 @@ function Task(gulp, path, config, plugins, functions){
 		'!' + path.frontend.jade + '/**/_*.jade'
 	]
 
+	/**
+	 * Tarea principal
+	 * (gulp html)
+	 */
 	gulp.task('html', function() {
 		gulp.src(pathJadeFiles)
 			.pipe(plugins.jade({

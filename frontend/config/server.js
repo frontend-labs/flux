@@ -1,3 +1,10 @@
+/**
+ * Contiene la configuración principal del servidor express, como:
+ * Configuración de las rutas de los estáticos y lógica de urls del servidor.
+ *
+ * @author Victor Sandoval
+ */
+
 var express = require("express"),
     path    = require('./path'),
     config  = require('./config.local');
@@ -5,19 +12,7 @@ var express = require("express"),
 var app = express();
 app.set('view engine', 'jade');
 app.set('views', path.dest.serverFiles);
-/*
-//Styles
-app.use('/css', stylus.middleware({
-  force : true,
-  src : path.frontend.stylus,
-  dest : path.dest.css,
-  compile: function (str, path) {
-    return stylus(str)
-      .set('filename', path)
-      .set('compress', true);
-  }
-}));
-*/
+
 app.use(express.static(path.dest.serverFiles));
 
 app.get("/:module/:controller/:action", function(req, res) {
@@ -33,7 +28,7 @@ app.get("/:module/:controller/:action", function(req, res) {
   //------------------------------------------------------------
   
   if (objRoute.module != "undefined" && objRoute.controller != "undefined" && objRoute.action != "undefined"){
-    res.render(path.frontend.jade + "/modules/" + objRoute.module + "/" + objRoute.controller + "/" + objRoute.action, objRoute)
+    res.render(path.frontend.jade + "/modules/" + objRoute.module + "/" + objRoute.controller + "/" + objRoute.action, objRoute);
   }else{
     res.end();
   }

@@ -1,7 +1,13 @@
+/**
+ * Contiene las viariables globales de configuracion
+ *
+ * @module Config
+ * @author Victor Sandoval
+ */
 
-var config = {
+var Config = {
 	prod : false,
 	port : 4000
 };
 
-module.exports = config;
+module.exports = Config;

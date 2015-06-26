@@ -1,10 +1,21 @@
 /**
- * GULP ICONS: Tarea para compilar iconos en .svg a fuente de iconos
+ * Tarea para compilar iconos en .svg a fuente de iconos
+ *
+ * @module Task (gulp icons)
+ * @extends Gulp
+ * @extends Path
+ * @extends Plugins
  * @author Victor Sandoval
- * @constructor
  */
+
 function Task(gulp, path, config, plugins, functions){
 
+	/**
+	 * Tarea para compilar iconos .svg
+	 * (gulp icons:compile)
+	 *
+	 * Genera un archivo .styl y archivos de fuentes .eot .svg .ttf .woff
+	 */
 	gulp.task('icons:compile', function(){
 		gulp.src(path.frontend.staticFiles_icons + '/*.svg')
 			.pipe(plugins.iconfont({ 
@@ -23,6 +34,10 @@ function Task(gulp, path, config, plugins, functions){
 			.pipe(gulp.dest(path.frontend.staticFiles_fonts + '/iconFonts'));
 	});
 
+	/**
+	 * Tarea principal
+	 * (gulp icons)
+	 */
 	gulp.task('icons', function(callback) {
 		plugins.runSequence('icons:compile', 'fonts:compile', 'styles', 'copy:fonts', callback);
 	});

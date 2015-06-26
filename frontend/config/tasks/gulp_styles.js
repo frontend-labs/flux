@@ -1,8 +1,15 @@
 /**
- * GULP STYLES: Tarea para compilar css mediante archivos stylus
+ * Tarea para compilar archivos .styl
+ *
+ * @module Task (gulp styles)
+ * @extends Gulp
+ * @extends Path
+ * @extends Config
+ * @extends Plugins
+ * @extends Functions
  * @author Victor Sandoval
- * @constructor
  */
+
 function Task(gulp, path, config, plugins, functions){
 
 	pathStylesFiles = [
@@ -12,6 +19,15 @@ function Task(gulp, path, config, plugins, functions){
 		'!' + path.frontend.stylus + '/**/**/_**/*.styl'
 	]
 
+	/**
+	 * Tarea usada por el gulp watch
+	 * (gulp styles)
+	 *
+	 * Utiliza plugins como
+	 * Rupture : Proporciona mixins para los breakpoints en css
+	 * Jeet    : Proporciona mixins para un sistema de grillas
+	 * Nib     : Proporciona mixins cross-browser para propiedades CCS3
+	 */
 	gulp.task('styles', function () {
 		return gulp.src(pathStylesFiles)
 			.pipe(plugins.stylus({
@@ -25,6 +41,11 @@ function Task(gulp, path, config, plugins, functions){
 			.on('end', functions.successHandler);
 	});
 
+
+	/**
+	 * Tarea principal
+	 * (gulp styles:all)
+	 */
 	gulp.task('styles:all', function(callback) {
 		plugins.runSequence('clean:css', 'styles', callback);
 	});

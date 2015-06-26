@@ -1,8 +1,10 @@
 /**
  * Contiene todos los plugins de las tareas gulp
+ *
  * @module Plugins
  * @author Victor Sandoval
  */
+
 var Plugins = {
   // Plugins globales
   if              : require('gulp-if'),

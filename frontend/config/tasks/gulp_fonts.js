@@ -1,12 +1,22 @@
 /**
- * GULP FONTS: Tarea para generar css (.styl) de las fuentes  
+ * Tarea Tarea para generar css de las fuentes
+ *
+ * @module Task (gulp fonts)
+ * @extends Gulp
+ * @extends Path
+ * @extends Plugins
+ * @extends Fs
  * @author Victor Sandoval
- * @constructor
  */
+
 var fs   = require('fs');
 
 function Task(gulp, path, config, plugins, functions){
 
+	/**
+	 * Tarea para generar archivo .styl de las fuentes
+	 * (gulp fonts:compile)
+	 */
 	gulp.task('fonts:compile', function(){
 		fs.readdir(path.frontend.staticFiles_fonts + "/", function(err, files) {
 			if (err) throw err;
@@ -17,6 +27,10 @@ function Task(gulp, path, config, plugins, functions){
 		})
 	});
 
+	/**
+	 * Tarea principal
+	 * (gulp fonts)
+	 */
 	gulp.task('fonts', function(callback) {
 		plugins.runSequence('fonts:compile', 'styles', 'copy:fonts', callback);
 	});

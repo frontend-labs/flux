@@ -1,5 +1,6 @@
 /**
  * Contiene todos las funciones globales de las tareas gulp
+ *
  * @module Functions
  * @extends Plugins
  * @author Victor Sandoval
