@@ -12,17 +12,12 @@
 
 function Task(gulp, path, config, plugins, functions){
 
-	var pathCoffeeFiles = [
-		path.frontend.coffee + '/libs/*.coffee',
-		path.frontend.coffee + '/libs/**/*.coffee'
-	]
-
 	/**
 	 * Tarea para compilar archivos (.coffee) de librerías usadas para el proyecto
-	 * (gulp coffee)
+	 * (gulp js:compile:libs)
 	 */
-	gulp.task('coffee', function() {
-		return gulp.src(pathCoffeeFiles, { base : path.frontend.coffee })
+	gulp.task('js:compile:libs', function() {
+		return gulp.src(path.frontend.coffee + '/libs/**/*.coffee', { base : path.frontend.coffee })
 		.pipe(plugins.coffee({bare: true}).on('error', functions.errorHandler))
 		.pipe(gulp.dest(path.dest.js));
 	});
@@ -68,19 +63,19 @@ function Task(gulp, path, config, plugins, functions){
 	});
 
 	/**
-	 * Tarea principal
-	 * (gulp js:all)
-	 */
-	gulp.task('js:all', function(callback) {
-		plugins.runSequence('clean:js', 'coffee', 'js:concat', 'js:lint', 'copy:js:libs', callback);
-	});
-
-	/**
 	 * Tarea usada por el gulp watch
 	 * (gulp js)
 	 */
 	gulp.task('js', function(callback) {
-		plugins.runSequence('coffee', 'js:concat', 'js:lint', callback);
+		plugins.runSequence('js:compile:libs', 'js:concat', 'js:lint', callback);
+	});
+
+	/**
+	 * Tarea principal
+	 * (gulp js:all)
+	 */
+	gulp.task('js:all', function(callback) {
+		plugins.runSequence('clean:js', 'js:compile:libs', 'js:concat', 'js:lint', 'copy:js:libs', callback);
 	});
 }
 
