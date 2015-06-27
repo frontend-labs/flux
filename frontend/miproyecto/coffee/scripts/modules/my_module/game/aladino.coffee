@@ -15,6 +15,7 @@ yOSON.AppCore.addModule "aladino", (Sb) ->
 		indice      : 0,
 		prefixClass : 'running_',
 		time        : 120
+		runId       : null
 	}
 	st = {}
 	dom = {}
@@ -25,27 +26,35 @@ yOSON.AppCore.addModule "aladino", (Sb) ->
 		dom.el     = $(st.el, dom.parent)
 		return
 	suscribeEvents = () ->
+		dom.el.on 'click', events.stopRun
 		return
 
 	events = {
+		stopRun : () ->
+			fn.stopRun()
+			return
 	}
 
 	fn = {
 		run : () ->
-			classRemove = ''
 			classAdd = ''
 			st.indice = st.movements[0]
-			setInterval( () ->
-				if st.indice is st.movements[1]
-					st.indice = st.movements[0]
-					classRemove = st.prefixClass + st.movements[1]
-				else
-					classRemove = st.prefixClass + st.indice
-				classAdd = st.prefixClass + (st.indice + 1)
-				dom.el.removeClass(classRemove).addClass(classAdd)
-				st.indice++
-				console.log st.prefixClass + st.indice
-			, st.time)
+
+			st.runId = setInterval( () ->
+					if st.indice is st.movements[1]
+						st.indice = st.movements[0]
+						classRemove = st.prefixClass + st.movements[1]
+					else
+						classRemove = st.prefixClass + st.indice
+					classAdd = st.prefixClass + (st.indice + 1)
+					dom.el.removeClass(classRemove).addClass(classAdd)
+					st.indice++
+					#console.log st.prefixClass + st.indice
+					return
+				, st.time)
+			return
+		stopRun : () ->
+			clearInterval(st.runId)
 			return
 	}
 
