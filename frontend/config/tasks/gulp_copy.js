@@ -80,8 +80,8 @@ function Task(gulp, path, config, plugins, functions){
 	 * Tarea principal
 	 * (gulp copy)
 	 */
-	gulp.task('copy', function (callback) {
-		plugins.runSequence('copy:img', 'copy:fonts',  callback);
+	gulp.task('copy', function () {
+		plugins.runSequence('copy:img', 'copy:fonts');
 	});
 
 }

@@ -49,8 +49,8 @@ function Task(gulp, path, config, plugins, functions){
 	 * Tarea principal
 	 * (gulp clean)
 	 */
-	gulp.task('clean', function (callback) {
-		plugins.runSequence('clean:img', 'clean:fonts', 'clean:js', 'clean:css',  callback);
+	gulp.task('clean', function () {
+		plugins.runSequence('clean:img', 'clean:fonts', 'clean:js', 'clean:css');
 	});
 
 }

@@ -36,8 +36,8 @@ function Task(gulp, path, config, plugins, functions){
 	 * Tarea principal
 	 * (gulp sprites)
 	 */
-	gulp.task('sprites', function (callback) {
-		plugins.runSequence('sprites:compile', 'copy:img:sprites', 'styles',  callback);
+	gulp.task('sprites', function () {
+		plugins.runSequence('sprites:compile', 'copy:img:sprites', 'styles');
 	});
 
 }

@@ -44,7 +44,9 @@ var Plugins = {
   browserSync     : require('browser-sync'),
   nodemon         : require('gulp-nodemon'),
   // Plugins gulp bower
-  preen           : require('preen')
+  preen           : require('preen'),
+  // Plugins unit test
+  mocha           : require('gulp-mocha') 
 }
 
 module.exports = Plugins;

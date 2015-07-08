@@ -10,7 +10,7 @@
  * @author Victor Sandoval
  */
 
-var gulp      = require('gulp'),
+var gulp      =  require('gulp-param')(require('gulp'), process.argv),
     path      = require('./config/path'),
     config    = require('./config/config.local'),
     plugins   = require('./config/plugins'),
@@ -31,6 +31,7 @@ runTask("gulp_icons");
 runTask("gulp_js");
 runTask("gulp_watch");
 runTask("gulp_bower");
+runTask("gulp_mocha");
 
 gulp.task('default', ['clean'], function (cb) {
   plugins.runSequence('copy', 'fonts', 'icons', 'sprites', 'styles:all', 'js:all', cb);

@@ -31,8 +31,8 @@ function Task(gulp, path, config, plugins, functions){
 	 * Tarea principal
 	 * (gulp fonts)
 	 */
-	gulp.task('fonts', function(callback) {
-		plugins.runSequence('fonts:compile', 'styles', 'copy:fonts', callback);
+	gulp.task('fonts', function() {
+		plugins.runSequence('fonts:compile', 'styles', 'copy:fonts');
 	});
 
 }

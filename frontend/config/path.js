@@ -26,6 +26,7 @@ Path.frontend.config              = Path.frontend.base + '/config';
 Path.frontend.coffee              = Path.frontend.base + '/__coffee';
 Path.frontend.jade                = Path.frontend.base + '/__jade';
 Path.frontend.stylus              = Path.frontend.base + '/__stylus';
+Path.frontend.tests               = Path.frontend.base + '/__tests'
 Path.frontend.staticFiles         = Path.frontend.base + '/static_files';
   Path.frontend.staticFiles_fonts = Path.frontend.staticFiles + '/fonts';
   Path.frontend.staticFiles_icons = Path.frontend.staticFiles + '/icons';

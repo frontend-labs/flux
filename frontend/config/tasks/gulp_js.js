@@ -66,16 +66,16 @@ function Task(gulp, path, config, plugins, functions){
 	 * Tarea usada por el gulp watch
 	 * (gulp js)
 	 */
-	gulp.task('js', function(callback) {
-		plugins.runSequence('js:compile:libs', 'js:concat', 'js:lint', callback);
+	gulp.task('js', function() {
+		plugins.runSequence('js:compile:libs', 'js:concat', 'js:lint');
 	});
 
 	/**
 	 * Tarea principal
 	 * (gulp js:all)
 	 */
-	gulp.task('js:all', function(callback) {
-		plugins.runSequence('clean:js', 'js:compile:libs', 'js:concat', 'js:lint', 'copy:js:libs', callback);
+	gulp.task('js:all', function() {
+		plugins.runSequence('clean:js', 'js:compile:libs', 'js:concat', 'js:lint', 'copy:js:libs');
 	});
 }
 

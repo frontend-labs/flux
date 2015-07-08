@@ -38,8 +38,8 @@ function Task(gulp, path, config, plugins, functions){
 	 * Tarea principal
 	 * (gulp icons)
 	 */
-	gulp.task('icons', function(callback) {
-		plugins.runSequence('icons:compile', 'fonts:compile', 'styles', 'copy:fonts', callback);
+	gulp.task('icons', function() {
+		plugins.runSequence('icons:compile', 'fonts:compile', 'styles', 'copy:fonts');
 	});
 
 }

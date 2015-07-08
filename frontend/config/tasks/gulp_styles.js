@@ -46,8 +46,8 @@ function Task(gulp, path, config, plugins, functions){
 	 * Tarea principal
 	 * (gulp styles:all)
 	 */
-	gulp.task('styles:all', function(callback) {
-		plugins.runSequence('clean:css', 'styles', callback);
+	gulp.task('styles:all', function() {
+		plugins.runSequence('clean:css', 'styles');
 	});
 }
 
