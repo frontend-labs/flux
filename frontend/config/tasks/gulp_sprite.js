@@ -17,12 +17,12 @@ function Task(gulp, path, config, plugins, functions){
 	 * Genera un archivo img y un .styl
 	 */
 	gulp.task('sprites:compile', function () {
-		var spriteData = gulp.src(path.frontend.staticFiles_img + '/_sprite/main_sprite/*.png')
+		var spriteData = gulp.src(path.frontend.staticFiles_img + '/_sprite/*.png')
 			.pipe(plugins.spritesmith({
 				algorithm: 'binary-tree',
-				imgPath: '/img/main_sprite.png',
 				imgName: 'main_sprite.png',
-				cssName: 'main_sprite.styl'
+				cssName: 'main_sprite.styl',
+				cssTemplate : path.frontend.staticFiles_img + '/_sprite/_template/stylus.template.handlebars'
 			}));
 
 		// Genera archivo sprite
