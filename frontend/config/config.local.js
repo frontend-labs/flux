@@ -6,7 +6,7 @@
  */
 
 var Config = {
-	prod : false,
+	prod : true,
 	port : 4000
 };
 

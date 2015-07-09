@@ -24,33 +24,26 @@ function Task(gulp, path, config, plugins, functions){
 
 	/**
 	 * Tarea para compilar archivos (.coffee) de los modulos del proyecto
-	 * (gulp js:concat)
+	 * (gulp js:compile)
 	 */
-	gulp.task('js:concat', function(){
+	gulp.task('js:compile', function(){
 		gulp.src(path.frontend.coffee + '/modules/**/*.coffee')
 			.pipe(plugins.recursiveConcat({ extname: '.coffee' }))
 			.pipe(plugins.coffee({ bare: true }))
-			.pipe(plugins.if(config.prod, plugins.uglify({
-				mangle 	: false, 
-				compress: {
-					drop_debugger: true
-				}
-			})))
-			.pipe(gulp.dest(path.dest.js + '/modules'));
-	});
-
-	/**
-	 * Tarea para validar variables no usadas en los modulos js
-	 * (gulp js:lint)
-	 */
-	gulp.task('js:lint', function() {
-		return gulp.src(path.dest.js + '/modules/**/*.js')
 			.pipe(plugins.jshint(path.frontend.config + '/.jshintrc'))
 			.pipe(plugins.jshint.reporter('jshint-stylish'))
 			.pipe(plugins.jshint.reporter('fail'))
 			.on('error', functions.errorHandler)
+			.pipe(plugins.if(config.prod, plugins.uglify({
+				mangle 	: true, 
+				compress: {
+					drop_console: true
+				}
+			})))
+			.pipe(gulp.dest(path.dest.js + '/modules'))
 			.on('end', functions.successHandler);
 	});
+
 
 	/**
 	 * Tarea para validar complejidad de código en los modulos js
@@ -67,7 +60,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp js)
 	 */
 	gulp.task('js', function() {
-		plugins.runSequence('js:compile:libs', 'js:concat', 'js:lint');
+		plugins.runSequence('js:compile:libs', 'js:compile');
 	});
 
 	/**
@@ -75,7 +68,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp js:all)
 	 */
 	gulp.task('js:all', function() {
-		plugins.runSequence('clean:js', 'js:compile:libs', 'js:concat', 'js:lint', 'copy:js:libs');
+		plugins.runSequence('clean:js', 'js:compile:libs', 'js:compile', 'copy:js:libs');
 	});
 }
 

@@ -28,6 +28,7 @@ yOSON.AppCore.addModule "cookieWebSettings", (Sb) ->
 			currentCookieData = JSON.parse(Cookie.read(cookieName))
 			currentCookieData[key] = data
 			functions.updateCookie(currentCookieData)
+			console.log("holaaa")
 			return
 
 	initialize = (oP) ->
