@@ -15,7 +15,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * Tarea para ejecutar el servidor express mediante el script server.js
 	 * (gulp nodemon)
 	 */
-	gulp.task('nodemon', function (cb) {
+	gulp.task('nodemon', function () {
 		var called = false;
 		return plugins.nodemon({
 			script: 'config/server.js'
@@ -23,7 +23,6 @@ function Task(gulp, path, config, plugins, functions){
 		.on('start', function () {
 			if (!called) {
 				called = true;
-				cb();
 			}
 		})
 		.on('restart', function () {

@@ -10,7 +10,7 @@
  * @author Victor Sandoval
  */
 
-var gulp      =  require('gulp-param')(require('gulp'), process.argv),
+var gulp      = require('gulp-param')(require('gulp'), process.argv),
     path      = require('./config/path'),
     config    = require('./config/config.local'),
     plugins   = require('./config/plugins'),
