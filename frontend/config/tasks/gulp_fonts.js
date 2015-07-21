@@ -18,12 +18,12 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp fonts:compile)
 	 */
 	gulp.task('fonts:compile', function(){
-		fs.readdir(path.frontend.staticFiles_fonts + "/", function(err, files) {
+		fs.readdir(path.frontend.fonts + "/", function(err, files) {
 			if (err) throw err;
 			var dirList = files.filter(function(file) { return (/^[^_]*$/g).test(file); });
-			gulp.src(path.frontend.staticFiles_fonts + '/_template/fonts.styl')
+			gulp.src(path.frontend.fonts + '/_template/fonts.styl')
 				.pipe(plugins.consolidate('lodash', { dirList: dirList }))
-				.pipe(gulp.dest(path.frontend.stylus + '/layout'));
+				.pipe(gulp.dest(path.frontend.pre_css + '/layout'));
 		})
 	});
 

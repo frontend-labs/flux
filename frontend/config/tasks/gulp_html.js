@@ -13,11 +13,11 @@
 function Task(gulp, path, config, plugins, functions){
 
 	var pathJadeFiles = [
-		path.frontend.jade + '/*.jade',
-		path.frontend.jade + '/**/*.jade',
-		'!' + path.frontend.jade + '/_**/*.jade',
-		'!' + path.frontend.jade + '/**/_**/*.jade',
-		'!' + path.frontend.jade + '/**/_*.jade'
+		path.frontend.pre_html + '/*.jade',
+		path.frontend.pre_html + '/**/*.jade',
+		'!' + path.frontend.pre_html + '/_**/*.jade',
+		'!' + path.frontend.pre_html + '/**/_**/*.jade',
+		'!' + path.frontend.pre_html + '/**/_*.jade'
 	]
 
 	/**
@@ -34,7 +34,7 @@ function Task(gulp, path, config, plugins, functions){
 					elementUrl: "/",
 					version 	: new Date().getTime(),
 					module 		: "postulante",
-					controller: "home",
+					controller  : "home",
 					action 		: "index"
 				}
 			}).on('error', functions.errorHandler))

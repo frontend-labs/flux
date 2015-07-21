@@ -55,9 +55,9 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp watch)
 	 */
 	gulp.task('watch', ['server'], function () {
-		gulp.watch([path.frontend.jade + '/**/*.jade'], ['', plugins.browserSync.reload]);
-		gulp.watch([path.frontend.stylus + '/**/*.styl'], ['styles', plugins.browserSync.reload]);
-		gulp.watch([path.frontend.coffee + '/**/*.coffee'], ['js', plugins.browserSync.reload]);
+		gulp.watch([path.frontend.pre_html + '/**/*.jade'], ['', plugins.browserSync.reload]);
+		gulp.watch([path.frontend.pre_css + '/**/*.styl'], ['styles', plugins.browserSync.reload]);
+		gulp.watch([path.frontend.pre_js + '/**/*.coffee'], ['js', plugins.browserSync.reload]);
 	});
 
 }
