@@ -39,7 +39,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp icons)
 	 */
 	gulp.task('icons', function() {
-		plugins.runSequence('icons:compile', 'fonts:compile', 'styles', 'copy:fonts');
+		plugins.runSequence('icons:compile', 'fonts:compile', 'css', 'copy:fonts');
 	});
 
 }

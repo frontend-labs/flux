@@ -1,7 +1,7 @@
 /**
  * Tarea para compilar archivos .styl
  *
- * @module Task (gulp styles)
+ * @module Task (gulp css)
  * @extends Gulp
  * @extends Path
  * @extends Config
@@ -21,14 +21,14 @@ function Task(gulp, path, config, plugins, functions){
 
   /**
    * Tarea usada por el gulp watch
-   * (gulp styles)
+   * (gulp css)
    *
    * Utiliza plugins como
    * Rupture : Proporciona mixins para los breakpoints en css
    * Jeet    : Proporciona mixins para un sistema de grillas
    * Nib     : Proporciona mixins cross-browser para propiedades CCS3
    */
-  gulp.task('styles', function () {
+  gulp.task('css', function () {
     return gulp.src(pathStylesFiles, { base : path.frontend.pre_css })
       .pipe(plugins.stylus({
         compress: config.prod,
@@ -44,10 +44,10 @@ function Task(gulp, path, config, plugins, functions){
 
   /**
    * Tarea principal
-   * (gulp styles:all)
+   * (gulp css:all)
    */
-  gulp.task('styles:all', function() {
-    plugins.runSequence('clean:css', 'styles');
+  gulp.task('css:all', function() {
+    plugins.runSequence('clean:css', 'css');
   });
 }
 

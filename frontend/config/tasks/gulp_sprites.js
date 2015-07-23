@@ -37,7 +37,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp sprites)
 	 */
 	gulp.task('sprites', function () {
-		plugins.runSequence('sprites:compile', 'copy:img:sprites', 'styles');
+		plugins.runSequence('sprites:compile', 'copy:img:sprites', 'css');
 	});
 
 }

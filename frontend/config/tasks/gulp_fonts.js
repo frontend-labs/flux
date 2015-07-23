@@ -32,7 +32,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp fonts)
 	 */
 	gulp.task('fonts', function() {
-		plugins.runSequence('fonts:compile', 'styles', 'copy:fonts');
+		plugins.runSequence('fonts:compile', 'css', 'copy:fonts');
 	});
 
 }

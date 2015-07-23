@@ -23,7 +23,7 @@ var runTask = function (nameTask){
 
 runTask("gulp_clean");
 runTask("gulp_copy");
-runTask("gulp_styles");
+runTask("gulp_css");
 runTask("gulp_sprites");
 runTask("gulp_fonts");
 runTask("gulp_html");
@@ -34,5 +34,5 @@ runTask("gulp_bower");
 runTask("gulp_mocha");
 
 gulp.task('default', ['clean'], function () {
-  plugins.runSequence('copy', 'fonts', 'icons', 'sprites', 'styles:all', 'js:all');
+  plugins.runSequence('copy', 'fonts', 'icons', 'sprites', 'css:all', 'js:all');
 });
