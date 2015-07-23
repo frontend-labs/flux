@@ -17,7 +17,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp js:compile:libs)
 	 */
 	gulp.task('js:compile:libs', function() {
-		return gulp.src(path.frontend.coffee + '/libs/**/*.coffee', { base : path.frontend.coffee })
+		return gulp.src(path.frontend.pre_js + '/libs/**/*.coffee', { base : path.frontend.pre_js })
 		.pipe(plugins.coffee({bare: true}).on('error', functions.errorHandler))
 		.pipe(gulp.dest(path.dest.js));
 	});
@@ -27,7 +27,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp js:compile)
 	 */
 	gulp.task('js:compile', function(){
-		gulp.src(path.frontend.coffee + '/modules/**/*.coffee')
+		gulp.src(path.frontend.pre_js + '/modules/**/*.coffee')
 			.pipe(plugins.recursiveConcat({ extname: '.coffee' }))
 			.pipe(plugins.coffee({ bare: true }))
 			.pipe(plugins.jshint(path.frontend.config + '/.jshintrc'))
@@ -50,7 +50,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp js:complexity)
 	 */
 	gulp.task('js:complexity', function(){
-		gulp.src(path.frontend.coffee + '/modules/**/*.coffee')
+		gulp.src(path.frontend.pre_js + '/modules/**/*.coffee')
 			.pipe(plugins.coffee({ bare: true }))
 			.pipe(plugins.complexity());
 	});

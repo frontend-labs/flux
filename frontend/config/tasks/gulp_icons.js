@@ -17,21 +17,21 @@ function Task(gulp, path, config, plugins, functions){
 	 * Genera un archivo .styl y archivos de fuentes .eot .svg .ttf .woff
 	 */
 	gulp.task('icons:compile', function(){
-		gulp.src(path.frontend.staticFiles_icons + '/*.svg')
+		gulp.src(path.frontend.icons + '/*.svg')
 			.pipe(plugins.iconfont({ 
 				normalize: true, 
 				fontName: 'iconFonts-webfont', 
 				appendCodepoints: true
 			}))
 			.on('codepoints', function(codepoints, options) {
-				gulp.src(path.frontend.staticFiles_icons + '/_template/icons.styl') //Template
+				gulp.src(path.frontend.icons + '/_template/icons.styl') //Template
 					.pipe(plugins.consolidate('lodash', {
 						glyphs: codepoints,
 						fontName: 'iconFonts'
 					}))
-					.pipe(gulp.dest(path.frontend.stylus + '/layout/_elements'));
+					.pipe(gulp.dest(path.frontend.pre_css + '/layout/_elements'));
 			})
-			.pipe(gulp.dest(path.frontend.staticFiles_fonts + '/iconFonts'));
+			.pipe(gulp.dest(path.frontend.fonts + '/iconFonts'));
 	});
 
 	/**

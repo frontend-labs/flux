@@ -28,14 +28,14 @@ app.get("/:module/:controller/:action", function(req, res) {
   //------------------------------------------------------------
   
   if (objRoute.module != "undefined" && objRoute.controller != "undefined" && objRoute.action != "undefined"){
-    res.render(path.frontend.jade + "/modules/" + objRoute.module + "/" + objRoute.controller + "/" + objRoute.action, objRoute);
+    res.render(path.frontend.pre_html + "/modules/" + objRoute.module + "/" + objRoute.controller + "/" + objRoute.action, objRoute);
   }else{
     res.end();
   }
 });
 
 app.get("/", function(req, res) {
-  res.render(path.frontend.jade + "/welcome");
+  res.render(path.frontend.pre_html + "/_welcome");
 });
 
 app.listen(config.port);

@@ -12,14 +12,14 @@
 function Task(gulp, path, config, plugins, functions){
 	//----------------------------------------------------
 	var pathCopyImgFiles = [
-		path.frontend.staticFiles_img + '/**/**/*.*',
-		'!' + path.frontend.staticFiles_img + '/_**/**/*.*',
-		'!' + path.frontend.staticFiles_img + '/**/_**/*.*',
-		'!' + path.frontend.staticFiles_img + '/**/**/_*.*'
+		path.frontend.images + '/**/**/*.*',
+		'!' + path.frontend.images + '/_**/**/*.*',
+		'!' + path.frontend.images + '/**/_**/*.*',
+		'!' + path.frontend.images + '/**/**/_*.*'
 	]
 	var pathCopyFontsFiles = [
-		path.frontend.staticFiles_fonts + '/**/*.*',
-		'!' + path.frontend.staticFiles_fonts + '/_**/*.*'
+		path.frontend.fonts + '/**/*.*',
+		'!' + path.frontend.fonts + '/_**/*.*'
 	]
 	//----------------------------------------------------
 
@@ -28,7 +28,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp copy:img)
 	 */
 	gulp.task('copy:img', function() {
-		gulp.src(pathCopyImgFiles, { base : path.frontend.staticFiles })
+		gulp.src(pathCopyImgFiles, { base : path.frontend.source })
 			.pipe(plugins.if(config.prod, plugins.imagemin({
 				progressive: true,
 				svgoPlugins: [{removeViewBox: false}],
@@ -47,7 +47,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp copy:img:sprites)
 	 */
 	gulp.task('copy:img:sprites', function() {
-		gulp.src(path.frontend.staticFiles_img + '/*_sprite.png', { base : path.frontend.staticFiles })
+		gulp.src(path.frontend.images + '/*_sprite.png', { base : path.frontend.source })
 			.pipe(plugins.if(config.prod, plugins.imagemin({
 				progressive: true,
 				use: [ plugins.imageminPNG({optimizationLevel: 3}) ]
@@ -60,7 +60,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp copy:fonts)
 	 */
 	gulp.task('copy:fonts', function() {
-		gulp.src(pathCopyFontsFiles, { base : path.frontend.staticFiles })
+		gulp.src(pathCopyFontsFiles, { base : path.frontend.source })
 			.pipe(gulp.dest(path.dest.serverFiles + path.dest.static));
 	});
 
@@ -72,7 +72,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * con extensión .js (debido a que genera problemas al transformar a sintaxis coffee)
 	 */
 	gulp.task('copy:js:libs', function () {
-    gulp.src(path.frontend.coffee + '/libs/*.js')
+    gulp.src(path.frontend.pre_js + '/libs/*.js')
       .pipe(gulp.dest(path.dest.js + '/libs'));
   });
 	
