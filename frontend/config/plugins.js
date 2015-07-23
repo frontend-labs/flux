@@ -20,8 +20,7 @@ var Plugins = {
   fs              : require('fs'),
   path            : require('path'),
   // Plugins gulp clean
-  rimraf          : require('gulp-rimraf'),
-  clean          : require('gulp-clean'),
+  del             : require('del'),
   // Plugins gulp copy
   imagemin        : require('gulp-imagemin'),
   imageminPNG     : require('imagemin-optipng'),

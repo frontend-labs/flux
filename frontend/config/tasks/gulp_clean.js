@@ -13,36 +13,32 @@ function Task(gulp, path, config, plugins, functions){
 	 * Tarea para limpiar imagenes
 	 * (gulp clean:img)
 	 */
-	gulp.task('clean:img', function () {
-		return gulp.src(path.dest.img, { read: false })
-			.pipe(plugins.rimraf({ force: true }));
+	gulp.task('clean:img', function (cb) {
+		return plugins.del([path.dest.img], { force: true }, cb);
 	});
 
 	/**
 	 * Tarea para limpiar fuentes
 	 * (gulp clean:fonts)
 	 */
-	gulp.task('clean:fonts', function () {
-		return gulp.src(path.dest.fonts, { read: false })
-			.pipe(plugins.rimraf({ force: true }));
+	gulp.task('clean:fonts', function (cb) {
+		return plugins.del([path.dest.fonts], { force: true }, cb);
 	});
 
 	/**
 	 * Tarea para limpiar archivos js
 	 * (gulp clean:js)
 	 */
-	gulp.task('clean:js', function () {
-		return gulp.src(path.dest.js, { read: false })
-			.pipe(plugins.rimraf({ force: true }));
+	gulp.task('clean:js', function (cb) {
+		return plugins.del([path.dest.js], { force: true }, cb);
 	});
 
 	/**
 	 * Tarea para limpiar archivos css
 	 * (gulp clean:css)
 	 */
-	gulp.task('clean:css', function () {
-		return gulp.src(path.dest.css, { read: false })
-			.pipe(plugins.rimraf({ force: true }));
+	gulp.task('clean:css', function (cb) {
+		return plugins.del([path.dest.css], { force: true }, cb);
 	});
 
 	/**
