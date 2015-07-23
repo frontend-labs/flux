@@ -12,9 +12,16 @@ var Plugins = {
   shell           : require('gulp-shell'),
   recursiveConcat : require('gulp-recursive-concat'),
   notifier        : require("node-notifier"),
-  util            : require('gulp-util'),
+  util            : require('gulp-util'), 
+  // Plugins mocha
+  replace         : require('gulp-replace'),
+  es              : require('event-stream'),
+  mocha           : require('gulp-mocha'),
+  fs              : require('fs'),
+  path            : require('path'),
   // Plugins gulp clean
   rimraf          : require('gulp-rimraf'),
+  clean          : require('gulp-clean'),
   // Plugins gulp copy
   imagemin        : require('gulp-imagemin'),
   imageminPNG     : require('imagemin-optipng'),

@@ -11,7 +11,10 @@
   "devDependencies": {
     "browser-sync": "^2.7.6",
     "chai": "^3.0.0",
+    "coffee-script": "^1.9.3",
+    "event-stream": "^3.3.1",
     "gulp": "^3.8.11",
+    "gulp-clean": "^0.3.1",
     "gulp-coffee": "^2.3.1",
     "gulp-complexity": "^0.3.0",
     "gulp-consolidate": "^0.1.2",
@@ -25,6 +28,7 @@
     "gulp-nodemon": "^2.0.3",
     "gulp-param": "^0.6.3",
     "gulp-recursive-concat": "0.0.9",
+    "gulp-replace": "^0.5.3",
     "gulp-rimraf": "^0.1.1",
     "gulp-shell": "^0.4.2",
     "gulp-stylus": "^2.0.2",

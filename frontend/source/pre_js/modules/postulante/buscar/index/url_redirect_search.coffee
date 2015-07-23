@@ -4,7 +4,7 @@ Modulo para la construcción de la URL a buscar en la busqueda
 @main postulante
 @author Carlos Huamani
 ###
-module.exports.url_redirect_search = yOSON.AppCore.addModule "url_redirect_search", (Sb) ->
+yOSON.AppCore.addModule "url_redirect_search", (Sb) ->
 	st =
 		frmSearch		: '#frmSearchPage'
 		btn_search 		: '.btn_search'

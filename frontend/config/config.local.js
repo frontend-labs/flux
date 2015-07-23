@@ -11,4 +11,4 @@ var Config = {
 };
 
 module.exports = Config;
-module.exports.unit_tests = {module: 'postulante', controller: 'buscar'};
+module.exports.UNIT_TESTS = {module: 'postulante', controller: 'buscar'};
