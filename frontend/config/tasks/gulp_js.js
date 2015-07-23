@@ -17,7 +17,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp js:compile:libs)
 	 */
 	gulp.task('js:compile:libs', function() {
-		return gulp.src(path.frontend.pre_js + '/libs/**/*.coffee', { base : path.frontend.pre_js })
+		gulp.src(path.frontend.pre_js + '/libs/**/*.coffee', { base : path.frontend.pre_js })
 		.pipe(plugins.coffee({bare: true}).on('error', functions.errorHandler))
 		.pipe(gulp.dest(path.dest.js));
 	});
@@ -59,17 +59,13 @@ function Task(gulp, path, config, plugins, functions){
 	 * Tarea usada por el gulp watch
 	 * (gulp js)
 	 */
-	gulp.task('js', function() {
-		plugins.runSequence('js:compile:libs', 'js:compile');
-	});
+	gulp.task('js', plugins.gulpSequence('js:compile:libs', 'js:compile'));
 
 	/**
 	 * Tarea principal
 	 * (gulp js:all)
 	 */
-	gulp.task('js:all', function() {
-		plugins.runSequence('clean:js', 'js:compile:libs', 'js:compile', 'copy:js:libs');
-	});
+	gulp.task('js:all', plugins.gulpSequence('clean:js', 'js:compile:libs', 'js:compile', 'copy:js:libs'));
 }
 
 module.exports = Task;

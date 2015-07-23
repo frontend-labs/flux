@@ -35,7 +35,7 @@ app.get("/:module/:controller/:action", function(req, res) {
 });
 
 app.get("/", function(req, res) {
-  res.render(path.frontend.pre_html + "/_welcome");
+  res.render(path.frontend.pre_html + "/welcome");
 });
 
 app.listen(config.port);

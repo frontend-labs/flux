@@ -8,7 +8,7 @@
 var Plugins = {
   // Plugins globales
   if              : require('gulp-if'),
-  runSequence     : require('run-sequence'),
+  gulpSequence    : require('gulp-sequence'),
   shell           : require('gulp-shell'),
   recursiveConcat : require('gulp-recursive-concat'),
   notifier        : require("node-notifier"),

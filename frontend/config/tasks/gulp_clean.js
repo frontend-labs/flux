@@ -14,7 +14,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp clean:img)
 	 */
 	gulp.task('clean:img', function (cb) {
-		return plugins.del([path.dest.img], { force: true }, cb);
+		plugins.del([path.dest.img], { force: true }, cb);
 	});
 
 	/**
@@ -22,7 +22,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp clean:fonts)
 	 */
 	gulp.task('clean:fonts', function (cb) {
-		return plugins.del([path.dest.fonts], { force: true }, cb);
+		plugins.del([path.dest.fonts], { force: true }, cb);
 	});
 
 	/**
@@ -30,7 +30,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp clean:js)
 	 */
 	gulp.task('clean:js', function (cb) {
-		return plugins.del([path.dest.js], { force: true }, cb);
+		plugins.del([path.dest.js], { force: true }, cb);
 	});
 
 	/**
@@ -38,16 +38,14 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp clean:css)
 	 */
 	gulp.task('clean:css', function (cb) {
-		return plugins.del([path.dest.css], { force: true }, cb);
+		plugins.del([path.dest.css], { force: true }, cb);
 	});
 
 	/**
 	 * Tarea principal
 	 * (gulp clean)
 	 */
-	gulp.task('clean', function () {
-		plugins.runSequence('clean:img', 'clean:fonts', 'clean:js', 'clean:css');
-	});
+	gulp.task('clean', plugins.gulpSequence('clean:img', 'clean:fonts', 'clean:js', 'clean:css'));
 
 }
 
