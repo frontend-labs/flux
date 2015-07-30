@@ -22,15 +22,15 @@ Path.base               = __dirname + '/../..';
 Path.frontend.base      = Path.base + '/frontend';
 
 Path.frontend.config    = Path.frontend.base + '/config';
-Path.frontend.source 	= Path.frontend.base + '/source';
+Path.frontend.source    = Path.frontend.base + '/source';
 //-----------------------------------------------------------------------
-Path.frontend.pre_js  	= Path.frontend.source + '/pre_js';
+Path.frontend.pre_js    = Path.frontend.source + '/pre_js';
 Path.frontend.pre_html  = Path.frontend.source + '/pre_html';
-Path.frontend.pre_css  	= Path.frontend.source + '/pre_css';
-Path.frontend.temporals  	= Path.frontend.source + '/tmp';
-Path.frontend.fonts 	= Path.frontend.source + '/fonts';
-Path.frontend.icons 	= Path.frontend.source + '/icons';
-Path.frontend.images 	= Path.frontend.source + '/images';
+Path.frontend.pre_css   = Path.frontend.source + '/pre_css';
+Path.frontend.temporals = Path.frontend.source + '/tmp';
+Path.frontend.fonts     = Path.frontend.source + '/fonts';
+Path.frontend.icons     = Path.frontend.source + '/icons';
+Path.frontend.images    = Path.frontend.source + '/images';
 //-----------------------------------------------------------------------
 Path.frontend.tests     = Path.frontend.base + '/tests';
 
