@@ -20,8 +20,8 @@ function Task(gulp, path, config, plugins, functions){
 		gulp.src(path.frontend.icons + '/*.svg')
 			.pipe(plugins.iconfont({ 
 				normalize: true, 
-				fontName: 'iconFonts-webfont', 
-				appendCodepoints: true
+				fontName: 'iconFonts-webfont',
+				appendUnicode: false
 			}))
 			.on('codepoints', function(codepoints, options) {
 				gulp.src(path.frontend.icons + '/_template/icons.styl') //Template
