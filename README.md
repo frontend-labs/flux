@@ -38,6 +38,10 @@ Si pide permisos ejecutar con **sudo**
 ```
 gulp
 ```
+#### Instalar librerías con bower
+```
+bower install
+```
 #### Ejecutar watchers
 ```
 gulp watch
@@ -55,7 +59,7 @@ gulp js
 ```
 #### Compilar estilos
 ```
-gulp styles
+gulp css
 ```
 #### Generar imágenes sprites
 ```
