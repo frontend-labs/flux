@@ -12,14 +12,14 @@ Flux es un conjunto de tareas desarrolladas con gulp para facilitar el flujo de 
 ---------------- | ---
 **gulp clean**   | Tarea para eliminar js, css, fuentes e imagenes previmanete compilados.
 **gulp copy**    | Tarea para copiar fuentes e imagenes desde la carpeta base frontend.
-**gulp css** 	 | Tarea para compilar css a partir de archivos stylus.
+**gulp css**     | Tarea para compilar css a partir de archivos stylus.
 **gulp html**    | Tarea para compilar html a partir archivos jade.
 **gulp js**      | Tarea para compilar javascript a partir de archivos coffee.
 **gulp sprites** | Tarea para compilar archivos *.png a una imagen de sprites.
 **gulp fonts**   | Tarea para generar css a partir de archivos de fuentes (eot, ttf, woff, svg).
 **gulp icons**   | Tarea para generar fuente de iconos a partir de iconos en svg.
 **gulp watch**   | Tarea para escuchar cualquier modificación que se en los archivos coffee, stylus, jade y compilarlos automáticamente.
-**gulp bower** 	 | Tarea para manipular plugins instalados por bower.
+**gulp bower**   | Tarea para manipular plugins instalados por bower.
 
 ## Instalación
 
@@ -85,5 +85,7 @@ Al ejecutar esta tarea, automáticamente se abrirá una página por defecto de b
 
 ## Documentación
 
-- [Documentación en español](README-es.md)
+- [Documentación en inglés](README.md)
+
+
 
