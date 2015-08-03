@@ -65,6 +65,7 @@ gulp
 ```
 > **Nota:**
 > También se puede ejecutar las [tareas](#todas_las_tareas) en forma independiente
+
 #### <i class="icon-cog"></i> Instalar librerías con bower
 ```
 bower install
