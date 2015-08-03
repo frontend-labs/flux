@@ -85,7 +85,7 @@ Al ejecutar esta tarea, automáticamente se abrirá una página por defecto de b
 
 ## Documentación
 
-- [Documentación en ingles](README.md)
+- [Documentación en inglés](README.md)
 
 
 

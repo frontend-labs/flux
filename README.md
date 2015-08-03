@@ -87,5 +87,3 @@ Al ejecutar esta tarea, automáticamente se abrirá una página por defecto de b
 
 - [Documentación en español](README-es.md)
 
-
-
