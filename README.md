@@ -8,14 +8,14 @@ Task | Description
 ---------------- | ---
 **gulp clean**   | Task to delete js, css, font and image files previously compiled.
 **gulp copy**    | Task to copy fonts and images from the `flux/frontend/` folder
-**gulp css** 	 | Task to compile `*.styl` files to `*.css`.
+**gulp css**     | Task to compile `*.styl` files to `*.css`.
 **gulp html**    | Task to compile `*.jade` files to `*.html`.
 **gulp js**      | Task to compile `*.coffee` files to `*.js`.
 **gulp sprites** | Task to generate a spritesheet from `*.png` image files.
 **gulp fonts**   | Task to generate a css stylesheet from font files (`*.eot`, `*.ttf`,  `*.woff`, `*.svg`).
 **gulp icons**   | Tast to generate an icon font from `*.svg` images.
 **gulp watch**   | Task to listen for any changes made in the `*.coffee`, `*.styl`, `*.jade` files and compile them automatically.
-**gulp bower** 	 | Task to manage plugins installed with Bower.
+**gulp bower**   | Task to manage plugins installed with Bower.
 
 ## Installation
 
