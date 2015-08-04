@@ -65,13 +65,10 @@ function Task(gulp, path, config, plugins, functions) {
     });
 
     gulp.task('mocha:clean', function () {
-        return gulp.src(path.frontend.temporals)
-            .pipe(plugins.clean());
+        return plugins.del(path.frontend.temporals);
     });
 
-    gulp.task('mocha', function() {
-        return plugins.runSequence('mocha:params', 'mocha:replace', 'mocha:unit', 'mocha:clean');
-    });
+    gulp.task('mocha', plugins.gulpSequence('mocha:params', 'mocha:replace', 'mocha:unit', 'mocha:clean'));
 
     // ================ FUNCTIONS ================
 

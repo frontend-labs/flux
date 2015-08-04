@@ -96,6 +96,6 @@ yOSON.AppCore.addModule "url_redirect_search", (Sb) ->
 
 	return {
 		init : initialize
-		functions : fn
+		tests : fn
 	}
 , []
