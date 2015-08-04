@@ -11,7 +11,7 @@
   "devDependencies": {
     "browser-sync": "^2.7.6",
     "chai": "^3.0.0",
-	"coffee-script": "^1.9.3",
+	  "coffee-script": "^1.9.3",
     "event-stream": "^3.3.1",
     "del": "^1.2.0",
     "gulp": "^3.9.0",
