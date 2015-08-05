@@ -8,7 +8,9 @@
 var CONFIG = {
 	prod : true,
 	port : 4000,
-	unit_tests : {module: 'postulante', controller: 'buscar'}
+	tests : {
+		unit: {module: 'postulante', controller: 'buscar'}
+	}
 };
 
 module.exports = CONFIG;
