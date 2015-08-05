@@ -5,10 +5,10 @@
  * @author Victor Sandoval
  */
 
-var Config = {
+var CONFIG = {
 	prod : true,
 	port : 4000,
-	UNIT_TESTS : {module: 'postulante', controller: 'buscar'}
+	unit_tests : {module: 'postulante', controller: 'buscar'}
 };
 
-module.exports = Config;
+module.exports = CONFIG;
