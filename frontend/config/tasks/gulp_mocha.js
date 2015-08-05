@@ -16,8 +16,8 @@ function Task(gulp, path, config, plugins, functions) {
         testAll =  all !== null ? all : false;
 
         //Actualizo los valores de las variables acorde a lo solicitado
-        _controller = controller !== null ? controller : config.UNIT_TESTS.controller;
-        _module =  module !== null ? module : config.UNIT_TESTS.module;
+        _controller = controller !== null ? controller : config.tests.unit.controller;
+        _module =  module !== null ? module : config.tests.unit.module;
         
         //Defino la ubicacion con ayuda de las variables
         ubication = onlyModule ? [_module]: [_module, _controller];
