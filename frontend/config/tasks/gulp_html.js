@@ -33,9 +33,7 @@ function Task(gulp, path, config, plugins, functions){
 					staticUrl : "/",
 					elementUrl: "/",
 					version 	: new Date().getTime(),
-					module 		: "postulante",
-					controller  : "home",
-					action 		: "index"
+					section 		: "default"
 				}
 			}).on('error', functions.errorHandler))
 			.pipe(gulp.dest(path.dest.html))

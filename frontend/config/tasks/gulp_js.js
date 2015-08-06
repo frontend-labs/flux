@@ -27,7 +27,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp js:compile)
 	 */
 	gulp.task('js:compile', function(){
-		gulp.src(path.frontend.pre_js + '/modules/**/*.coffee')
+		gulp.src(path.frontend.pre_js + '/sections/**/*.coffee')
 			.pipe(plugins.recursiveConcat({ extname: '.coffee' }))
 			.pipe(plugins.coffee({ bare: true }))
 			.pipe(plugins.jshint(path.frontend.config + '/.jshintrc'))
@@ -40,7 +40,7 @@ function Task(gulp, path, config, plugins, functions){
 					drop_console: true
 				}
 			})))
-			.pipe(gulp.dest(path.dest.js + '/modules'))
+			.pipe(gulp.dest(path.dest.js + '/sections'))
 			.on('end', functions.successHandler);
 	});
 
@@ -50,7 +50,7 @@ function Task(gulp, path, config, plugins, functions){
 	 * (gulp js:complexity)
 	 */
 	gulp.task('js:complexity', function(){
-		gulp.src(path.frontend.pre_js + '/modules/**/*.coffee')
+		gulp.src(path.frontend.pre_js + '/views/**/*.coffee')
 			.pipe(plugins.coffee({ bare: true }))
 			.pipe(plugins.complexity());
 	});
