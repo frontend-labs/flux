@@ -6,21 +6,21 @@
 */
 
 function Task(gulp, path, config, plugins, functions) {
-    var onlyModule, testAll, onlyModule, _controller, _module, ubication = '';
+    var onlyModule, testAll, onlyModule, _sections, _module, ubication = '';
     var coffee_files_replaced = [];
     var coffee_path_files = [];
 
-    gulp.task('mocha:params', function(all, module, controller){
+    gulp.task('mocha:params', function(all, module, sections){
         //Defino que parametros han sido enviados
-        onlyModule = (module!==null && controller===null);
+        onlyModule = (module!==null && sections===null);
         testAll =  all !== null ? all : false;
 
         //Actualizo los valores de las variables acorde a lo solicitado
-        _controller = controller !== null ? controller : config.tests.unit.controller;
+        _sections = sections !== null ? sections : config.tests.unit.sections;
         _module =  module !== null ? module : config.tests.unit.module;
         
         //Defino la ubicacion con ayuda de las variables
-        ubication = onlyModule ? [_module]: [_module, _controller];
+        ubication = onlyModule ? [_module]: [_module, _sections];
 
         //Busco la ubicación de los coffeescripts a ser testeados
         var path_coffee = getPaths(path.frontend.pre_js, testAll, ubication);
@@ -38,7 +38,7 @@ function Task(gulp, path, config, plugins, functions) {
             coffee_files_replaced.push(tmpFile + '/' + coffee_path_files['key'][file] + '.coffee')
 
             return gulp.src(file)
-                .pipe(plugins.replace(/yOSON\.AppCore\.addModule/gm, 'module.exports.'+ coffee_path_files['key'][file] +' = yOSON.AppCore.addModule'))
+                .pipe(plugins.insert.prepend('functions.'))
                 .pipe(gulp.dest(tmpFile));
         });
         return plugins.es.merge.apply(plugins.es, streams);
@@ -54,8 +54,8 @@ function Task(gulp, path, config, plugins, functions) {
         global.expect = require('chai').expect;
         global.jsdom = require("jsdom").jsdom;
         global.$ = require('jquery')(jsdom().parentWindow);
-        global.yOSON = require(path.dest.js + '/libs/yosonjs/build/yoson-min.js'); // Proximament un require('yoson')
-
+        global.functions = {}
+        
         //Se testean los archivos
         return gulp.src(path_test, {read: false})
             .pipe(plugins.mocha({
@@ -92,7 +92,7 @@ function Task(gulp, path, config, plugins, functions) {
         return getFiles({}, directory)
     }
     var getPaths = function(path, all, ubication){
-        var finalPath = path + '/modules/';
+        var finalPath = path + '/';
         if(!all){
             finalPath = finalPath + ubication.join('/') + '/' ;
         }

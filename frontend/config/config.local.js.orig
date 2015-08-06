@@ -9,8 +9,13 @@ var CONFIG = {
 	prod : true,
 	port : 4000,
 	tests : {
-		unit: {module: 'sections', sections : 'home'}
+		unit: {module: 'postulante', controller: 'buscar'}
 	}
 };
 
+<<<<<<< HEAD
 module.exports = CONFIG;
+=======
+module.exports = Config;
+module.exports.UNIT_TESTS = {module: 'home', controller: ''};
+>>>>>>> a8330df... wip
