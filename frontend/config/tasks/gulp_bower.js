@@ -9,22 +9,22 @@
 
 function Task(Gulp, Path, Config, Plugins, Functions){
 
-	/**
-	 * Tarea para filtrar archivos de las librerías de bower
-	 * (gulp bower:filter)
-	 * 
-	 * Se puede especificar que solo traiga los js de las librería a descargar
-	 * y estas se deben listar en el objeto {} "preen", dentro de archivo bower.json
-	 */
-	Gulp.task('bower:filter', function(cb) {
-		Plugins.preen.preen({}, cb);
-	});
+  /**
+   * Tarea para filtrar archivos de las librerías de bower
+   * (gulp bower:filter)
+   * 
+   * Se puede especificar que solo traiga los js de las librería a descargar
+   * y estas se deben listar en el objeto {} "preen", dentro de archivo bower.json
+   */
+  Gulp.task('bower:filter', function(cb) {
+    Plugins.preen.preen({}, cb);
+  });
 
-	/**
-	 * Tarea principal
-	 * (gulp bower)
-	 */
-	Gulp.task('bower', ['bower:filter']);
+  /**
+   * Tarea principal
+   * (gulp bower)
+   */
+  Gulp.task('bower', ['bower:filter']);
 }
 
 module.exports = Task;

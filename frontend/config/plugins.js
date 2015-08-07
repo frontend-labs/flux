@@ -14,7 +14,7 @@ var Plugins = {
   notifier        : require("node-notifier"),
   util            : require('gulp-util'), 
   // Plugins mocha
-  replace         : require('gulp-replace'),
+  insert         : require('gulp-insert'),
   es              : require('event-stream'),
   mocha           : require('gulp-mocha'),
   fs              : require('fs'),
