@@ -1,8 +1,8 @@
 fn =
-	greeting: (lenguage)->
-		lenguages = 
+	greeting: (language)->
+		languages = 
 			'es': 'Hola'
 			'en': 'Hello'
 			'fr': 'Bonjour'
-		return lenguages[lenguage]
+		return languages[language]
 
