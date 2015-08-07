@@ -1,5 +1,5 @@
 fn =
-	saludar: (lenguage)->
+	greeting: (lenguage)->
 		lenguages = 
 			'es': 'Hola'
 			'en': 'Hello'
