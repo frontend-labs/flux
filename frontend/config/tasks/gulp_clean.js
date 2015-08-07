@@ -9,43 +9,43 @@
  */
 
 function Task(gulp, path, config, plugins, functions){
-	/**
-	 * Tarea para limpiar imagenes
-	 * (gulp clean:img)
-	 */
-	gulp.task('clean:img', function (cb) {
-		plugins.del([path.dest.img], { force: true }, cb);
-	});
+  /**
+   * Tarea para limpiar imagenes
+   * (gulp clean:img)
+   */
+  gulp.task('clean:img', function (cb) {
+    plugins.del([path.dest.img], { force: true }, cb);
+  });
 
-	/**
-	 * Tarea para limpiar fuentes
-	 * (gulp clean:fonts)
-	 */
-	gulp.task('clean:fonts', function (cb) {
-		plugins.del([path.dest.fonts], { force: true }, cb);
-	});
+  /**
+   * Tarea para limpiar fuentes
+   * (gulp clean:fonts)
+   */
+  gulp.task('clean:fonts', function (cb) {
+    plugins.del([path.dest.fonts], { force: true }, cb);
+  });
 
-	/**
-	 * Tarea para limpiar archivos js
-	 * (gulp clean:js)
-	 */
-	gulp.task('clean:js', function (cb) {
-		plugins.del([path.dest.js], { force: true }, cb);
-	});
+  /**
+   * Tarea para limpiar archivos js
+   * (gulp clean:js)
+   */
+  gulp.task('clean:js', function (cb) {
+    plugins.del([path.dest.js], { force: true }, cb);
+  });
 
-	/**
-	 * Tarea para limpiar archivos css
-	 * (gulp clean:css)
-	 */
-	gulp.task('clean:css', function (cb) {
-		plugins.del([path.dest.css], { force: true }, cb);
-	});
+  /**
+   * Tarea para limpiar archivos css
+   * (gulp clean:css)
+   */
+  gulp.task('clean:css', function (cb) {
+    plugins.del([path.dest.css], { force: true }, cb);
+  });
 
-	/**
-	 * Tarea principal
-	 * (gulp clean)
-	 */
-	gulp.task('clean', plugins.gulpSequence('clean:img', 'clean:fonts', 'clean:js', 'clean:css'));
+  /**
+   * Tarea principal
+   * (gulp clean)
+   */
+  gulp.task('clean', plugins.gulpSequence('clean:img', 'clean:fonts', 'clean:js', 'clean:css'));
 
 }
 

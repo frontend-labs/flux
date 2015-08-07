@@ -12,34 +12,32 @@
 
 function Task(gulp, path, config, plugins, functions){
 
-	var pathJadeFiles = [
-		path.frontend.pre_html + '/*.jade',
-		path.frontend.pre_html + '/**/*.jade',
-		'!' + path.frontend.pre_html + '/_**/*.jade',
-		'!' + path.frontend.pre_html + '/**/_**/*.jade',
-		'!' + path.frontend.pre_html + '/**/_*.jade'
-	]
+  var pathJadeFiles = [
+    path.frontend.pre_html + '/*.jade',
+    path.frontend.pre_html + '/**/*.jade',
+    '!' + path.frontend.pre_html + '/_**/*.jade',
+    '!' + path.frontend.pre_html + '/**/_**/*.jade',
+    '!' + path.frontend.pre_html + '/**/_*.jade'
+  ]
 
-	/**
-	 * Tarea principal
-	 * (gulp html)
-	 */
-	gulp.task('html', function() {
-		gulp.src(pathJadeFiles)
-			.pipe(plugins.jade({
-				pretty: true,
-				locals: {
-					baseUrl 	: "/",
-					staticUrl : "/",
-					elementUrl: "/",
-					version 	: new Date().getTime(),
-					module 		: "postulante",
-					controller  : "home",
-					action 		: "index"
-				}
-			}).on('error', functions.errorHandler))
-			.pipe(gulp.dest(path.dest.html))
-	});
+  /**
+   * Tarea principal
+   * (gulp html)
+   */
+  gulp.task('html', function() {
+    gulp.src(pathJadeFiles)
+      .pipe(plugins.jade({
+        pretty: true,
+        locals: {
+          baseUrl   : "/",
+          staticUrl : "/",
+          elementUrl: "/",
+          version   : new Date().getTime(),
+          section   : "default"
+        }
+      }).on('error', functions.errorHandler))
+      .pipe(gulp.dest(path.dest.html))
+  });
 
 }
 

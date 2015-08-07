@@ -7,7 +7,16 @@
 
 var express = require("express"),
     path    = require('./path'),
-    config  = require('./config.local');
+    config  = require('./config.local'),
+    setGlobalVariables = function (req){
+      var oP = {};
+      oP.version    = new Date().getTime();
+      oP.section    = req.params.section;
+      oP.baseUrl    = "http://" + req.headers.host;
+      oP.staticUrl  = oP.baseUrl + path.dest.static + "/";
+      oP.elementUrl = oP.baseUrl;
+      return oP;
+    };
 
 var app = express();
 app.set('view engine', 'jade');
@@ -15,27 +24,15 @@ app.set('views', path.dest.serverFiles);
 
 app.use(express.static(path.dest.serverFiles));
 
-app.get("/:module/:controller/:action", function(req, res) {
-  var objRoute = {};
-  //------------------------------------------------------------
-  objRoute.module     = req.params.module;
-  objRoute.controller = req.params.controller;
-  objRoute.action     = req.params.action;
-  objRoute.version    = new Date().getTime();
-  objRoute.baseUrl    = "http://" + req.headers.host + "/";
-  objRoute.staticUrl  = objRoute.baseUrl + path.dest.static + "/";
-  objRoute.elementUrl = objRoute.baseUrl;
-  //------------------------------------------------------------
-  
-  if (objRoute.module != "undefined" && objRoute.controller != "undefined" && objRoute.action != "undefined"){
-    res.render(path.frontend.pre_html + "/modules/" + objRoute.module + "/" + objRoute.controller + "/" + objRoute.action, objRoute);
-  }else{
-    res.end();
-  }
+app.get("/:section", function(req, res) {
+  var jadeGlobals = setGlobalVariables(req);
+  res.render(path.frontend.pre_html + "/views/" + jadeGlobals.section, jadeGlobals);
 });
 
 app.get("/", function(req, res) {
-  res.render(path.frontend.pre_html + "/welcome");
+  var jadeGlobals = setGlobalVariables(req);
+  jadeGlobals.section = "index";
+  res.render(path.frontend.pre_html + "/views/" + jadeGlobals.section, jadeGlobals);
 });
 
 app.listen(config.port);

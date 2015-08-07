@@ -9,7 +9,7 @@ var CONFIG = {
 	prod : true,
 	port : 4000,
 	tests : {
-		unit: {module: 'postulante', controller: 'buscar'}
+		unit: {module: 'sections', sections : 'home'}
 	}
 };
 
