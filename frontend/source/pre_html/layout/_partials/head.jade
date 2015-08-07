@@ -31,12 +31,14 @@ head
 	
 	link(href='#{page.static_url}css/layout/fonts.css#{page.version}', media='all', rel='stylesheet', type='text/css')
 	link(href='#{page.static_url}css/layout/layout.css#{page.version}', media='all', rel='stylesheet', type='text/css')
-	link(href='#{page.static_url}css/modules/#{module}/#{controller}.css#{page.version}', media='all', rel='stylesheet', type='text/css')
+	link(href='#{page.static_url}css/views/#{section}.css#{page.version}', media='all', rel='stylesheet', type='text/css')
 
-	link(href='#{page.static_url}img/favicon.ico#{page.version}', rel='icon', type='image/vnd.microsoft.icon')
-	link(href='#{page.static_url}img/favicon.ico#{page.version}', rel='shortcut icon', type='image/vnd.microsoft.icon')
-	link(href='#{page.static_url}img/favicon.ico#{page.version}', rel='shortcut icon', type='image/x-icon')
+	link(href='#{page.static_url}images/favicon.ico#{page.version}', rel='icon', type='image/vnd.microsoft.icon')
+	link(href='#{page.static_url}images/favicon.ico#{page.version}', rel='shortcut icon', type='image/vnd.microsoft.icon')
+	link(href='#{page.static_url}images/favicon.ico#{page.version}', rel='shortcut icon', type='image/x-icon')
 	link(href='#{page.og.image}', rel='image_src', type='image/jpeg')
+
+	link(href='http://fonts.googleapis.com/css?family=Roboto:100', rel='stylesheet', type='text/css')
 	+ie('if lte IE 9')
 		link(href='#{page.static_url}css/ie/ie.css#{page.version}', media='all', rel='stylesheet', type='text/css')
 		script(src="#{page.static_url}js/libs/selectivizr/selectivizr.js#{page.version}")
