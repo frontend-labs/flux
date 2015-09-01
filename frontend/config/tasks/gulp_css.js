@@ -47,7 +47,7 @@ function Task(gulp, path, config, plugins, functions){
    * (gulp css:all)
    */
   gulp.task('css:all', function(cb){
-    plugins.gulpSequence('clean:css', 'css', cb)
+    plugins.runSequence('clean:css', 'css', cb)
   });
 }
 

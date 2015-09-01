@@ -17,7 +17,7 @@ function Task(gulp, path, config, plugins, functions){
    * (gulp js:compile:libs)
    */
   gulp.task('js:compile:libs', function() {
-    gulp.src(path.frontend.pre_js + '/libs/**/*.coffee', { base : path.frontend.pre_js })
+    return gulp.src(path.frontend.pre_js + '/libs/**/*.coffee', { base : path.frontend.pre_js })
     .pipe(plugins.coffee({bare: true}).on('error', functions.errorHandler))
     .pipe(gulp.dest(path.dest.js));
   });
@@ -27,7 +27,7 @@ function Task(gulp, path, config, plugins, functions){
    * (gulp js:compile)
    */
   gulp.task('js:compile', function(){
-    gulp.src(path.frontend.pre_js + '/sections/**/*.coffee')
+    return gulp.src(path.frontend.pre_js + '/sections/**/*.coffee')
       .pipe(plugins.recursiveConcat({ extname: '.coffee' }))
       .pipe(plugins.coffee({ bare: true }))
       .pipe(plugins.jshint(path.frontend.config + '/.jshintrc'))
@@ -50,7 +50,7 @@ function Task(gulp, path, config, plugins, functions){
    * (gulp js:complexity)
    */
   gulp.task('js:complexity', function(){
-    gulp.src(path.frontend.pre_js + '/views/**/*.coffee')
+    return gulp.src(path.frontend.pre_js + '/views/**/*.coffee')
       .pipe(plugins.coffee({ bare: true }))
       .pipe(plugins.complexity());
   });
@@ -59,13 +59,17 @@ function Task(gulp, path, config, plugins, functions){
    * Tarea usada por el gulp watch
    * (gulp js)
    */
-  gulp.task('js', plugins.gulpSequence('js:compile:libs', 'js:compile'));
+  gulp.task('js', function(cb){
+    plugins.runSequence('js:compile:libs', 'js:compile', cb)
+  });
 
   /**
    * Tarea principal
    * (gulp js:all)
    */
-  gulp.task('js:all', plugins.gulpSequence('clean:js', 'js:compile:libs', 'js:compile', 'copy:js:libs'));
+  gulp.task('js:all', function(cb){
+    plugins.runSequence('clean:js', 'js:compile:libs', 'js:compile', 'copy:js:libs', cb)
+  });
 }
 
 module.exports = Task;

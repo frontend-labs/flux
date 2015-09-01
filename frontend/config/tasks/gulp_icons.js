@@ -17,7 +17,7 @@ function Task(gulp, path, config, plugins, functions){
    * Genera un archivo .styl y archivos de fuentes .eot .svg .ttf .woff
    */
   gulp.task('icons:compile', function(cb){
-    gulp.src(path.frontend.icons + '/*.svg')
+    return gulp.src(path.frontend.icons + '/*.svg')
       .pipe(plugins.iconfont({ 
         normalize: true, 
         fontName: 'iconFonts-webfont',
@@ -38,7 +38,9 @@ function Task(gulp, path, config, plugins, functions){
    * Tarea principal
    * (gulp icons)
    */
-  gulp.task('icons', plugins.gulpSequence('icons:compile', 'fonts:compile', 'css', 'copy:fonts'));
+  gulp.task('icons', function(cb){
+    plugins.runSequence('icons:compile', 'fonts:compile', 'css', 'copy:fonts', cb)
+  });
 
 }
 

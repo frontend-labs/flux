@@ -30,13 +30,16 @@ function Task(gulp, path, config, plugins, functions){
 
     // Genera archivo .styl
     var cssStream = spriteData.css.pipe(gulp.dest(path.frontend.pre_css + '/_helpers/'));
+    return spriteData;
   });
 
   /**
    * Tarea principal
    * (gulp sprites)
    */
-  gulp.task('sprites', plugins.gulpSequence('sprites:compile', 'copy:img:sprites', 'css'));
+  gulp.task('sprites', function(cb){
+    plugins.runSequence('sprites:compile', 'copy:img:sprites', 'css', cb)
+  });
 
 
 }
