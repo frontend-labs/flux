@@ -18,7 +18,7 @@
     "gulp-coffee": "^2.3.1",
     "gulp-complexity": "^0.3.0",
     "gulp-consolidate": "^0.1.2",
-    "gulp-css-url-versioner": "^1.0.6",
+    "gulp-css-url-versioner": "^1.0.8",
     "gulp-iconfont": "^1.0.1",
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "^2.2.1",
