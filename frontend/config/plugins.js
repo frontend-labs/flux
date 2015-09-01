@@ -8,13 +8,13 @@
 var Plugins = {
   // Plugins globales
   if              : require('gulp-if'),
-  gulpSequence    : require('gulp-sequence'),
+  runSequence     : require('run-sequence'),
   shell           : require('gulp-shell'),
   recursiveConcat : require('gulp-recursive-concat'),
   notifier        : require("node-notifier"),
   util            : require('gulp-util'), 
   // Plugins mocha
-  insert         : require('gulp-insert'),
+  insert          : require('gulp-insert'),
   es              : require('event-stream'),
   mocha           : require('gulp-mocha'),
   fs              : require('fs'),

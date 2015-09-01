@@ -28,7 +28,7 @@ function Task(gulp, path, config, plugins, functions){
    * (gulp copy:img)
    */
   gulp.task('copy:img', function() {
-    gulp.src(pathCopyImgFiles, { base : path.frontend.source })
+    return gulp.src(pathCopyImgFiles, { base : path.frontend.source })
       .pipe(plugins.if(config.prod, plugins.imagemin({
         progressive: true,
         svgoPlugins: [{removeViewBox: false}],
@@ -47,7 +47,7 @@ function Task(gulp, path, config, plugins, functions){
    * (gulp copy:img:sprites)
    */
   gulp.task('copy:img:sprites', function() {
-    gulp.src(path.frontend.images + '/*_sprite.png', { base : path.frontend.source })
+    return gulp.src(path.frontend.images + '/*_sprite.png', { base : path.frontend.source })
       .pipe(plugins.if(config.prod, plugins.imagemin({
         progressive: true,
         use: [ plugins.imageminPNG({optimizationLevel: 3}) ]
@@ -60,7 +60,7 @@ function Task(gulp, path, config, plugins, functions){
    * (gulp copy:fonts)
    */
   gulp.task('copy:fonts', function() {
-    gulp.src(pathCopyFontsFiles, { base : path.frontend.source })
+    return gulp.src(pathCopyFontsFiles, { base : path.frontend.source })
       .pipe(gulp.dest(path.dest.serverFiles + path.dest.static));
   });
 
@@ -72,7 +72,7 @@ function Task(gulp, path, config, plugins, functions){
    * con extensión .js (debido a que genera problemas al transformar a sintaxis coffee)
    */
   gulp.task('copy:js:libs', function () {
-    gulp.src(path.frontend.pre_js + '/libs/*.js')
+    return gulp.src(path.frontend.pre_js + '/libs/*.js')
       .pipe(gulp.dest(path.dest.js + '/libs'));
   });
   
@@ -80,7 +80,9 @@ function Task(gulp, path, config, plugins, functions){
    * Tarea principal
    * (gulp copy)
    */
-  gulp.task('copy', plugins.gulpSequence('copy:img', 'copy:img:sprites', 'copy:fonts', 'copy:js:libs'));
+  gulp.task('copy', function(cb){
+    plugins.runSequence('copy:img', 'copy:img:sprites', 'copy:fonts', 'copy:js:libs', cb)
+  });
 
 }
 

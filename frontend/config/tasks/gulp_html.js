@@ -25,7 +25,7 @@ function Task(gulp, path, config, plugins, functions){
    * (gulp html)
    */
   gulp.task('html', function() {
-    gulp.src(pathJadeFiles)
+    return gulp.src(pathJadeFiles)
       .pipe(plugins.jade({
         pretty: true,
         locals: {

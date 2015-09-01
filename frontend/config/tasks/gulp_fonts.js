@@ -18,20 +18,24 @@ function Task(gulp, path, config, plugins, functions){
    * (gulp fonts:compile)
    */
   gulp.task('fonts:compile', function(cb){
-    fs.readdir(path.frontend.fonts + "/", function(err, files) {
-      if (err) throw err;
-      var dirList = files.filter(function(file) { return (/^[^_]*$/g).test(file); });
-      gulp.src(path.frontend.fonts + '/_template/fonts.styl')
-        .pipe(plugins.consolidate('lodash', { dirList: dirList }))
-        .pipe(gulp.dest(path.frontend.pre_css + '/layout'));
-    })
+    var dirList = []
+    plugins.fs.readdirSync(path.frontend.fonts + "/").forEach(function(file){
+        if(/^[^_]*$/g.test(file)){
+          dirList.push(file)
+        }
+    });
+    return gulp.src(path.frontend.fonts + '/_template/fonts.styl')
+      .pipe(plugins.consolidate('lodash', { dirList: dirList }))
+      .pipe(gulp.dest(path.frontend.pre_css + '/layout'));
   });
 
   /**
    * Tarea principal
    * (gulp fonts)
    */
-  gulp.task('fonts', plugins.gulpSequence('fonts:compile', 'css', 'copy:fonts'));
+  gulp.task('fonts', function(cb){
+    plugins.runSequence('fonts:compile', 'css', 'copy:fonts', cb)
+  });
 
 }
 
