@@ -18,7 +18,7 @@ var gulp      = require('gulp'),
 
 var runTask = function (nameTask){
   var Task = require("./config/tasks/" + nameTask);
-  new Task(gulp, path, config, plugins, functions);
+  Task(gulp, path, config, plugins, functions);
 };
 
 runTask("gulp_clean");
@@ -29,6 +29,7 @@ runTask("gulp_fonts");
 runTask("gulp_html");
 runTask("gulp_icons");
 runTask("gulp_js");
+runTask("gulp_server");
 runTask("gulp_watch");
 runTask("gulp_bower");
 runTask("gulp_mocha");

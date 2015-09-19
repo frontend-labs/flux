@@ -26,7 +26,6 @@
     "gulp-jade": "^1.0.1",
     "gulp-jshint": "^1.11.0",
     "gulp-mocha": "^2.1.2",
-    "gulp-nodemon": "^2.0.3",
     "gulp-param": "^0.6.3",
     "gulp-recursive-concat": "0.0.9",
     "gulp-rimraf": "^0.1.1",
