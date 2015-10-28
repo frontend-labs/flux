@@ -36,7 +36,7 @@ function Task(gulp, path, config, plugins, functions){
         import  : ['jeet','nib'] //Rupture no es necesario, lo incluye en su librería
       }))
       .on('error', functions.errorHandler)
-      .pipe(plugins.urlVersion({lastcommit: true}))
+      .pipe(plugins.urlVersion({lastcommit: false}))
       .pipe(gulp.dest(path.dest.css))
       .on('end', functions.successHandler);
   });
