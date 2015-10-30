@@ -5,8 +5,9 @@
   "main": "server.js",
   "dependencies": {
     "express": "^4.12.3",
-    "jade": "^1.9.2",
-    "stylus": "^0.51.1"
+    "jade": "^1.11.0",
+    "stylus": "^0.51.1",
+    "bindings" : "*"
   },
   "devDependencies": {
     "browser-sync": "^2.7.6",
@@ -26,7 +27,6 @@
     "gulp-jade": "^1.0.1",
     "gulp-jshint": "^1.11.0",
     "gulp-mocha": "^2.1.2",
-    "gulp-nodemon": "^2.0.3",
     "gulp-param": "^0.6.3",
     "gulp-recursive-concat": "0.0.9",
     "gulp-rimraf": "^0.1.1",
@@ -42,7 +42,7 @@
     "imagemin-svgo": "^4.1.2",
     "jeet": "^6.1.2",
     "jquery": "^2.1.4",
-    "jsdom": "^3.1.2",
+    "jsdom": "^7.0.2",
     "jshint-stylish": "^2.0.0",
     "lodash": "^3.9.1",
     "mocha": "^2.2.5",

@@ -48,7 +48,7 @@ var Plugins = {
   complexity      : require('gulp-complexity'),
   // Plugins gulp watch
   browserSync     : require('browser-sync'),
-  nodemon         : require('gulp-nodemon'),
+  express         : require('express'),
   // Plugins gulp bower
   preen           : require('preen'),
   // Plugins unit test
