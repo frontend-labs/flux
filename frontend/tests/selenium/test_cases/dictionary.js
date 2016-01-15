@@ -1,5 +1,5 @@
 data = {}
-data.url_base = 'http://local.aptitus.pe/'
+data.url_base = 'http://local.aptituxxxs.pe/'
 data.user = {
 	name: 'Carlo',
 	email: 'carlos@gmail.com',
