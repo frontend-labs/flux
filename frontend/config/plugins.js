@@ -12,7 +12,7 @@ var Plugins = {
   shell           : require('gulp-shell'),
   recursiveConcat : require('gulp-recursive-concat'),
   notifier        : require("node-notifier"),
-  util            : require('gulp-util'), 
+  util            : require('gulp-util'),
   // Plugins mocha
   insert          : require('gulp-insert'),
   es              : require('event-stream'),
@@ -52,7 +52,6 @@ var Plugins = {
   // Plugins gulp bower
   preen           : require('preen'),
   // Plugins unit test
-  mocha           : require('gulp-mocha') 
-}
+};
 
 module.exports = Plugins;

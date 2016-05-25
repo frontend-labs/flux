@@ -16,11 +16,11 @@ function Task(gulp, path, config, plugins, functions){
     '!' + path.frontend.images + '/_**/**/*.*',
     '!' + path.frontend.images + '/**/_**/*.*',
     '!' + path.frontend.images + '/**/**/_*.*'
-  ]
+  ];
   var pathCopyFontsFiles = [
     path.frontend.fonts + '/**/*.*',
     '!' + path.frontend.fonts + '/_**/*.*'
-  ]
+  ];
   //----------------------------------------------------
 
   /**
@@ -75,13 +75,13 @@ function Task(gulp, path, config, plugins, functions){
     return gulp.src(path.frontend.pre_js + '/libs/*.js')
       .pipe(gulp.dest(path.dest.js + '/libs'));
   });
-  
+
   /**
    * Tarea principal
    * (gulp copy)
    */
   gulp.task('copy', function(cb){
-    plugins.runSequence('copy:img', 'copy:img:sprites', 'copy:fonts', 'copy:js:libs', cb)
+    plugins.runSequence('copy:img', 'copy:img:sprites', 'copy:fonts', 'copy:js:libs', cb);
   });
 
 }

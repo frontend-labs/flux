@@ -17,7 +17,7 @@ function Task(gulp, path, config, plugins, functions){
     '!' + path.frontend.pre_css + '/_**/*.styl',
     '!' + path.frontend.pre_css + '/**/_**/*.styl',
     '!' + path.frontend.pre_css + '/**/**/_**/*.styl'
-  ]
+  ];
 
   /**
    * Tarea usada por el gulp watch
@@ -47,7 +47,7 @@ function Task(gulp, path, config, plugins, functions){
    * (gulp css:all)
    */
   gulp.task('css:all', function(cb){
-    plugins.runSequence('clean:css', 'css', cb)
+    plugins.runSequence('clean:css', 'css', cb);
   });
 }
 

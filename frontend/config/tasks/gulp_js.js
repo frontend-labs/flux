@@ -35,7 +35,7 @@ function Task(gulp, path, config, plugins, functions){
       .pipe(plugins.jshint.reporter('fail'))
       .on('error', functions.errorHandler)
       .pipe(plugins.if(config.prod, plugins.uglify({
-        mangle  : true, 
+        mangle  : true,
         compress: {
           drop_console: true
         }
@@ -60,7 +60,7 @@ function Task(gulp, path, config, plugins, functions){
    * (gulp js)
    */
   gulp.task('js', function(cb){
-    plugins.runSequence('js:compile:libs', 'js:compile', cb)
+    plugins.runSequence('js:compile:libs', 'js:compile', cb);
   });
 
   /**
@@ -68,7 +68,7 @@ function Task(gulp, path, config, plugins, functions){
    * (gulp js:all)
    */
   gulp.task('js:all', function(cb){
-    plugins.runSequence('clean:js', 'js:compile:libs', 'js:compile', 'copy:js:libs', cb)
+    plugins.runSequence('clean:js', 'js:compile:libs', 'js:compile', 'copy:js:libs', cb);
   });
 }
 

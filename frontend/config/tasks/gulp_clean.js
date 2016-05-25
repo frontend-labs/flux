@@ -46,7 +46,7 @@ function Task(gulp, path, config, plugins, functions){
    * (gulp clean)
    */
   gulp.task('clean', function(cb){
-    plugins.runSequence('clean:img', 'clean:fonts', 'clean:js', 'clean:css', cb)
+    plugins.runSequence('clean:img', 'clean:fonts', 'clean:js', 'clean:css', cb);
   });
 
 }

@@ -1,5 +1,5 @@
 /**
- * Tarea para compilar archivos .jade 
+ * Tarea para compilar archivos .jade
  *
  * @module Task (gulp html)
  * @extends Gulp
@@ -18,7 +18,7 @@ function Task(gulp, path, config, plugins, functions){
     '!' + path.frontend.pre_html + '/_**/*.jade',
     '!' + path.frontend.pre_html + '/**/_**/*.jade',
     '!' + path.frontend.pre_html + '/**/_*.jade'
-  ]
+  ];
 
   /**
    * Tarea principal
@@ -36,7 +36,7 @@ function Task(gulp, path, config, plugins, functions){
           section   : "default"
         }
       }).on('error', functions.errorHandler))
-      .pipe(gulp.dest(path.dest.html))
+      .pipe(gulp.dest(path.dest.html));
   });
 
 }
