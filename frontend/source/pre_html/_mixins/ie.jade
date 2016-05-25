@@ -1,0 +1,18 @@
+//-
+	Mixins for IE
+
+mixin ie(condition, content)
+	| <!--[!{condition}]>
+	block
+	| <![endif]-->
+
+mixin html(condition, content)
+	- if (typeof condition !== "undefined"){
+		+ie(condition)
+			html(class="#{content}", lang="#{page.lang}", xmlns:og="http://ogp.me/ns#", xmlns:fb="http://ogp.me/ns/fb#")
+	- }
+
+mixin htmlIe()
+	+html('if IE 7', 'ie7')
+	+html('if IE 8', 'ie8')
+	+html('if IE 9', 'ie9')

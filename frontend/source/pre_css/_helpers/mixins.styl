@@ -1,0 +1,40 @@
+
+/**
+* Mixins
+* @class Mixins
+*/
+
+
+/* Units conversion */
+// example usage
+// em(20px)
+// em(16px, 20px)   // Optional second parameter: redefines basefont size
+
+font_em(size, parentFontSize = 0)
+	if parentFontSize == 0
+		font-size round(( size / $basefont )em , 3)
+	else
+		font-size round(( size / parentFontSize )em , 3)
+
+rem_tmp($list)
+	$max = length(arguments)
+	for $i in (0..$max - 1)
+		$list[$i] = round(( arguments[$i] / $basefont )rem , 3)
+	return $list
+
+rem($list)
+	$max = length(arguments)
+	for $i in (0..$max - 1)
+		$list[$i] = arguments[$i]
+	return $list
+
+px_to_rem_font(size1, size2, family)
+	//s1 = round(( size1 / $basefont )rem , 3)
+	//s2 = round(( size2 / $basefont )rem , 3)
+	//return s1\/s2 family
+	return (size1)px \/ (size2)px family
+
+
+pxper(size, parent = $wrapperWidth)
+	return round((size / parent * 100)%, 2)
+

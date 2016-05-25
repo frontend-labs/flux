@@ -1,0 +1,209 @@
+.fancybox-wrap,
+.fancybox-skin,
+.fancybox-outer,
+.fancybox-inner,
+.fancybox-image,
+.fancybox-wrap iframe,
+.fancybox-wrap object,
+.fancybox-nav,
+.fancybox-nav span,
+.fancybox-tmp
+	padding 0
+	margin 0
+	border 0
+	outline none
+	vertical-align top
+
+.fancybox-wrap
+	position absolute
+	top 0
+	left 0
+	z-index 8020
+
+.fancybox-skin
+	position relative
+	background #fff
+	color #444
+	text-shadow none
+	-webkit-border-radius px_to_rem(4)
+	-moz-border-radius px_to_rem(4)
+	border-radius px_to_rem(4)
+
+.fancybox-opened
+	z-index 8030
+	.fancybox-title
+		visibility visible
+
+.fancybox-outer, .fancybox-inner
+	position relative
+
+.fancybox-inner
+	overflow hidden
+
+.fancybox-type-iframe
+	.fancybox-inner
+		-webkit-overflow-scrolling touch
+
+.fancybox-error
+	color #444
+	font px_to_rem(14)\/px_to_rem(20) 'Helvetica Neue',Helvetica,Arial,sans-serif
+	margin 0
+	padding px_to_rem(15)
+	white-space nowrap
+
+.fancybox-image, .fancybox-iframe
+	display block
+	width 100%
+	height 100%
+
+.fancybox-image
+	max-width 100%
+	max-height 100%
+
+#fancybox-loading
+	position fixed
+	top 50%
+	left 50%
+	margin-top px_to_rem(-22)
+	margin-left px_to_rem(-22)
+	opacity 0.8
+	cursor pointer
+	z-index 8060
+	background-color #fff
+	border-radius 50%
+	box-shadow 0 px_to_rem(2) px_to_rem(6) rgba(0, 0, 0, 0.1)
+	-webkit-box-shadow 0 px_to_rem(2) px_to_rem(6) rgba(0, 0, 0, 0.1)
+	-moz-box-shadow 0 px_to_rem(1) px_to_rem(4) rgba(0, 0, 0, 0.1)
+	div
+		width px_to_rem(44)
+		height px_to_rem(44)
+		background url($imgPath+'plugins/fancybox_loading.gif') center center no-repeat
+		background-size px_to_rem(24) px_to_rem(24)
+		border-radius 50%
+.fancybox-close
+	position absolute
+	sprite($close_modal)
+	cursor pointer
+	z-index 8040
+	top px_to_rem(7)
+	right px_to_rem(7)
+	&:hover 
+		opacity 0.7
+.fancybox-nav
+	position absolute
+	top 0
+	width 40%
+	height 100%
+	cursor pointer
+	text-decoration none
+	background transparent url($imgPath+'plugins/blank.gif')
+	-webkit-tap-highlight-color rgba(0,0,0,0)
+	z-index 8040
+	span
+		position absolute
+		top 50%
+		margin-top px_to_rem(-18)
+		cursor pointer
+		z-index 8040
+		visibility hidden
+	&:hover
+		span
+			visibility visible
+
+.fancybox-prev
+	left 0
+	span
+		left px_to_rem(10)
+		sprite($ico_arrow_left)
+
+.fancybox-next
+	right 0
+	span
+		right px_to_rem(10)
+		sprite($ico_arrow_right)
+
+.fancybox-tmp
+	position absolute
+	top -99999px
+	left -99999px
+	visibility hidden
+	max-width 99999px
+	max-height 99999px
+	overflow visible !important
+
+.fancybox-lock
+	overflow hidden !important
+	width auto
+	body
+		overflow hidden !important
+	.fancybox-overlay
+		overflow auto
+		overflow-y scroll
+
+.fancybox-lock-test
+	overflow-y hidden !important
+
+.fancybox-overlay
+	position absolute
+	top 0
+	left 0
+	overflow hidden
+	display none
+	z-index 8010
+	background url($imgPath+'plugins/fancybox_overlay.png')
+
+.fancybox-overlay-fixed
+	position fixed
+	bottom 0
+	right 0
+
+.fancybox-title
+	visibility hidden
+	font normal px_to_rem(13)\/px_to_rem(20) 'Helvetica Neue',Helvetica,Arial,sans-serif
+	position relative
+	text-shadow none
+	z-index 8050
+
+.fancybox-title-float-wrap
+	position absolute
+	bottom 0
+	right 50%
+	margin-bottom px_to_rem(-35)
+	z-index 8050
+	text-align center
+	.child
+		display inline-block
+		margin-right -100%
+		padding px_to_rem(2) px_to_rem(20)
+		background transparent
+		background rgba(0, 0, 0, 0.8)
+		-webkit-border-radius px_to_rem(15)
+		-moz-border-radius px_to_rem(15)
+		border-radius px_to_rem(15)
+		text-shadow 0 px_to_rem(1) px_to_rem(2) #222
+		color #FFF
+		font-weight bold
+		line-height px_to_rem(24)
+		white-space nowrap
+
+.fancybox-title-outside-wrap
+	position relative
+	margin-top px_to_rem(10)
+	color #fff
+
+.fancybox-title-inside-wrap
+	padding-top px_to_rem(10)
+
+.fancybox-title-over-wrap
+	position absolute
+	bottom 0
+	left 0
+	color #fff
+	padding px_to_rem(10)
+	background #000
+	background rgba(0, 0, 0, .8)
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5)
+	#fancybox-loading, .fancybox-prev span, .fancybox-next span
+		background-image url($imgPath+'plugins/fancybox_sprite@2x.png')
+		background-size px_to_rem(44) px_to_rem(152)

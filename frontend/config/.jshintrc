@@ -1,0 +1,51 @@
+{
+  "node": false,
+  "undef": true,
+  "browser": true,
+  "globals": {
+    "spyOnEvent": false,
+    "spyOn": false,
+    "define": false,
+    "require": true,
+    "setTimeout": false,
+    "describe": false,
+    "beforeEach": false,
+    "afterEach": false,
+    "setFixtures": false,
+    "expect": false,
+    "it": false,
+    "xit": false
+  },
+  "sub": true,
+  "predef" : [
+    "module",
+    "FB",
+    "twttr",
+    "gapi",
+    "yOSON",
+    "$",
+    "jQuery",
+    "_",
+    "log",
+    "colorLog",
+    "console",
+    "warn",
+    "echo",
+    "debug",
+    "success",
+    "notice",
+    "Cookie",
+    "tmp",
+    "browser",
+    "gMap",
+    "trackAnalytics",
+    "google",
+    "GMaps",
+    "alert",
+    "isInternetExplorer"
+  ],
+  "eqeqeq" : false, // esto es el casi el diablo, hay que ponerle false
+  "eqnull" : false, // esto es el casi el diablo, hay que ponerle false
+  "loopfunc" : false, // esto es el diablo, hay que ponerle false
+  "smarttabs" : false //Mixed spaces and tabs
+}

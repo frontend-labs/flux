@@ -1,0 +1,92 @@
+/*
+Stylus variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon_home_width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon_home = x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet = width height image $spritesheet_sprites;
+*/
+$diagram1_name = 'diagram1';
+$diagram1_x = 0px;
+$diagram1_y = 0px;
+$diagram1_offset_x = 0px;
+$diagram1_offset_y = 0px;
+$diagram1_width = 64px;
+$diagram1_height = 64px;
+$diagram1_total_width = 128px;
+$diagram1_total_height = 64px;
+$diagram1_image = $imgPath + 'main_sprite.png';
+$diagram1 = $diagram1_x $diagram1_y $diagram1_offset_x $diagram1_offset_y $diagram1_width $diagram1_height $diagram1_total_width $diagram1_total_height $diagram1_image $diagram1_name;
+$insert3_name = 'insert3';
+$insert3_x = 64px;
+$insert3_y = 0px;
+$insert3_offset_x = -64px;
+$insert3_offset_y = 0px;
+$insert3_width = 64px;
+$insert3_height = 64px;
+$insert3_total_width = 128px;
+$insert3_total_height = 64px;
+$insert3_image = $imgPath + 'main_sprite.png';
+$insert3 = $insert3_x $insert3_y $insert3_offset_x $insert3_offset_y $insert3_width $insert3_height $insert3_total_width $insert3_total_height $insert3_image $insert3_name;
+$spritesheet_width = 128px;
+$spritesheet_height = 64px;
+$spritesheet_image = $imgPath + 'main_sprite.png';
+$spritesheet_sprites = $diagram1 $insert3;
+$spritesheet = $spritesheet_width $spritesheet_height $spritesheet_image $spritesheet_sprites;
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  spriteWidth($icon_home)
+}
+
+.icon-email {
+  sprite($icon_email)
+}
+*/
+spriteWidth($sprite) {
+  width: $sprite[4];
+}
+
+spriteHeight($sprite) {
+  height: $sprite[5];
+}
+
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+spriteImage($sprite) {
+  background-image: url($sprite[8]);
+}
+
+sprite($sprite) {
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of Stylus
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+sprites($spritesheet_sprites);
+*/
+sprites($sprites) {
+  for $sprite in $sprites {
+    $sprite_name = $sprite[9];
+    .{$sprite_name} {
+      sprite($sprite);
+    }
+  }
+}

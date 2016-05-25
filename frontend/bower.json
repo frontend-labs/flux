@@ -1,0 +1,27 @@
+{
+  "name": "flux",
+  "version": "2.0.0",
+  "homepage": "https://github.com/frontend-labs/flux",
+  "author": "FrontEnd Labs",
+  "description": "Flujo de tareas para FrontEnd",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "1.11.3",
+    "yosonjs": "~0.0.16-alpha",
+    "selectivizr": "~1.0.2",
+    "html5shiv": "~3.7.2"
+  },
+  "preen": {
+    "jquery": ["dist/*.js"],
+    "yosonjs": ["build/*.js"],
+    "selectivizr": ["*.js"],
+    "html5shiv": ["dist/*.js"]
+  }
+}

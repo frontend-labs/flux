@@ -1,0 +1,83 @@
+/*
+* Resources
+* @module resources
+*/
+
+/*
+ * --------------------------------------
+ * Main
+ * --------------------------------------
+ */
+*
+	box-sizing border-box
+	-webkit-box-sizing border-box
+	-moz-box-sizing border-box
+
+html
+	font-size $basefont
+	min-width $wrapperWidth + 20px
+
+body
+	font-family $familyDefault
+	margin 0
+	padding 0
+	-webkit-text-size-adjust 100%
+
+/*
+ * --------------------------------------
+ * Aligns Classes
+ * --------------------------------------
+ */
+.align_right
+	text-align right
+.align_left
+	text-align left
+.align_center
+	text-align center
+
+/*
+ * --------------------------------------
+ * Margins Classes
+ * --------------------------------------
+ */
+.mt10
+	margin-top 10px
+.mt20
+	margin-top 20px
+.mb10
+	margin-bottom 10px
+.mb20
+	margin-bottom 20px
+.mb40
+	margin-bottom 40px
+
+/*
+ * --------------------------------------
+ * Contents Classes
+ * --------------------------------------
+ */
+.hide
+	display none
+.center_box
+	position relative
+	center($wrapperWidth)
+	padding 0 $gutterWrapper
+.center_image
+	position relative
+	img
+		bottom 0
+		left 0
+		margin auto
+		position absolute
+		right 0
+		top 0
+.row
+	cf()
+
+/*
+ * --------------------------------------
+ * Others Classes
+ * --------------------------------------
+ */
+.rotate180
+	transform rotate(180deg)
