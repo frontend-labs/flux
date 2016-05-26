@@ -18,8 +18,8 @@ function Task(gulp, path, config, plugins, functions){
    */
   gulp.task('icons:compile', function(cb){
     return gulp.src(path.frontend.icons + '/*.svg')
-      .pipe(plugins.iconfont({ 
-        normalize: true, 
+      .pipe(plugins.iconfont({
+        normalize: true,
         fontName: 'iconFonts-webfont',
         appendUnicode: false
       }))
@@ -39,7 +39,7 @@ function Task(gulp, path, config, plugins, functions){
    * (gulp icons)
    */
   gulp.task('icons', function(cb){
-    plugins.runSequence('icons:compile', 'fonts:compile', 'css', 'copy:fonts', cb)
+    plugins.runSequence('icons:compile', 'fonts:compile', 'css', 'copy:fonts', cb);
   });
 
 }

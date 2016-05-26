@@ -18,10 +18,10 @@ function Task(gulp, path, config, plugins, functions){
    * (gulp fonts:compile)
    */
   gulp.task('fonts:compile', function(cb){
-    var dirList = []
+    var dirList = [];
     plugins.fs.readdirSync(path.frontend.fonts + "/").forEach(function(file){
         if(/^[^_]*$/g.test(file)){
-          dirList.push(file)
+          dirList.push(file);
         }
     });
     return gulp.src(path.frontend.fonts + '/_template/fonts.styl')
@@ -34,7 +34,7 @@ function Task(gulp, path, config, plugins, functions){
    * (gulp fonts)
    */
   gulp.task('fonts', function(cb){
-    plugins.runSequence('fonts:compile', 'css', 'copy:fonts', cb)
+    plugins.runSequence('fonts:compile', 'css', 'copy:fonts', cb);
   });
 
 }

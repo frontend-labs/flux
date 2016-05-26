@@ -30,6 +30,6 @@ var Functions = {
       message : 'Tarea terminada'
     });
   }
-}
+};
 
 module.exports = Functions;

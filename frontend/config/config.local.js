@@ -1,5 +1,5 @@
 /**
- * Contiene las viariables globales de configuracion
+ * Contiene las variables globales de configuracion
  *
  * @module Config
  * @author Victor Sandoval
