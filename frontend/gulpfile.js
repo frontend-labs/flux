@@ -2,8 +2,8 @@
  * Archivo de configuración de gulp
  * 
  * @extends Gulp
- * @extends Config
- * @extends Path
+ * @extends Local
+ * @extends PathFiles
  * @extends Plugins
  * @extends Functions
  * @extends Task
@@ -11,30 +11,41 @@
  */
 
 var gulp      = require('gulp'),
-    path      = require('./config/path'),
-    config    = require('./config/config.local'),
+    local     = require('./config/local'),
+    pathFiles = require('./config/path'),
     plugins   = require('./config/plugins'),
-    functions = require('./config/functions');
+    functions = require('./config/functions'),
+    runTask   = function (nameTask){
+      return require("./config/tasks/" + nameTask)(gulp, pathFiles, plugins, functions, local);
+    };
 
-var runTask = function (nameTask){
-  var Task = require("./config/tasks/" + nameTask);
-  Task(gulp, path, config, plugins, functions);
-};
+/**
+ * Ejecutando tareas
+ */
+runTask("gulp_clean").run();
+runTask("gulp_copy").run();
+runTask("gulp_sprites").run();
+runTask("gulp_fonts").run();
+runTask("gulp_icons").run();
+runTask("gulp_bower").run();
+runTask("gulp_mocha").run();
+runTask("gulp_server").run();
+runTask("gulp_js").run();
+runTask("gulp_css").run();
 
-runTask("gulp_clean");
-runTask("gulp_copy");
-runTask("gulp_css");
-runTask("gulp_sprites");
-runTask("gulp_fonts");
-runTask("gulp_html");
-runTask("gulp_icons");
-runTask("gulp_js");
-runTask("gulp_server");
-runTask("gulp_watch");
-runTask("gulp_bower");
-runTask("gulp_mocha");
+/**
+ * Tareas para el watcher de HTML
+ */
+var taskHTML = runTask("gulp_html");
+taskHTML.run();
 
+runTask("gulp_watch").run({
+  html: taskHTML.watcher
+});
 
+/**
+ * Tarea por defecto de Gulp
+ */
 gulp.task('default', function(cb){
-	plugins.runSequence('clean', 'icons:compile', 'fonts:compile', 'css', 'js', 'copy', cb)
+  plugins.runSequence('clean', 'icons:compile', 'fonts:compile', 'css', 'js', 'html', 'copy', 'bower', cb)
 });

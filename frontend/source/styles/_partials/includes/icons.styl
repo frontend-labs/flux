@@ -1,7 +1,7 @@
 .icon
 	-webkit-font-smoothing antialiased
 	display inline-block
-	font-family "<%= fontName %>"
+	font-family "Icons-webfont"
 	font-size inherit
 	font-style normal
 	font-variant normal
@@ -11,7 +11,9 @@
 	text-transform none
 	vertical-align middle
 
-<% _.each(glyphs, function(glyph) { %>
-.icon_<%= glyph.name %>:before
-	content "\<%= glyph.unicode.toString(16).toUpperCase() %>"
-<% }); %>
+
+.icon_calendar:before
+	content "\"
+
+.icon_pointer:before
+	content "\"

@@ -7,24 +7,55 @@
  * @author Victor Sandoval
  */
 
-function Task(Gulp, Path, Config, Plugins, Functions){
+function Task(gulp, pathFiles, plugins, functions){
+  var runTasks = function () {
 
-  /**
-   * Tarea para filtrar archivos de las librerías de bower
-   * (gulp bower:filter)
-   * 
-   * Se puede especificar que solo traiga los js de las librería a descargar
-   * y estas se deben listar en el objeto {} "preen", dentro de archivo bower.json
-   */
-  Gulp.task('bower:filter', function(cb) {
-    Plugins.preen.preen({}, cb);
-  });
+    /**
+     * Tarea para instalar las librerías de bower
+     * (gulp bower:install)
+     */
+    gulp.task("bower:install", function(cb) {
+      return plugins.bower({
+        cmd: "update",
+        directory: pathFiles.dest.js + "/libs"
+      })
+    });
 
-  /**
-   * Tarea principal
-   * (gulp bower)
-   */
-  Gulp.task('bower', ['bower:filter']);
+    /**
+     * Tarea para filtrar archivos de las librerías de bower
+     * (gulp bower:filter)
+     *
+     * Se puede especificar que solo traiga los js de las librería a descargar
+     * y estas se deben listar en el objeto {} "preen", dentro de archivo bower.json
+     */
+    gulp.task("bower:filter", function(cb) {
+      return plugins.preen.preen({
+        directory: pathFiles.dest.js + "/libs"
+      }, cb);
+    });
+
+    /**
+     * Tarea para comprimir librerias a gzip
+     * (gulp bower:gzip)
+     */
+    gulp.task("bower:gzip", function(cb) {
+      return gulp.src(pathFiles.dest.js + "/libs/**/*.*")
+        .pipe(plugins.if(functions.isGzip, plugins.gzip({ append: false  })))
+        .pipe(gulp.dest(pathFiles.dest.js + "/libs"))
+    });
+
+    /**
+     * Tarea principal
+     * (gulp bower)
+     */
+    gulp.task("bower", function(cb){
+      plugins.runSequence("bower:install", "bower:filter", "bower:gzip", cb)
+    });
+  }
+
+  return {
+    run : runTasks
+  }
 }
 
 module.exports = Task;

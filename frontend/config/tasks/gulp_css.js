@@ -4,51 +4,63 @@
  * @module Task (gulp css)
  * @extends Gulp
  * @extends Path
- * @extends Config
  * @extends Plugins
  * @extends Functions
  * @author Victor Sandoval
  */
 
-function Task(gulp, path, config, plugins, functions){
+function Task(gulp, pathFiles, plugins, functions){
 
-  pathStylesFiles = [
-    path.frontend.pre_css + '/**/*.styl',
-    '!' + path.frontend.pre_css + '/_**/*.styl',
-    '!' + path.frontend.pre_css + '/**/_**/*.styl',
-    '!' + path.frontend.pre_css + '/**/**/_**/*.styl'
+  var pathStylesFiles = [
+    pathFiles.frontend.styles + '/**/*.styl',
+    '!' + pathFiles.frontend.styles + '/_**/**/*.styl'
   ]
+  var processors = [
+    plugins.autoprefixer(),
+    plugins.lost()
+  ];
 
-  /**
-   * Tarea usada por el gulp watch
-   * (gulp css)
-   *
-   * Utiliza plugins como
-   * Rupture : Proporciona mixins para los breakpoints en css
-   * Jeet    : Proporciona mixins para un sistema de grillas
-   * Nib     : Proporciona mixins cross-browser para propiedades CCS3
+  var runTasks = function () {
+    /**
+     * Tarea usada por el gulp watch
+     * (gulp css)
+     *
+     * Utiliza plugins como
+     * Rupture      : Proporciona mixins para los breakpoints en css
+     * Lost         : Proporciona mixins para un sistema de grillas
+     * PostCSS      : Proporciona superpoderes a CSS
+     * CSSWring     : Plugin de PostCSS para minificar el css con la rutas mapeadas
+     * Autoprefixer : Plugin para agregar prefijos para los diferentes motores de navegador
    */
-  gulp.task('css', function () {
-    return gulp.src(pathStylesFiles, { base : path.frontend.pre_css })
-      .pipe(plugins.stylus({
-        compress: config.prod,
-        use     : [plugins.rupture(), plugins.jeet(), plugins.nib()],
-        import  : ['jeet','nib'] //Rupture no es necesario, lo incluye en su librería
-      }))
-      .on('error', functions.errorHandler)
-      .pipe(plugins.urlVersion({lastcommit: false}))
-      .pipe(gulp.dest(path.dest.css))
-      .on('end', functions.successHandler);
-  });
+    gulp.task('css', function () {
+      if (functions.isProduction()) {
+        processors.push(plugins.csswring)
+      }
+      return gulp.src(pathStylesFiles)
+        .pipe(plugins.stylus({
+          use: [plugins.rupture()]
+        }))
+        .on('error', functions.errorHandler)
+        .pipe(plugins.postcss(processors))
+        .pipe(plugins.urlVersion({lastcommit: true}))
+        .pipe(plugins.if(functions.isGzip, plugins.gzip({ append: false  })))
+        .pipe(gulp.dest(pathFiles.dest.css))
+        .on('end', functions.successHandler);
+    });
 
 
-  /**
-   * Tarea principal
-   * (gulp css:all)
-   */
-  gulp.task('css:all', function(cb){
-    plugins.runSequence('clean:css', 'css', cb)
-  });
+    /**
+     * Tarea principal
+     * (gulp css:all)
+     */
+    gulp.task('css:all', function(cb) {
+      plugins.runSequence('clean:css', 'css', cb);
+    });
+  }
+
+  return {
+    run : runTasks
+  }
 }
 
 module.exports = Task;

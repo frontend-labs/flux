@@ -29,6 +29,20 @@ var Functions = {
       title   : 'Compilación completa',
       message : 'Tarea terminada'
     });
+  },
+  isProduction : function (){
+    flag = true;
+    if(Plugins.util.env.dev){
+      flag = false;
+    }
+    return flag;
+  },
+  isGzip : function (){
+    flag = false;
+    if(Plugins.util.env.gzip){
+      flag = true;
+    }
+    return flag;
   }
 }
 

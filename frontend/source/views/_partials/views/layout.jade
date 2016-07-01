@@ -1,0 +1,14 @@
+include ../../_config/variables.jade
+include ../mixins/mixins.jade
+doctype html
+//-+htmlIe()
+html(lang="#{page.lang}", xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#")
+	include ../includes/head.jade
+	include ../includes/head_scripts.jade
+	body
+		include ../layout/header.jade
+		//- -- --
+		block content
+		//- -- --
+		include ../layout/footer.jade
+		include ../includes/footer_scripts.jade
